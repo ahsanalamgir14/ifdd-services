@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTZiNGU3MjhmNmQyNjIyODIxNGZlZDYxOTZiMGYyZDQ3MDk4NDBjNWNjNTNkODQ0OTM0ZDYzY2QyZjI4YTgxOWM5MWU2YjgzZDBlNjBjNGUiLCJpYXQiOjE2NDg3MzE2MDAuMDI3Njc3LCJuYmYiOjE2NDg3MzE2MDAuMDI3NjgxLCJleHAiOjE2ODAyNjc1OTkuOTk3OTE5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.u1g_NYx9cCddk3pSjCjl5-9BtgrkiCrJRwGpbzD6M-GqSb4TU8t__Xan58T56OO0YdUQVUwK6ApOmptwwRPUpbOj0UsWNmH5gchwBfwFNsqgaEaSFvX9Fd_41aJf51LaWUAgiczHps52QrXDEALLze-gMpFwCbX3c7FCNseVj-P_otg9_sSdKNzpk1ub12-LAhc-Us64RU6dvG5Sq4z5zfuX3FIUcKmiCCp86xVBlMxzks_aJDzpVx_OryzNSL0-EY0PSQne8oP5BGztxw79Fs1JmEfz0B5XzbCUrfCuIedqyRX5SwYT-kWh0tqWY4-rjul9C08c9zETpGkZ_GdNorFKkbV2ICh7jSgbUkn-zc3ycM8rzxFd6hp31qNIOJliBib7F8X0WaUR62jlv2FI0iEGhuN4JZslcuTKDJgT7MP0ZvuNOdOpt9gGghghaaoSbstRXOTYLuDIYkxMnQirpB7SYsgNcf-6vCwnAK_l2ym_mZWPVG0U4up3lPfeYSklLb9Kg8fF5dnWRq02IXcFbdeSm4ePtkZOu32-SsTeFb2Sy2cyL3X_HqOuHq5JkMlZAdDk0RZu4LDIx05Uj8iqyv3iUT7IaQeStqwzcM6M_l9yiXFcjeEClHvfj3Wz38jYSPjNpmMFWj0ShLOb4vxk8QK7P6dkU7u0RNDNar6Omu8",
+        "user": {
+            "id": 1,
+            "name": "Admin",
+            "email": "admin@ifdd.cm",
+            "email_verified_at": "2022-03-31T12:59:20.000000Z",
+            "role": 1,
+            "deleted_at": null,
+            "created_at": "2022-03-31T12:59:20.000000Z",
+            "updated_at": "2022-03-31T12:59:20.000000Z"
+        }
+    },
+    "message": "Connexion réussie."
+}

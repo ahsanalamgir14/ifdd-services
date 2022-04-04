@@ -1,0 +1,359 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Services IFDD",
+        "_postman_id": "71b39982-b9c1-4d82-bc70-05ca72df02c8",
+        "description": "Ceci est la documentation de l'API de Services IFDD",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Account management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Forgot Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/password\/forgot",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/password\/forgot"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gautier@position.cm\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": \"\",\n    \"message\": \"Un lien de reinitialisation vous a \u00e9t\u00e9 envoy\u00e9 par mail.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reset Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/password\/reset",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/password\/reset"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gautier@position.cm\",\"token\":\"reprehenderit\",\"password\":\"gautier124\",\"password_confirmation\":\"gautier124\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"success\": true,\n    \"data\": \"\",\n    \"message\": \"Password has been successfully changed\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register a new user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Gautier\",\"email\":\"gautier@position.cm\",\"password\":\"gautier123\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjhjZThmZjdjZDQ5MmQ1OTljYmViYjQxODAxYjJkMjBmY2ZkYmMyYzU4N2JjM2MyMDdkYTUzZmVjYTQ2YzczN2U1MDdiZWM5ZGQ0NTNiNWUiLCJpYXQiOjE2NDkwNjIzODYuNzIzMjkyLCJuYmYiOjE2NDkwNjIzODYuNzIzMjk4LCJleHAiOjE2ODA1OTgzODYuNTM3NDM5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.FtjAjY_zp2fm_4CyKbL3r6Jay3_57RCPunCqeWb7Q3Za_I0h5XQb_iVyJUc1SAbiXZrTDETRkyFsPJ6cihfUODrI1wtpYDleP_vrLcqv1UpHjvr9q-QX5v65WGhe08m0NX8uphSev6v7R2xfBMgTUfH1sjUqkUSevTAFbN1SPcTuzgv71PdD3lUEf_iDvVsC28uuwnUcHanO_Bp450cNqZfifOS8a-J3bvZ7-qv-0xFNn_pQAJPm5b_-dkCOroYtbJFKFHKt0CQmIWTh_PEDo99FSLefvI94yIm03BWat33YBz8sWWcpXnXVcj3TSA6fa0HJBIVzLI30y27oYIzFEg66aPiCQFHDeXU92-pWOA2GEA-khvXb40BBaHGQTgCY1i4cymbCjl1ez8sho7oqiC4_OcDlSqxpIUAy9LRDOCUmruXZvIR_f43tX-HwrahDpI_UggHnlJiCDkqX1clqdWPKO-lhCHtoLBMsF05VrjumnIjglUuuj-UQEsRbdUDohLBFbauhD6SSt3iSzRz0r5TCW5qTCkjAnCoG9xL5HMB87DCvjXofritExfysRSB9X_KCAV79uVi3PdTxo3Q1AQBzt35JjrNkidg3m_aP0vRdGBlrv2zr40OgGfuHf2Au9bGnWrZcRpY1d5JSZKN5uj0f_CmTVklJDGqfazHeHak\",\n        \"user\": {\n            \"email\": \"bt@sogefi.cm\",\n            \"name\": \"Gautier\",\n            \"updated_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"id\": 2\n        }\n    },\n    \"message\": \"Cr\u00e9ation r\u00e9ussie verifiez vos mails.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Login a new user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gautier@position.cm\",\"password\":\"gautier123\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTZiNGU3MjhmNmQyNjIyODIxNGZlZDYxOTZiMGYyZDQ3MDk4NDBjNWNjNTNkODQ0OTM0ZDYzY2QyZjI4YTgxOWM5MWU2YjgzZDBlNjBjNGUiLCJpYXQiOjE2NDg3MzE2MDAuMDI3Njc3LCJuYmYiOjE2NDg3MzE2MDAuMDI3NjgxLCJleHAiOjE2ODAyNjc1OTkuOTk3OTE5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.u1g_NYx9cCddk3pSjCjl5-9BtgrkiCrJRwGpbzD6M-GqSb4TU8t__Xan58T56OO0YdUQVUwK6ApOmptwwRPUpbOj0UsWNmH5gchwBfwFNsqgaEaSFvX9Fd_41aJf51LaWUAgiczHps52QrXDEALLze-gMpFwCbX3c7FCNseVj-P_otg9_sSdKNzpk1ub12-LAhc-Us64RU6dvG5Sq4z5zfuX3FIUcKmiCCp86xVBlMxzks_aJDzpVx_OryzNSL0-EY0PSQne8oP5BGztxw79Fs1JmEfz0B5XzbCUrfCuIedqyRX5SwYT-kWh0tqWY4-rjul9C08c9zETpGkZ_GdNorFKkbV2ICh7jSgbUkn-zc3ycM8rzxFd6hp31qNIOJliBib7F8X0WaUR62jlv2FI0iEGhuN4JZslcuTKDJgT7MP0ZvuNOdOpt9gGghghaaoSbstRXOTYLuDIYkxMnQirpB7SYsgNcf-6vCwnAK_l2ym_mZWPVG0U4up3lPfeYSklLb9Kg8fF5dnWRq02IXcFbdeSm4ePtkZOu32-SsTeFb2Sy2cyL3X_HqOuHq5JkMlZAdDk0RZu4LDIx05Uj8iqyv3iUT7IaQeStqwzcM6M_l9yiXFcjeEClHvfj3Wz38jYSPjNpmMFWj0ShLOb4vxk8QK7P6dkU7u0RNDNar6Omu8\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Admin\",\n            \"email\": \"admin@ifdd.cm\",\n            \"email_verified_at\": \"2022-03-31T12:59:20.000000Z\",\n            \"role\": 1,\n            \"deleted_at\": null,\n            \"created_at\": \"2022-03-31T12:59:20.000000Z\",\n            \"updated_at\": \"2022-03-31T12:59:20.000000Z\"\n        }\n    },\n    \"message\": \"Connexion r\u00e9ussie.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": \"\",\n    \"message\": \"Deconnexion r\u00e9ussie.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update user account.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "the id of the admin."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Gautier\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Gautier\",\n            \"email\": \"bt@sogefi.cm\",\n            \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n            \"role\": 2,\n            \"deleted_at\": null,\n            \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n        }\n    },\n    \"message\": \"Utilisateur\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete user account.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/delete\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/delete\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "the id of the admin."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"success\": true,\n    \"data\": \"\",\n    \"message\": \"Delete Success.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "get User Account.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Gautier\",\n            \"email\": \"bt@sogefi.cm\",\n            \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n            \"role\": 2,\n            \"deleted_at\": null,\n            \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n        }\n    },\n    \"message\": \"Utilisateur\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

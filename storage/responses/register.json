@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjhjZThmZjdjZDQ5MmQ1OTljYmViYjQxODAxYjJkMjBmY2ZkYmMyYzU4N2JjM2MyMDdkYTUzZmVjYTQ2YzczN2U1MDdiZWM5ZGQ0NTNiNWUiLCJpYXQiOjE2NDkwNjIzODYuNzIzMjkyLCJuYmYiOjE2NDkwNjIzODYuNzIzMjk4LCJleHAiOjE2ODA1OTgzODYuNTM3NDM5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.FtjAjY_zp2fm_4CyKbL3r6Jay3_57RCPunCqeWb7Q3Za_I0h5XQb_iVyJUc1SAbiXZrTDETRkyFsPJ6cihfUODrI1wtpYDleP_vrLcqv1UpHjvr9q-QX5v65WGhe08m0NX8uphSev6v7R2xfBMgTUfH1sjUqkUSevTAFbN1SPcTuzgv71PdD3lUEf_iDvVsC28uuwnUcHanO_Bp450cNqZfifOS8a-J3bvZ7-qv-0xFNn_pQAJPm5b_-dkCOroYtbJFKFHKt0CQmIWTh_PEDo99FSLefvI94yIm03BWat33YBz8sWWcpXnXVcj3TSA6fa0HJBIVzLI30y27oYIzFEg66aPiCQFHDeXU92-pWOA2GEA-khvXb40BBaHGQTgCY1i4cymbCjl1ez8sho7oqiC4_OcDlSqxpIUAy9LRDOCUmruXZvIR_f43tX-HwrahDpI_UggHnlJiCDkqX1clqdWPKO-lhCHtoLBMsF05VrjumnIjglUuuj-UQEsRbdUDohLBFbauhD6SSt3iSzRz0r5TCW5qTCkjAnCoG9xL5HMB87DCvjXofritExfysRSB9X_KCAV79uVi3PdTxo3Q1AQBzt35JjrNkidg3m_aP0vRdGBlrv2zr40OgGfuHf2Au9bGnWrZcRpY1d5JSZKN5uj0f_CmTVklJDGqfazHeHak",
+        "user": {
+            "email": "bt@sogefi.cm",
+            "name": "Gautier",
+            "updated_at": "2022-04-04T08:52:53.000000Z",
+            "created_at": "2022-04-04T08:52:53.000000Z",
+            "id": 2
+        }
+    },
+    "message": "Création réussie verifiez vos mails."
+}
