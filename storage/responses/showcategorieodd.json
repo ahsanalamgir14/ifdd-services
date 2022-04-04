@@ -1,0 +1,18 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "category_number": "2.1",
+        "intitule": "Mon OBJECTIF",
+        "id_odd": 2,
+        "odd": {
+            "id": 2,
+            "name": "Faim",
+            "number": "15",
+            "number_categorie": 3,
+            "logo_odd": "https://www.logo.cm",
+            "color": "#e4243c"
+        }
+    },
+    "message": "CategorieOdd retrouvé avec succès"
+}

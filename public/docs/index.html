@@ -104,6 +104,43 @@
                     </li>
                                                     </ul>
                             </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="odd-management">
+                    <a href="#odd-management">ODD management</a>
+                </li>
+                                    <ul id="tocify-subheader-odd-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="odd-management-GETapi-odd">
+                        <a href="#odd-management-GETapi-odd">Get all ODDs.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-POSTapi-odd">
+                        <a href="#odd-management-POSTapi-odd">Add a new Odd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-GETapi-odd--id-">
+                        <a href="#odd-management-GETapi-odd--id-">Show Odd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-PUTapi-odd--id-">
+                        <a href="#odd-management-PUTapi-odd--id-">Update Odd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-DELETEapi-odd--id-">
+                        <a href="#odd-management-DELETEapi-odd--id-">Delete Odd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-GETapi-categorieodd">
+                        <a href="#odd-management-GETapi-categorieodd">Get all CategorieOdds.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-POSTapi-categorieodd">
+                        <a href="#odd-management-POSTapi-categorieodd">Add a new CategorieOdd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-GETapi-categorieodd--id-">
+                        <a href="#odd-management-GETapi-categorieodd--id-">Show the specified CategorieOdd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-PUTapi-categorieodd--id-">
+                        <a href="#odd-management-PUTapi-categorieodd--id-">Update the specified CategorieOdd.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="odd-management-DELETEapi-categorieodd--id-">
+                        <a href="#odd-management-DELETEapi-categorieodd--id-">Delete the specified CategorieOdd.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
         
                         
             </div>
@@ -305,7 +342,7 @@ response.json()</code></pre></div>
     --header "X-Authorization: apiKey" \
     --data "{
     \"email\": \"gautier@position.cm\",
-    \"token\": \"reprehenderit\",
+    \"token\": \"fugiat\",
     \"password\": \"gautier124\",
     \"password_confirmation\": \"gautier124\"
 }"
@@ -325,7 +362,7 @@ const headers = {
 
 let body = {
     "email": "gautier@position.cm",
-    "token": "reprehenderit",
+    "token": "fugiat",
     "password": "gautier124",
     "password_confirmation": "gautier124"
 };
@@ -349,7 +386,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'email' =&gt; 'gautier@position.cm',
-            'token' =&gt; 'reprehenderit',
+            'token' =&gt; 'fugiat',
             'password' =&gt; 'gautier124',
             'password_confirmation' =&gt; 'gautier124',
         ],
@@ -366,7 +403,7 @@ import json
 url = 'http://localhost:8000/api/auth/password/reset'
 payload = {
     "email": "gautier@position.cm",
-    "token": "reprehenderit",
+    "token": "fugiat",
     "password": "gautier124",
     "password_confirmation": "gautier124"
 }
@@ -449,7 +486,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-auth-password-reset"
-               value="reprehenderit"
+               value="fugiat"
                data-component="body" hidden>
     <br>
 <p>token give in mail.</p>
@@ -1428,6 +1465,1726 @@ response.json()</code></pre></div>
                                                                 data-component="header"></label>
         </p>
                 </form>
+
+        <h1 id="odd-management">ODD management</h1>
+
+    <p>APIs for managing ODDs</p>
+
+            <h2 id="odd-management-GETapi-odd">Get all ODDs.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-odd">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/odd" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/odd"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/odd',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/odd'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-odd">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Faim&quot;,
+            &quot;number&quot;: &quot;12&quot;,
+            &quot;number_categorie&quot;: 2,
+            &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+            &quot;color&quot;: &quot;#e4243c\n&quot;,
+            &quot;categorie_odd&quot;: []
+        }
+    ],
+    &quot;message&quot;: &quot;Liste des ODDs&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-odd" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-odd"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-odd"></code></pre>
+</span>
+<span id="execution-error-GETapi-odd" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-odd"></code></pre>
+</span>
+<form id="form-GETapi-odd" data-method="GET"
+      data-path="api/odd"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-odd', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-odd"
+                    onclick="tryItOut('GETapi-odd');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-odd"
+                    onclick="cancelTryOut('GETapi-odd');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-odd" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/odd</code></b>
+        </p>
+                    </form>
+
+            <h2 id="odd-management-POSTapi-odd">Add a new Odd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-odd">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/odd" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"name\": \"Faim\",
+    \"number\": 12,
+    \"number_categorie\": 2,
+    \"logo_odd\": \"http:\\/\\/www.logo.com\",
+    \"color\": \"#000000\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/odd"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "name": "Faim",
+    "number": 12,
+    "number_categorie": 2,
+    "logo_odd": "http:\/\/www.logo.com",
+    "color": "#000000"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/odd',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Faim',
+            'number' =&gt; 12,
+            'number_categorie' =&gt; 2,
+            'logo_odd' =&gt; 'http://www.logo.com',
+            'color' =&gt; '#000000',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/odd'
+payload = {
+    "name": "Faim",
+    "number": 12,
+    "number_categorie": 2,
+    "logo_odd": "http:\/\/www.logo.com",
+    "color": "#000000"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-odd">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;Faim&quot;,
+        &quot;number&quot;: &quot;12&quot;,
+        &quot;number_categorie&quot;: &quot;2&quot;,
+        &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+        &quot;color&quot;: &quot;#e4243c\n&quot;,
+        &quot;id&quot;: 1
+    },
+    &quot;message&quot;: &quot;Cr&eacute;ation de l'odd reussie&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-odd" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-odd"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-odd"></code></pre>
+</span>
+<span id="execution-error-POSTapi-odd" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-odd"></code></pre>
+</span>
+<form id="form-POSTapi-odd" data-method="POST"
+      data-path="api/odd"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-odd', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-odd"
+                    onclick="tryItOut('POSTapi-odd');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-odd"
+                    onclick="cancelTryOut('POSTapi-odd');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-odd" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/odd</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-odd" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-odd"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-odd"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the name of the odd.</p>
+        </p>
+                <p>
+            <b><code>number</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="number"
+               data-endpoint="POSTapi-odd"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the odd.</p>
+        </p>
+                <p>
+            <b><code>number_categorie</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="number_categorie"
+               data-endpoint="POSTapi-odd"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>number of categories contained in this odd.</p>
+        </p>
+                <p>
+            <b><code>logo_odd</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="logo_odd"
+               data-endpoint="POSTapi-odd"
+               value="http://www.logo.com"
+               data-component="body" hidden>
+    <br>
+<p>the url of the logo of the odd.</p>
+        </p>
+                <p>
+            <b><code>color</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="color"
+               data-endpoint="POSTapi-odd"
+               value="#000000"
+               data-component="body" hidden>
+    <br>
+<p>the color of the odd.</p>
+        </p>
+        </form>
+
+            <h2 id="odd-management-GETapi-odd--id-">Show Odd.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-odd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/odd/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/odd/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/odd/2',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/odd/2'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-odd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Faim&quot;,
+        &quot;number&quot;: &quot;12&quot;,
+        &quot;number_categorie&quot;: 2,
+        &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+        &quot;color&quot;: &quot;#e4243c\n&quot;,
+        &quot;categorie_odd&quot;: []
+    },
+    &quot;message&quot;: &quot;Odd trouv&eacute;&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-odd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-odd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-odd--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-odd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-odd--id-"></code></pre>
+</span>
+<form id="form-GETapi-odd--id-" data-method="GET"
+      data-path="api/odd/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-odd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-odd--id-"
+                    onclick="tryItOut('GETapi-odd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-odd--id-"
+                    onclick="cancelTryOut('GETapi-odd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-odd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/odd/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-odd--id-"
+               value="2"
+               data-component="url" hidden>
+    <br>
+<p>the id of the odd.</p>
+            </p>
+                    </form>
+
+            <h2 id="odd-management-PUTapi-odd--id-">Update Odd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-odd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/odd/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"name\": \"Faim\",
+    \"number\": 12,
+    \"number_categorie\": 2,
+    \"logo_odd\": \"http:\\/\\/www.logo.com\",
+    \"color\": \"#000000\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/odd/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "name": "Faim",
+    "number": 12,
+    "number_categorie": 2,
+    "logo_odd": "http:\/\/www.logo.com",
+    "color": "#000000"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:8000/api/odd/2',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Faim',
+            'number' =&gt; 12,
+            'number_categorie' =&gt; 2,
+            'logo_odd' =&gt; 'http://www.logo.com',
+            'color' =&gt; '#000000',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/odd/2'
+payload = {
+    "name": "Faim",
+    "number": 12,
+    "number_categorie": 2,
+    "logo_odd": "http:\/\/www.logo.com",
+    "color": "#000000"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-odd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Faim&quot;,
+        &quot;number&quot;: &quot;15&quot;,
+        &quot;number_categorie&quot;: &quot;3&quot;,
+        &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+        &quot;color&quot;: &quot;#e4243c&quot;
+    },
+    &quot;message&quot;: &quot;Modification de l'odd reussie&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-odd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-odd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-odd--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-odd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-odd--id-"></code></pre>
+</span>
+<form id="form-PUTapi-odd--id-" data-method="PUT"
+      data-path="api/odd/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-odd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-odd--id-"
+                    onclick="tryItOut('PUTapi-odd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-odd--id-"
+                    onclick="cancelTryOut('PUTapi-odd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-odd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/odd/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/odd/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-odd--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-odd--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-odd--id-"
+               value="2"
+               data-component="url" hidden>
+    <br>
+<p>the id of the odd.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-odd--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the name of the odd.</p>
+        </p>
+                <p>
+            <b><code>number</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="number"
+               data-endpoint="PUTapi-odd--id-"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the odd.</p>
+        </p>
+                <p>
+            <b><code>number_categorie</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="number_categorie"
+               data-endpoint="PUTapi-odd--id-"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>number of categories contained in this odd.</p>
+        </p>
+                <p>
+            <b><code>logo_odd</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="logo_odd"
+               data-endpoint="PUTapi-odd--id-"
+               value="http://www.logo.com"
+               data-component="body" hidden>
+    <br>
+<p>the url of the logo of the odd.</p>
+        </p>
+                <p>
+            <b><code>color</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="color"
+               data-endpoint="PUTapi-odd--id-"
+               value="#000000"
+               data-component="body" hidden>
+    <br>
+<p>the color of the odd.</p>
+        </p>
+        </form>
+
+            <h2 id="odd-management-DELETEapi-odd--id-">Delete Odd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-odd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/odd/2" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/odd/2"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:8000/api/odd/2',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/odd/2'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-odd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Faim&quot;,
+        &quot;number&quot;: &quot;15&quot;,
+        &quot;number_categorie&quot;: 3,
+        &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+        &quot;color&quot;: &quot;#e4243c&quot;
+    },
+    &quot;message&quot;: &quot;Suppression de l'odd reussie&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-odd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-odd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-odd--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-odd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-odd--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-odd--id-" data-method="DELETE"
+      data-path="api/odd/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-odd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-odd--id-"
+                    onclick="tryItOut('DELETEapi-odd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-odd--id-"
+                    onclick="cancelTryOut('DELETEapi-odd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-odd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/odd/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-odd--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-odd--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-odd--id-"
+               value="2"
+               data-component="url" hidden>
+    <br>
+<p>the id of the odd.</p>
+            </p>
+                    </form>
+
+            <h2 id="odd-management-GETapi-categorieodd">Get all CategorieOdds.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-categorieodd">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/categorieodd" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/categorieodd"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/categorieodd',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/categorieodd'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-categorieodd">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;category_number&quot;: &quot;2.1&quot;,
+            &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+            &quot;id_odd&quot;: 2,
+            &quot;odd&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Faim&quot;,
+                &quot;number&quot;: &quot;15&quot;,
+                &quot;number_categorie&quot;: 3,
+                &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+                &quot;color&quot;: &quot;#e4243c&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;category_number&quot;: &quot;2.2&quot;,
+            &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+            &quot;id_odd&quot;: 2,
+            &quot;odd&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Faim&quot;,
+                &quot;number&quot;: &quot;15&quot;,
+                &quot;number_categorie&quot;: 3,
+                &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+                &quot;color&quot;: &quot;#e4243c&quot;
+            }
+        }
+    ],
+    &quot;message&quot;: &quot;Liste des CategorieOdds&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-categorieodd" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-categorieodd"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-categorieodd"></code></pre>
+</span>
+<span id="execution-error-GETapi-categorieodd" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-categorieodd"></code></pre>
+</span>
+<form id="form-GETapi-categorieodd" data-method="GET"
+      data-path="api/categorieodd"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-categorieodd', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-categorieodd"
+                    onclick="tryItOut('GETapi-categorieodd');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-categorieodd"
+                    onclick="cancelTryOut('GETapi-categorieodd');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-categorieodd" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/categorieodd</code></b>
+        </p>
+                    </form>
+
+            <h2 id="odd-management-POSTapi-categorieodd">Add a new CategorieOdd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-categorieodd">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/categorieodd" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"category_number\": 12,
+    \"intitule\": \"Faim\",
+    \"id_odd\": 1
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/categorieodd"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "category_number": 12,
+    "intitule": "Faim",
+    "id_odd": 1
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/categorieodd',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'category_number' =&gt; 12,
+            'intitule' =&gt; 'Faim',
+            'id_odd' =&gt; 1,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/categorieodd'
+payload = {
+    "category_number": 12,
+    "intitule": "Faim",
+    "id_odd": 1
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-categorieodd">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;category_number&quot;: &quot;2.2&quot;,
+        &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+        &quot;id_odd&quot;: &quot;2&quot;,
+        &quot;id&quot;: 2
+    },
+    &quot;message&quot;: &quot;CategorieOdd cr&eacute;&eacute; avec succ&egrave;s&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-categorieodd" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-categorieodd"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-categorieodd"></code></pre>
+</span>
+<span id="execution-error-POSTapi-categorieodd" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-categorieodd"></code></pre>
+</span>
+<form id="form-POSTapi-categorieodd" data-method="POST"
+      data-path="api/categorieodd"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-categorieodd', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-categorieodd"
+                    onclick="tryItOut('POSTapi-categorieodd');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-categorieodd"
+                    onclick="cancelTryOut('POSTapi-categorieodd');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-categorieodd" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/categorieodd</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-categorieodd" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-categorieodd"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>category_number</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="category_number"
+               data-endpoint="POSTapi-categorieodd"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the categorieOdd.</p>
+        </p>
+                <p>
+            <b><code>intitule</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="intitule"
+               data-endpoint="POSTapi-categorieodd"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the title of the categorieOdd.</p>
+        </p>
+                <p>
+            <b><code>id_odd</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id_odd"
+               data-endpoint="POSTapi-categorieodd"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>the id of the odd.</p>
+        </p>
+        </form>
+
+            <h2 id="odd-management-GETapi-categorieodd--id-">Show the specified CategorieOdd.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-categorieodd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/categorieodd/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/categorieodd/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/categorieodd/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/categorieodd/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-categorieodd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;category_number&quot;: &quot;2.1&quot;,
+        &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+        &quot;id_odd&quot;: 2,
+        &quot;odd&quot;: {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Faim&quot;,
+            &quot;number&quot;: &quot;15&quot;,
+            &quot;number_categorie&quot;: 3,
+            &quot;logo_odd&quot;: &quot;https://www.logo.cm&quot;,
+            &quot;color&quot;: &quot;#e4243c&quot;
+        }
+    },
+    &quot;message&quot;: &quot;CategorieOdd retrouv&eacute; avec succ&egrave;s&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-categorieodd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-categorieodd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-categorieodd--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-categorieodd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-categorieodd--id-"></code></pre>
+</span>
+<form id="form-GETapi-categorieodd--id-" data-method="GET"
+      data-path="api/categorieodd/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-categorieodd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-categorieodd--id-"
+                    onclick="tryItOut('GETapi-categorieodd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-categorieodd--id-"
+                    onclick="cancelTryOut('GETapi-categorieodd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-categorieodd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/categorieodd/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-categorieodd--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the CategorieOdd.</p>
+            </p>
+                    </form>
+
+            <h2 id="odd-management-PUTapi-categorieodd--id-">Update the specified CategorieOdd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-categorieodd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/categorieodd/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"category_number\": 12,
+    \"intitule\": \"Faim\",
+    \"id_odd\": 1
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/categorieodd/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "category_number": 12,
+    "intitule": "Faim",
+    "id_odd": 1
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:8000/api/categorieodd/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'category_number' =&gt; 12,
+            'intitule' =&gt; 'Faim',
+            'id_odd' =&gt; 1,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/categorieodd/1'
+payload = {
+    "category_number": 12,
+    "intitule": "Faim",
+    "id_odd": 1
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-categorieodd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;category_number&quot;: &quot;2.1&quot;,
+        &quot;intitule&quot;: &quot;Mon OBJECTIF Durable&quot;,
+        &quot;id_odd&quot;: 2
+    },
+    &quot;message&quot;: &quot;CategorieOdd modifi&eacute; avec succ&egrave;s&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-categorieodd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-categorieodd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-categorieodd--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-categorieodd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-categorieodd--id-"></code></pre>
+</span>
+<form id="form-PUTapi-categorieodd--id-" data-method="PUT"
+      data-path="api/categorieodd/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-categorieodd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-categorieodd--id-"
+                    onclick="tryItOut('PUTapi-categorieodd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-categorieodd--id-"
+                    onclick="cancelTryOut('PUTapi-categorieodd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-categorieodd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/categorieodd/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/categorieodd/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-categorieodd--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-categorieodd--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-categorieodd--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the CategorieOdd.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>category_number</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="category_number"
+               data-endpoint="PUTapi-categorieodd--id-"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the categorieOdd.</p>
+        </p>
+                <p>
+            <b><code>intitule</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="intitule"
+               data-endpoint="PUTapi-categorieodd--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the title of the categorieOdd.</p>
+        </p>
+                <p>
+            <b><code>id_odd</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id_odd"
+               data-endpoint="PUTapi-categorieodd--id-"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>the id of the odd.</p>
+        </p>
+        </form>
+
+            <h2 id="odd-management-DELETEapi-categorieodd--id-">Delete the specified CategorieOdd.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-categorieodd--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/categorieodd/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/categorieodd/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:8000/api/categorieodd/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/categorieodd/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-categorieodd--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;category_number&quot;: &quot;2.1&quot;,
+        &quot;intitule&quot;: &quot;Mon OBJECTIF Durable&quot;,
+        &quot;id_odd&quot;: 2
+    },
+    &quot;message&quot;: &quot;CategorieOdd supprim&eacute; avec succ&egrave;s&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-categorieodd--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-categorieodd--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-categorieodd--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-categorieodd--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-categorieodd--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-categorieodd--id-" data-method="DELETE"
+      data-path="api/categorieodd/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-categorieodd--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-categorieodd--id-"
+                    onclick="tryItOut('DELETEapi-categorieodd--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-categorieodd--id-"
+                    onclick="cancelTryOut('DELETEapi-categorieodd--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-categorieodd--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/categorieodd/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-categorieodd--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-categorieodd--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-categorieodd--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the CategorieOdd.</p>
+            </p>
+                    </form>
 
     
 

@@ -133,7 +133,7 @@ paths:
                 token:
                   type: string
                   description: 'token give in mail.'
-                  example: reprehenderit
+                  example: fugiat
                 password:
                   type: string
                   description: 'the new password of the user.'
@@ -584,7 +584,792 @@ paths:
                     example: Utilisateur
       tags:
         - 'Account management'
+  /api/odd:
+    get:
+      summary: 'Get all ODDs.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 1
+                      name: Faim
+                      number: '12'
+                      number_categorie: 2
+                      logo_odd: 'https://www.logo.cm'
+                      color: "#e4243c\n"
+                      categorie_odd: []
+                  message: 'Liste des ODDs'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Faim
+                        number: '12'
+                        number_categorie: 2
+                        logo_odd: 'https://www.logo.cm'
+                        color: "#e4243c\n"
+                        categorie_odd: []
+                    items:
+                      type: object
+                  message:
+                    type: string
+                    example: 'Liste des ODDs'
+      tags:
+        - 'ODD management'
+      security: []
+    post:
+      summary: 'Add a new Odd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    name: Faim
+                    number: '12'
+                    number_categorie: '2'
+                    logo_odd: 'https://www.logo.cm'
+                    color: "#e4243c\n"
+                    id: 1
+                  message: 'Création de l''odd reussie'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      name: Faim
+                      number: '12'
+                      number_categorie: '2'
+                      logo_odd: 'https://www.logo.cm'
+                      color: "#e4243c\n"
+                      id: 1
+                  message:
+                    type: string
+                    example: 'Création de l''odd reussie'
+      tags:
+        - 'ODD management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'the name of the odd.'
+                  example: Faim
+                number:
+                  type: integer
+                  description: 'the number of the odd.'
+                  example: 12
+                number_categorie:
+                  type: integer
+                  description: 'number of categories contained in this odd.'
+                  example: 2
+                logo_odd:
+                  type: string
+                  description: 'the url of the logo of the odd.'
+                  example: 'http://www.logo.com'
+                color:
+                  type: string
+                  description: 'the color of the odd.'
+                  example: '#000000'
+              required:
+                - name
+                - number
+                - number_categorie
+                - logo_odd
+                - color
+  '/api/odd/{id}':
+    get:
+      summary: 'Show Odd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: Faim
+                    number: '12'
+                    number_categorie: 2
+                    logo_odd: 'https://www.logo.cm'
+                    color: "#e4243c\n"
+                    categorie_odd: []
+                  message: 'Odd trouvé'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: Faim
+                      number: '12'
+                      number_categorie: 2
+                      logo_odd: 'https://www.logo.cm'
+                      color: "#e4243c\n"
+                      categorie_odd: []
+                  message:
+                    type: string
+                    example: 'Odd trouvé'
+      tags:
+        - 'ODD management'
+      security: []
+    put:
+      summary: 'Update Odd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: Faim
+                    number: '15'
+                    number_categorie: '3'
+                    logo_odd: 'https://www.logo.cm'
+                    color: '#e4243c'
+                  message: 'Modification de l''odd reussie'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: Faim
+                      number: '15'
+                      number_categorie: '3'
+                      logo_odd: 'https://www.logo.cm'
+                      color: '#e4243c'
+                  message:
+                    type: string
+                    example: 'Modification de l''odd reussie'
+      tags:
+        - 'ODD management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'the name of the odd.'
+                  example: Faim
+                number:
+                  type: integer
+                  description: 'the number of the odd.'
+                  example: 12
+                number_categorie:
+                  type: integer
+                  description: 'number of categories contained in this odd.'
+                  example: 2
+                logo_odd:
+                  type: string
+                  description: 'the url of the logo of the odd.'
+                  example: 'http://www.logo.com'
+                color:
+                  type: string
+                  description: 'the color of the odd.'
+                  example: '#000000'
+              required:
+                - name
+                - number
+                - number_categorie
+                - logo_odd
+                - color
+    delete:
+      summary: 'Delete Odd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: Faim
+                    number: '15'
+                    number_categorie: 3
+                    logo_odd: 'https://www.logo.cm'
+                    color: '#e4243c'
+                  message: 'Suppression de l''odd reussie'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: Faim
+                      number: '15'
+                      number_categorie: 3
+                      logo_odd: 'https://www.logo.cm'
+                      color: '#e4243c'
+                  message:
+                    type: string
+                    example: 'Suppression de l''odd reussie'
+      tags:
+        - 'ODD management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'the id of the odd.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/categorieodd:
+    get:
+      summary: 'Get all CategorieOdds.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 1
+                      category_number: '2.1'
+                      intitule: 'Mon OBJECTIF'
+                      id_odd: 2
+                      odd:
+                        id: 2
+                        name: Faim
+                        number: '15'
+                        number_categorie: 3
+                        logo_odd: 'https://www.logo.cm'
+                        color: '#e4243c'
+                    -
+                      id: 2
+                      category_number: '2.2'
+                      intitule: 'Mon OBJECTIF'
+                      id_odd: 2
+                      odd:
+                        id: 2
+                        name: Faim
+                        number: '15'
+                        number_categorie: 3
+                        logo_odd: 'https://www.logo.cm'
+                        color: '#e4243c'
+                  message: 'Liste des CategorieOdds'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        category_number: '2.1'
+                        intitule: 'Mon OBJECTIF'
+                        id_odd: 2
+                        odd:
+                          id: 2
+                          name: Faim
+                          number: '15'
+                          number_categorie: 3
+                          logo_odd: 'https://www.logo.cm'
+                          color: '#e4243c'
+                      -
+                        id: 2
+                        category_number: '2.2'
+                        intitule: 'Mon OBJECTIF'
+                        id_odd: 2
+                        odd:
+                          id: 2
+                          name: Faim
+                          number: '15'
+                          number_categorie: 3
+                          logo_odd: 'https://www.logo.cm'
+                          color: '#e4243c'
+                    items:
+                      type: object
+                  message:
+                    type: string
+                    example: 'Liste des CategorieOdds'
+      tags:
+        - 'ODD management'
+      security: []
+    post:
+      summary: 'Add a new CategorieOdd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    category_number: '2.2'
+                    intitule: 'Mon OBJECTIF'
+                    id_odd: '2'
+                    id: 2
+                  message: 'CategorieOdd créé avec succès'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      category_number: '2.2'
+                      intitule: 'Mon OBJECTIF'
+                      id_odd: '2'
+                      id: 2
+                  message:
+                    type: string
+                    example: 'CategorieOdd créé avec succès'
+      tags:
+        - 'ODD management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_number:
+                  type: integer
+                  description: 'the number of the categorieOdd.'
+                  example: 12
+                intitule:
+                  type: string
+                  description: 'the title of the categorieOdd.'
+                  example: Faim
+                id_odd:
+                  type: integer
+                  description: 'the id of the odd.'
+                  example: 1
+              required:
+                - category_number
+                - intitule
+                - id_odd
+  '/api/categorieodd/{id}':
+    get:
+      summary: 'Show the specified CategorieOdd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    category_number: '2.1'
+                    intitule: 'Mon OBJECTIF'
+                    id_odd: 2
+                    odd:
+                      id: 2
+                      name: Faim
+                      number: '15'
+                      number_categorie: 3
+                      logo_odd: 'https://www.logo.cm'
+                      color: '#e4243c'
+                  message: 'CategorieOdd retrouvé avec succès'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      category_number: '2.1'
+                      intitule: 'Mon OBJECTIF'
+                      id_odd: 2
+                      odd:
+                        id: 2
+                        name: Faim
+                        number: '15'
+                        number_categorie: 3
+                        logo_odd: 'https://www.logo.cm'
+                        color: '#e4243c'
+                  message:
+                    type: string
+                    example: 'CategorieOdd retrouvé avec succès'
+      tags:
+        - 'ODD management'
+      security: []
+    put:
+      summary: 'Update the specified CategorieOdd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    category_number: '2.1'
+                    intitule: 'Mon OBJECTIF Durable'
+                    id_odd: 2
+                  message: 'CategorieOdd modifié avec succès'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      category_number: '2.1'
+                      intitule: 'Mon OBJECTIF Durable'
+                      id_odd: 2
+                  message:
+                    type: string
+                    example: 'CategorieOdd modifié avec succès'
+      tags:
+        - 'ODD management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_number:
+                  type: integer
+                  description: 'the number of the categorieOdd.'
+                  example: 12
+                intitule:
+                  type: string
+                  description: 'the title of the categorieOdd.'
+                  example: Faim
+                id_odd:
+                  type: integer
+                  description: 'the id of the odd.'
+                  example: 1
+              required:
+                - category_number
+                - intitule
+                - id_odd
+    delete:
+      summary: 'Delete the specified CategorieOdd.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    category_number: '2.1'
+                    intitule: 'Mon OBJECTIF Durable'
+                    id_odd: 2
+                  message: 'CategorieOdd supprimé avec succès'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      category_number: '2.1'
+                      intitule: 'Mon OBJECTIF Durable'
+                      id_odd: 2
+                  message:
+                    type: string
+                    example: 'CategorieOdd supprimé avec succès'
+      tags:
+        - 'ODD management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the CategorieOdd.'
+        example: '1'
+        required: true
+        schema:
+          type: string
 tags:
   -
     name: 'Account management'
     description: ''
+  -
+    name: 'ODD management'
+    description: "\nAPIs for managing ODDs"

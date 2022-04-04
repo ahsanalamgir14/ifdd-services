@@ -33,6 +33,9 @@ Route::middleware('auth.apikey')->group(
                 Route::post('user/update/{id}', [App\Http\Controllers\Api\UserController::class, 'updateuser']);
                 Route::delete('user/delete/{id}', [App\Http\Controllers\Api\UserController::class, 'deleteuser']);
                 Route::get('user/me', [App\Http\Controllers\Api\UserController::class, 'getUser']);
+
+                Route::apiResource('odd', App\Http\Controllers\Api\OddController::class);
+                Route::apiResource('categorieodd', App\Http\Controllers\Api\CategorieOddController::class);
             }
         );
     }

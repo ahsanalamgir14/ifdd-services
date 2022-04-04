@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Services IFDD",
-        "_postman_id": "71b39982-b9c1-4d82-bc70-05ca72df02c8",
+        "_postman_id": "8b0e5ed0-6a3e-40b7-b2eb-e4881c1cd581",
         "description": "Ceci est la documentation de l'API de Services IFDD",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -87,7 +87,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"gautier@position.cm\",\"token\":\"reprehenderit\",\"password\":\"gautier124\",\"password_confirmation\":\"gautier124\"}"
+                            "raw": "{\"email\":\"gautier@position.cm\",\"token\":\"fugiat\",\"password\":\"gautier124\",\"password_confirmation\":\"gautier124\"}"
                         },
                         "description": "",
                         "auth": {
@@ -346,6 +346,444 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Gautier\",\n            \"email\": \"bt@sogefi.cm\",\n            \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n            \"role\": 2,\n            \"deleted_at\": null,\n            \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n        }\n    },\n    \"message\": \"Utilisateur\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ODD management",
+            "description": "\nAPIs for managing ODDs",
+            "item": [
+                {
+                    "name": "Get all ODDs.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/odd",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/odd"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Faim\",\n            \"number\": \"12\",\n            \"number_categorie\": 2,\n            \"logo_odd\": \"https:\/\/www.logo.cm\",\n            \"color\": \"#e4243c\\n\",\n            \"categorie_odd\": []\n        }\n    ],\n    \"message\": \"Liste des ODDs\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a new Odd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/odd",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/odd"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Faim\",\"number\":12,\"number_categorie\":2,\"logo_odd\":\"http:\\\/\\\/www.logo.com\",\"color\":\"#000000\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"Faim\",\n        \"number\": \"12\",\n        \"number_categorie\": \"2\",\n        \"logo_odd\": \"https:\/\/www.logo.cm\",\n        \"color\": \"#e4243c\\n\",\n        \"id\": 1\n    },\n    \"message\": \"Cr\u00e9ation de l'odd reussie\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show Odd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/odd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/odd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "the id of the odd."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Faim\",\n        \"number\": \"12\",\n        \"number_categorie\": 2,\n        \"logo_odd\": \"https:\/\/www.logo.cm\",\n        \"color\": \"#e4243c\\n\",\n        \"categorie_odd\": []\n    },\n    \"message\": \"Odd trouv\u00e9\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Odd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/odd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/odd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "the id of the odd."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Faim\",\"number\":12,\"number_categorie\":2,\"logo_odd\":\"http:\\\/\\\/www.logo.com\",\"color\":\"#000000\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Faim\",\n        \"number\": \"15\",\n        \"number_categorie\": \"3\",\n        \"logo_odd\": \"https:\/\/www.logo.cm\",\n        \"color\": \"#e4243c\"\n    },\n    \"message\": \"Modification de l'odd reussie\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Odd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/odd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/odd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "the id of the odd."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Faim\",\n        \"number\": \"15\",\n        \"number_categorie\": 3,\n        \"logo_odd\": \"https:\/\/www.logo.cm\",\n        \"color\": \"#e4243c\"\n    },\n    \"message\": \"Suppression de l'odd reussie\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get all CategorieOdds.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categorieodd",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categorieodd"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"category_number\": \"2.1\",\n            \"intitule\": \"Mon OBJECTIF\",\n            \"id_odd\": 2,\n            \"odd\": {\n                \"id\": 2,\n                \"name\": \"Faim\",\n                \"number\": \"15\",\n                \"number_categorie\": 3,\n                \"logo_odd\": \"https:\/\/www.logo.cm\",\n                \"color\": \"#e4243c\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"category_number\": \"2.2\",\n            \"intitule\": \"Mon OBJECTIF\",\n            \"id_odd\": 2,\n            \"odd\": {\n                \"id\": 2,\n                \"name\": \"Faim\",\n                \"number\": \"15\",\n                \"number_categorie\": 3,\n                \"logo_odd\": \"https:\/\/www.logo.cm\",\n                \"color\": \"#e4243c\"\n            }\n        }\n    ],\n    \"message\": \"Liste des CategorieOdds\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a new CategorieOdd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categorieodd",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categorieodd"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_number\":12,\"intitule\":\"Faim\",\"id_odd\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"category_number\": \"2.2\",\n        \"intitule\": \"Mon OBJECTIF\",\n        \"id_odd\": \"2\",\n        \"id\": 2\n    },\n    \"message\": \"CategorieOdd cr\u00e9\u00e9 avec succ\u00e8s\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show the specified CategorieOdd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categorieodd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categorieodd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the CategorieOdd."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"category_number\": \"2.1\",\n        \"intitule\": \"Mon OBJECTIF\",\n        \"id_odd\": 2,\n        \"odd\": {\n            \"id\": 2,\n            \"name\": \"Faim\",\n            \"number\": \"15\",\n            \"number_categorie\": 3,\n            \"logo_odd\": \"https:\/\/www.logo.cm\",\n            \"color\": \"#e4243c\"\n        }\n    },\n    \"message\": \"CategorieOdd retrouv\u00e9 avec succ\u00e8s\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified CategorieOdd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categorieodd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categorieodd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the CategorieOdd."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_number\":12,\"intitule\":\"Faim\",\"id_odd\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"category_number\": \"2.1\",\n        \"intitule\": \"Mon OBJECTIF Durable\",\n        \"id_odd\": 2\n    },\n    \"message\": \"CategorieOdd modifi\u00e9 avec succ\u00e8s\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete the specified CategorieOdd.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categorieodd\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categorieodd\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the CategorieOdd."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"category_number\": \"2.1\",\n        \"intitule\": \"Mon OBJECTIF Durable\",\n        \"id_odd\": 2\n    },\n    \"message\": \"CategorieOdd supprim\u00e9 avec succ\u00e8s\"\n}\n",
                             "name": ""
                         }
                     ]
