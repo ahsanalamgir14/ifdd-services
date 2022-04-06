@@ -7,6 +7,435 @@ servers:
   -
     url: 'http://localhost:8000'
 paths:
+  /api/zonesintervention:
+    get:
+      summary: 'Get all ZoneInterventions.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 7
+                      osc_id: 1
+                      name: Zone
+                      longitude: '13'
+                      latitude: '7'
+                    -
+                      id: 8
+                      osc_id: 1
+                      name: Zone2
+                      longitude: '13'
+                      latitude: '7'
+                    -
+                      id: 9
+                      osc_id: 1
+                      name: Zone3
+                      longitude: '13'
+                      latitude: '7'
+                  message: 'Liste des ZoneInterventions'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 7
+                        osc_id: 1
+                        name: Zone
+                        longitude: '13'
+                        latitude: '7'
+                      -
+                        id: 8
+                        osc_id: 1
+                        name: Zone2
+                        longitude: '13'
+                        latitude: '7'
+                      -
+                        id: 9
+                        osc_id: 1
+                        name: Zone3
+                        longitude: '13'
+                        latitude: '7'
+                    items:
+                      type: object
+                  message:
+                    type: string
+                    example: 'Liste des ZoneInterventions'
+      tags:
+        - 'ZoneIntervention management'
+      security: []
+    post:
+      summary: 'Add a new ZoneIntervention.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 7
+                    osc_id: 1
+                    name: Zone
+                    longitude: '13'
+                    latitude: '7'
+                  message: 'ZoneIntervention created successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 7
+                      osc_id: 1
+                      name: Zone
+                      longitude: '13'
+                      latitude: '7'
+                  message:
+                    type: string
+                    example: 'ZoneIntervention created successfully.'
+      tags:
+        - 'ZoneIntervention management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                osc_id:
+                  type: integer
+                  description: 'The osc id.'
+                  example: 7
+                name:
+                  type: string
+                  description: 'The name of zoneIntervention.'
+                  example: Faim
+                longitude:
+                  type: string
+                  description: 'The longitude of zoneIntervention.'
+                  example: '13'
+                latitude:
+                  type: string
+                  description: 'The latitude of zoneIntervention.'
+                  example: '2'
+              required:
+                - osc_id
+                - name
+                - longitude
+                - latitude
+  '/api/zonesintervention/{id}':
+    get:
+      summary: 'Get a single ZoneIntervention.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 8
+                    osc_id: 1
+                    name: Zone2
+                    longitude: '13'
+                    latitude: '7'
+                    oscs:
+                      id: 1
+                      name: OSCUPDATE1
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                  message: 'ZoneIntervention retrieved successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 8
+                      osc_id: 1
+                      name: Zone2
+                      longitude: '13'
+                      latitude: '7'
+                      oscs:
+                        id: 1
+                        name: OSCUPDATE1
+                        abbreviation: os
+                        numero_osc: '123'
+                        pays: Cameroun
+                        date_fondation: '2020-05-13'
+                        description: 'Une Osc'
+                        personne_contact: Tala
+                        telephone: '691201946'
+                        email_osc: test@mail.com
+                        site_web: site.com
+                        facebook: facebook
+                        twitter: twitter
+                        instagram: instagram
+                        linkedin: linkedlin
+                        longitude: '13'
+                        latitude: '7'
+                        siege: Adamaoua
+                        user_id: 2
+                        active: false
+                  message:
+                    type: string
+                    example: 'ZoneIntervention retrieved successfully.'
+      tags:
+        - 'ZoneIntervention management'
+      security: []
+    put:
+      summary: 'Update a ZoneIntervention.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 7
+                    osc_id: 1
+                    name: Zone
+                    longitude: '13'
+                    latitude: '7'
+                  message: 'ZoneIntervention updated successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 7
+                      osc_id: 1
+                      name: Zone
+                      longitude: '13'
+                      latitude: '7'
+                  message:
+                    type: string
+                    example: 'ZoneIntervention updated successfully.'
+      tags:
+        - 'ZoneIntervention management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                osc_id:
+                  type: integer
+                  description: 'The osc id.'
+                  example: 10
+                name:
+                  type: string
+                  description: 'The name of zoneIntervention.'
+                  example: Faim
+                longitude:
+                  type: string
+                  description: 'The longitude of zoneIntervention.'
+                  example: '13'
+                latitude:
+                  type: string
+                  description: 'The latitude of zoneIntervention.'
+                  example: '2'
+              required:
+                - osc_id
+                - name
+                - longitude
+                - latitude
+    delete:
+      summary: 'Delete a ZoneIntervention.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 7
+                    osc_id: 1
+                    name: Zone
+                    longitude: '13'
+                    latitude: '7'
+                  message: 'ZoneIntervention deleted successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 7
+                      osc_id: 1
+                      name: Zone
+                      longitude: '13'
+                      latitude: '7'
+                  message:
+                    type: string
+                    example: 'ZoneIntervention deleted successfully.'
+      tags:
+        - 'ZoneIntervention management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ZoneIntervention.'
+        example: repellendus
+        required: true
+        schema:
+          type: string
   /api/auth/password/forgot:
     post:
       summary: 'Forgot Password'
@@ -133,7 +562,7 @@ paths:
                 token:
                   type: string
                   description: 'token give in mail.'
-                  example: fugiat
+                  example: assumenda
                 password:
                   type: string
                   description: 'the new password of the user.'
@@ -1366,10 +1795,1037 @@ paths:
         required: true
         schema:
           type: string
+  /api/osc:
+    get:
+      summary: 'Get all OSCs.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 1
+                      name: OSC
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                      user:
+                        id: 2
+                        name: Gautier
+                        email: bt@sogefi.cm
+                        email_verified_at: '2022-04-04T08:53:31.000000Z'
+                        role: 2
+                        deleted_at: null
+                        created_at: '2022-04-04T08:52:53.000000Z'
+                        updated_at: '2022-04-04T08:53:31.000000Z'
+                      categorie_odds:
+                        -
+                          id: 2
+                          category_number: '2.2'
+                          intitule: 'Mon OBJECTIF'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 2
+                            description: 'Une Osc1'
+                        -
+                          id: 1
+                          category_number: '2.1'
+                          intitule: 'Mon OBJECTIF Durable'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 1
+                            description: 'Une Osc'
+                      zone_interventions:
+                        -
+                          id: 1
+                          osc_id: 1
+                          name: Zone
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 2
+                          osc_id: 1
+                          name: Zone2
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 3
+                          osc_id: 1
+                          name: Zone3
+                          longitude: '13'
+                          latitude: '7'
+                  message: 'Liste des OSCs'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: OSC
+                        abbreviation: os
+                        numero_osc: '123'
+                        pays: Cameroun
+                        date_fondation: '2020-05-13'
+                        description: 'Une Osc'
+                        personne_contact: Tala
+                        telephone: '691201946'
+                        email_osc: test@mail.com
+                        site_web: site.com
+                        facebook: facebook
+                        twitter: twitter
+                        instagram: instagram
+                        linkedin: linkedlin
+                        longitude: '13'
+                        latitude: '7'
+                        siege: Adamaoua
+                        user_id: 2
+                        active: false
+                        user:
+                          id: 2
+                          name: Gautier
+                          email: bt@sogefi.cm
+                          email_verified_at: '2022-04-04T08:53:31.000000Z'
+                          role: 2
+                          deleted_at: null
+                          created_at: '2022-04-04T08:52:53.000000Z'
+                          updated_at: '2022-04-04T08:53:31.000000Z'
+                        categorie_odds:
+                          -
+                            id: 2
+                            category_number: '2.2'
+                            intitule: 'Mon OBJECTIF'
+                            id_odd: 2
+                            pivot:
+                              osc_id: 1
+                              categorie_odd_id: 2
+                              description: 'Une Osc1'
+                          -
+                            id: 1
+                            category_number: '2.1'
+                            intitule: 'Mon OBJECTIF Durable'
+                            id_odd: 2
+                            pivot:
+                              osc_id: 1
+                              categorie_odd_id: 1
+                              description: 'Une Osc'
+                        zone_interventions:
+                          -
+                            id: 1
+                            osc_id: 1
+                            name: Zone
+                            longitude: '13'
+                            latitude: '7'
+                          -
+                            id: 2
+                            osc_id: 1
+                            name: Zone2
+                            longitude: '13'
+                            latitude: '7'
+                          -
+                            id: 3
+                            osc_id: 1
+                            name: Zone3
+                            longitude: '13'
+                            latitude: '7'
+                    items:
+                      type: object
+                  message:
+                    type: string
+                    example: 'Liste des OSCs'
+      tags:
+        - 'OSC management'
+      security: []
+    post:
+      summary: 'Add a new OSC.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    name: OSC
+                    abbreviation: os
+                    numero_osc: '123'
+                    pays: Cameroun
+                    date_fondation: '2020-05-13'
+                    description: 'Une Osc'
+                    personne_contact: Tala
+                    telephone: '691201946'
+                    email_osc: test@mail.com
+                    site_web: site.com
+                    facebook: facebook
+                    twitter: twitter
+                    instagram: instagram
+                    linkedin: linkedlin
+                    longitude: '13'
+                    latitude: '7'
+                    siege: Adamaoua
+                    user_id: 2
+                    id: 1
+                  message: 'OSC created successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      name: OSC
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      id: 1
+                  message:
+                    type: string
+                    example: 'OSC created successfully.'
+      tags:
+        - 'OSC management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'the name of the osc.'
+                  example: Faim
+                abbreviation:
+                  type: string
+                  description: 'the abbreviation of the osc.'
+                  example: F
+                numero_osc:
+                  type: string
+                  description: 'the number of the osc.'
+                  example: '12'
+                pays:
+                  type: string
+                  description: 'the country of the osc.'
+                  example: France
+                date_fondation:
+                  type: string
+                  description: 'the date of the osc.'
+                  example: 12/12/12
+                description:
+                  type: string
+                  description: 'the description of the osc.'
+                  example: Faim
+                personne_contact:
+                  type: string
+                  description: 'the contact person of the osc.'
+                  example: Faim
+                telephone:
+                  type: string
+                  description: 'the telephone of the osc.'
+                  example: '12'
+                email_osc:
+                  type: string
+                  description: 'the email of the osc.'
+                  example: Faim
+                site_web:
+                  type: string
+                  description: 'the website of the osc.'
+                  example: Faim
+                facebook:
+                  type: string
+                  description: 'the facebook of the osc.'
+                  example: Faim
+                twitter:
+                  type: string
+                  description: 'the twitter of the osc.'
+                  example: Faim
+                instagram:
+                  type: string
+                  description: 'the instagram of the osc.'
+                  example: Faim
+                linkedin:
+                  type: string
+                  description: 'the linkedin of the osc.'
+                  example: Faim
+                longitude:
+                  type: string
+                  description: 'the longitude of the osc.'
+                  example: Faim
+                latitude:
+                  type: string
+                  description: 'the latitude of the osc.'
+                  example: Faim
+                siege:
+                  type: string
+                  description: 'the siege of the osc.'
+                  example: Faim
+                zone_intervention:
+                  type: required
+                  description: 'the zone of the osc.'
+                  example: '[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]'
+                osccategoriesOdd:
+                  type: required
+                  description: 'the categories of the osc.'
+                  example: '[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]'
+              required:
+                - name
+                - abbreviation
+                - numero_osc
+                - pays
+                - date_fondation
+                - personne_contact
+                - telephone
+                - email_osc
+                - longitude
+                - latitude
+                - siege
+  '/api/osc/{id}':
+    get:
+      summary: 'Get a single OSC.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: OSC
+                    abbreviation: os
+                    numero_osc: '123'
+                    pays: Cameroun
+                    date_fondation: '2020-05-13'
+                    description: 'Une Osc'
+                    personne_contact: Tala
+                    telephone: '691201946'
+                    email_osc: test@mail.com
+                    site_web: site.com
+                    facebook: facebook
+                    twitter: twitter
+                    instagram: instagram
+                    linkedin: linkedlin
+                    longitude: '13'
+                    latitude: '7'
+                    siege: Adamaoua
+                    user_id: 2
+                    active: false
+                    user:
+                      id: 2
+                      name: Gautier
+                      email: bt@sogefi.cm
+                      email_verified_at: '2022-04-04T08:53:31.000000Z'
+                      role: 2
+                      deleted_at: null
+                      created_at: '2022-04-04T08:52:53.000000Z'
+                      updated_at: '2022-04-04T08:53:31.000000Z'
+                    categorie_odds:
+                      -
+                        id: 2
+                        category_number: '2.2'
+                        intitule: 'Mon OBJECTIF'
+                        id_odd: 2
+                        pivot:
+                          osc_id: 1
+                          categorie_odd_id: 2
+                          description: 'Une Osc1'
+                      -
+                        id: 1
+                        category_number: '2.1'
+                        intitule: 'Mon OBJECTIF Durable'
+                        id_odd: 2
+                        pivot:
+                          osc_id: 1
+                          categorie_odd_id: 1
+                          description: 'Une Osc'
+                    zone_interventions:
+                      -
+                        id: 1
+                        osc_id: 1
+                        name: Zone
+                        longitude: '13'
+                        latitude: '7'
+                      -
+                        id: 2
+                        osc_id: 1
+                        name: Zone2
+                        longitude: '13'
+                        latitude: '7'
+                      -
+                        id: 3
+                        osc_id: 1
+                        name: Zone3
+                        longitude: '13'
+                        latitude: '7'
+                  message: 'OSC retrieved successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: OSC
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                      user:
+                        id: 2
+                        name: Gautier
+                        email: bt@sogefi.cm
+                        email_verified_at: '2022-04-04T08:53:31.000000Z'
+                        role: 2
+                        deleted_at: null
+                        created_at: '2022-04-04T08:52:53.000000Z'
+                        updated_at: '2022-04-04T08:53:31.000000Z'
+                      categorie_odds:
+                        -
+                          id: 2
+                          category_number: '2.2'
+                          intitule: 'Mon OBJECTIF'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 2
+                            description: 'Une Osc1'
+                        -
+                          id: 1
+                          category_number: '2.1'
+                          intitule: 'Mon OBJECTIF Durable'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 1
+                            description: 'Une Osc'
+                      zone_interventions:
+                        -
+                          id: 1
+                          osc_id: 1
+                          name: Zone
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 2
+                          osc_id: 1
+                          name: Zone2
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 3
+                          osc_id: 1
+                          name: Zone3
+                          longitude: '13'
+                          latitude: '7'
+                  message:
+                    type: string
+                    example: 'OSC retrieved successfully.'
+      tags:
+        - 'OSC management'
+      security: []
+    put:
+      summary: 'Update a OSC.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: OSCUPDATE
+                    abbreviation: os
+                    numero_osc: '123'
+                    pays: Cameroun
+                    date_fondation: '2020-05-13'
+                    description: 'Une Osc'
+                    personne_contact: Tala
+                    telephone: '691201946'
+                    email_osc: test@mail.com
+                    site_web: site.com
+                    facebook: facebook
+                    twitter: twitter
+                    instagram: instagram
+                    linkedin: linkedlin
+                    longitude: '13'
+                    latitude: '7'
+                    siege: Adamaoua
+                    user_id: 2
+                    active: false
+                  message: 'OSC updated successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: OSCUPDATE
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                  message:
+                    type: string
+                    example: 'OSC updated successfully.'
+      tags:
+        - 'OSC management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'the name of the osc.'
+                  example: Faim
+                abbreviation:
+                  type: string
+                  description: 'the abbreviation of the osc.'
+                  example: F
+                numero_osc:
+                  type: string
+                  description: 'the number of the osc.'
+                  example: '12'
+                pays:
+                  type: string
+                  description: 'the country of the osc.'
+                  example: France
+                date_fondation:
+                  type: string
+                  description: 'the date of the osc.'
+                  example: 12/12/12
+                description:
+                  type: string
+                  description: 'the description of the osc.'
+                  example: Faim
+                personne_contact:
+                  type: string
+                  description: 'the contact person of the osc.'
+                  example: Faim
+                telephone:
+                  type: string
+                  description: 'the telephone of the osc.'
+                  example: '12'
+                email_osc:
+                  type: string
+                  description: 'the email of the osc.'
+                  example: Faim
+                site_web:
+                  type: string
+                  description: 'the website of the osc.'
+                  example: Faim
+                facebook:
+                  type: string
+                  description: 'the facebook of the osc.'
+                  example: Faim
+                twitter:
+                  type: string
+                  description: 'the twitter of the osc.'
+                  example: Faim
+                instagram:
+                  type: string
+                  description: 'the instagram of the osc.'
+                  example: Faim
+                linkedin:
+                  type: string
+                  description: 'the linkedin of the osc.'
+                  example: Faim
+                longitude:
+                  type: string
+                  description: 'the longitude of the osc.'
+                  example: Faim
+                latitude:
+                  type: string
+                  description: 'the latitude of the osc.'
+                  example: Faim
+                siege:
+                  type: string
+                  description: 'the siege of the osc.'
+                  example: Faim
+                zone_intervention:
+                  type: required
+                  description: 'the zone of the osc.'
+                  example: '[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]'
+                osccategoriesOdd:
+                  type: required
+                  description: 'the categories of the osc.'
+                  example: '[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]'
+              required:
+                - name
+                - abbreviation
+                - numero_osc
+                - pays
+                - date_fondation
+                - personne_contact
+                - telephone
+                - email_osc
+                - longitude
+                - latitude
+                - siege
+    delete:
+      summary: 'Delete a OSC.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    id: 1
+                    name: OSCUPDATE
+                    abbreviation: os
+                    numero_osc: '123'
+                    pays: Cameroun
+                    date_fondation: '2020-05-13'
+                    description: 'Une Osc'
+                    personne_contact: Tala
+                    telephone: '691201946'
+                    email_osc: test@mail.com
+                    site_web: site.com
+                    facebook: facebook
+                    twitter: twitter
+                    instagram: instagram
+                    linkedin: linkedlin
+                    longitude: '13'
+                    latitude: '7'
+                    siege: Adamaoua
+                    user_id: 2
+                    active: false
+                  message: 'OSC deleted successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: OSCUPDATE
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                  message:
+                    type: string
+                    example: 'OSC deleted successfully.'
+      tags:
+        - 'OSC management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the OSC.'
+        example: error
+        required: true
+        schema:
+          type: string
+  /api/activeosc:
+    get:
+      summary: getActiveOscs.
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: X-Authorization
+          description: ''
+          example: apiKey
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 1
+                      name: OSC
+                      abbreviation: os
+                      numero_osc: '123'
+                      pays: Cameroun
+                      date_fondation: '2020-05-13'
+                      description: 'Une Osc'
+                      personne_contact: Tala
+                      telephone: '691201946'
+                      email_osc: test@mail.com
+                      site_web: site.com
+                      facebook: facebook
+                      twitter: twitter
+                      instagram: instagram
+                      linkedin: linkedlin
+                      longitude: '13'
+                      latitude: '7'
+                      siege: Adamaoua
+                      user_id: 2
+                      active: false
+                      user:
+                        id: 2
+                        name: Gautier
+                        email: bt@sogefi.cm
+                        email_verified_at: '2022-04-04T08:53:31.000000Z'
+                        role: 2
+                        deleted_at: null
+                        created_at: '2022-04-04T08:52:53.000000Z'
+                        updated_at: '2022-04-04T08:53:31.000000Z'
+                      categorie_odds:
+                        -
+                          id: 2
+                          category_number: '2.2'
+                          intitule: 'Mon OBJECTIF'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 2
+                            description: 'Une Osc1'
+                        -
+                          id: 1
+                          category_number: '2.1'
+                          intitule: 'Mon OBJECTIF Durable'
+                          id_odd: 2
+                          pivot:
+                            osc_id: 1
+                            categorie_odd_id: 1
+                            description: 'Une Osc'
+                      zone_interventions:
+                        -
+                          id: 1
+                          osc_id: 1
+                          name: Zone
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 2
+                          osc_id: 1
+                          name: Zone2
+                          longitude: '13'
+                          latitude: '7'
+                        -
+                          id: 3
+                          osc_id: 1
+                          name: Zone3
+                          longitude: '13'
+                          latitude: '7'
+                  message: 'Liste des OSCs'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: OSC
+                        abbreviation: os
+                        numero_osc: '123'
+                        pays: Cameroun
+                        date_fondation: '2020-05-13'
+                        description: 'Une Osc'
+                        personne_contact: Tala
+                        telephone: '691201946'
+                        email_osc: test@mail.com
+                        site_web: site.com
+                        facebook: facebook
+                        twitter: twitter
+                        instagram: instagram
+                        linkedin: linkedlin
+                        longitude: '13'
+                        latitude: '7'
+                        siege: Adamaoua
+                        user_id: 2
+                        active: false
+                        user:
+                          id: 2
+                          name: Gautier
+                          email: bt@sogefi.cm
+                          email_verified_at: '2022-04-04T08:53:31.000000Z'
+                          role: 2
+                          deleted_at: null
+                          created_at: '2022-04-04T08:52:53.000000Z'
+                          updated_at: '2022-04-04T08:53:31.000000Z'
+                        categorie_odds:
+                          -
+                            id: 2
+                            category_number: '2.2'
+                            intitule: 'Mon OBJECTIF'
+                            id_odd: 2
+                            pivot:
+                              osc_id: 1
+                              categorie_odd_id: 2
+                              description: 'Une Osc1'
+                          -
+                            id: 1
+                            category_number: '2.1'
+                            intitule: 'Mon OBJECTIF Durable'
+                            id_odd: 2
+                            pivot:
+                              osc_id: 1
+                              categorie_odd_id: 1
+                              description: 'Une Osc'
+                        zone_interventions:
+                          -
+                            id: 1
+                            osc_id: 1
+                            name: Zone
+                            longitude: '13'
+                            latitude: '7'
+                          -
+                            id: 2
+                            osc_id: 1
+                            name: Zone2
+                            longitude: '13'
+                            latitude: '7'
+                          -
+                            id: 3
+                            osc_id: 1
+                            name: Zone3
+                            longitude: '13'
+                            latitude: '7'
+                    items:
+                      type: object
+                  message:
+                    type: string
+                    example: 'Liste des OSCs'
+      tags:
+        - 'OSC management'
+      security: []
 tags:
+  -
+    name: 'ZoneIntervention management'
+    description: "\nAPIs for managing ZoneInterventions"
   -
     name: 'Account management'
     description: ''
   -
     name: 'ODD management'
     description: "\nAPIs for managing ODDs"
+  -
+    name: 'OSC management'
+    description: "\nAPIs for managing OSCs"

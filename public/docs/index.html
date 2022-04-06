@@ -74,6 +74,28 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="zoneintervention-management">
+                    <a href="#zoneintervention-management">ZoneIntervention management</a>
+                </li>
+                                    <ul id="tocify-subheader-zoneintervention-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="zoneintervention-management-GETapi-zonesintervention">
+                        <a href="#zoneintervention-management-GETapi-zonesintervention">Get all ZoneInterventions.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="zoneintervention-management-POSTapi-zonesintervention">
+                        <a href="#zoneintervention-management-POSTapi-zonesintervention">Add a new ZoneIntervention.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="zoneintervention-management-GETapi-zonesintervention--id-">
+                        <a href="#zoneintervention-management-GETapi-zonesintervention--id-">Get a single ZoneIntervention.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="zoneintervention-management-PUTapi-zonesintervention--id-">
+                        <a href="#zoneintervention-management-PUTapi-zonesintervention--id-">Update a ZoneIntervention.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="zoneintervention-management-DELETEapi-zonesintervention--id-">
+                        <a href="#zoneintervention-management-DELETEapi-zonesintervention--id-">Delete a ZoneIntervention.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="account-management">
                     <a href="#account-management">Account management</a>
                 </li>
@@ -104,7 +126,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-3" class="tocify-header">
+                    <ul id="tocify-header-4" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="odd-management">
                     <a href="#odd-management">ODD management</a>
                 </li>
@@ -141,6 +163,31 @@
                     </li>
                                                     </ul>
                             </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="osc-management">
+                    <a href="#osc-management">OSC management</a>
+                </li>
+                                    <ul id="tocify-subheader-osc-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="osc-management-GETapi-osc">
+                        <a href="#osc-management-GETapi-osc">Get all OSCs.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="osc-management-POSTapi-osc">
+                        <a href="#osc-management-POSTapi-osc">Add a new OSC.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="osc-management-GETapi-osc--id-">
+                        <a href="#osc-management-GETapi-osc--id-">Get a single OSC.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="osc-management-PUTapi-osc--id-">
+                        <a href="#osc-management-PUTapi-osc--id-">Update a OSC.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="osc-management-DELETEapi-osc--id-">
+                        <a href="#osc-management-DELETEapi-osc--id-">Delete a OSC.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="osc-management-GETapi-activeosc">
+                        <a href="#osc-management-GETapi-activeosc">getActiveOscs.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
         
                         
             </div>
@@ -151,7 +198,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 4 2022</li>
+        <li>Last updated: April 6 2022</li>
     </ul>
 </div>
 
@@ -170,6 +217,888 @@ Vous pouvez changer la langue utilisée à l'aide des onglets situés en haut à
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
+
+        <h1 id="zoneintervention-management">ZoneIntervention management</h1>
+
+    <p>APIs for managing ZoneInterventions</p>
+
+            <h2 id="zoneintervention-management-GETapi-zonesintervention">Get all ZoneInterventions.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-zonesintervention">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/zonesintervention" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/zonesintervention"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/zonesintervention',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/zonesintervention'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-zonesintervention">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 7,
+            &quot;osc_id&quot;: 1,
+            &quot;name&quot;: &quot;Zone&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;osc_id&quot;: 1,
+            &quot;name&quot;: &quot;Zone2&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;osc_id&quot;: 1,
+            &quot;name&quot;: &quot;Zone3&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;
+        }
+    ],
+    &quot;message&quot;: &quot;Liste des ZoneInterventions&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-zonesintervention" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-zonesintervention"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-zonesintervention"></code></pre>
+</span>
+<span id="execution-error-GETapi-zonesintervention" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-zonesintervention"></code></pre>
+</span>
+<form id="form-GETapi-zonesintervention" data-method="GET"
+      data-path="api/zonesintervention"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-zonesintervention', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-zonesintervention"
+                    onclick="tryItOut('GETapi-zonesintervention');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-zonesintervention"
+                    onclick="cancelTryOut('GETapi-zonesintervention');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-zonesintervention" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/zonesintervention</code></b>
+        </p>
+                    </form>
+
+            <h2 id="zoneintervention-management-POSTapi-zonesintervention">Add a new ZoneIntervention.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-zonesintervention">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/zonesintervention" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"osc_id\": 7,
+    \"name\": \"Faim\",
+    \"longitude\": \"13\",
+    \"latitude\": \"2\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/zonesintervention"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "osc_id": 7,
+    "name": "Faim",
+    "longitude": "13",
+    "latitude": "2"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/zonesintervention',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'osc_id' =&gt; 7,
+            'name' =&gt; 'Faim',
+            'longitude' =&gt; '13',
+            'latitude' =&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/zonesintervention'
+payload = {
+    "osc_id": 7,
+    "name": "Faim",
+    "longitude": "13",
+    "latitude": "2"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-zonesintervention">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 7,
+        &quot;osc_id&quot;: 1,
+        &quot;name&quot;: &quot;Zone&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;
+    },
+    &quot;message&quot;: &quot;ZoneIntervention created successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-zonesintervention" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-zonesintervention"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-zonesintervention"></code></pre>
+</span>
+<span id="execution-error-POSTapi-zonesintervention" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-zonesintervention"></code></pre>
+</span>
+<form id="form-POSTapi-zonesintervention" data-method="POST"
+      data-path="api/zonesintervention"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-zonesintervention', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-zonesintervention"
+                    onclick="tryItOut('POSTapi-zonesintervention');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-zonesintervention"
+                    onclick="cancelTryOut('POSTapi-zonesintervention');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-zonesintervention" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/zonesintervention</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-zonesintervention" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-zonesintervention"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>osc_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="osc_id"
+               data-endpoint="POSTapi-zonesintervention"
+               value="7"
+               data-component="body" hidden>
+    <br>
+<p>The osc id.</p>
+        </p>
+                <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-zonesintervention"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>The name of zoneIntervention.</p>
+        </p>
+                <p>
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="POSTapi-zonesintervention"
+               value="13"
+               data-component="body" hidden>
+    <br>
+<p>The longitude of zoneIntervention.</p>
+        </p>
+                <p>
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="POSTapi-zonesintervention"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>The latitude of zoneIntervention.</p>
+        </p>
+        </form>
+
+            <h2 id="zoneintervention-management-GETapi-zonesintervention--id-">Get a single ZoneIntervention.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-zonesintervention--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/zonesintervention/repellendus" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/zonesintervention/repellendus"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/zonesintervention/repellendus',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/zonesintervention/repellendus'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-zonesintervention--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 8,
+        &quot;osc_id&quot;: 1,
+        &quot;name&quot;: &quot;Zone2&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;,
+        &quot;oscs&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;OSCUPDATE1&quot;,
+            &quot;abbreviation&quot;: &quot;os&quot;,
+            &quot;numero_osc&quot;: &quot;123&quot;,
+            &quot;pays&quot;: &quot;Cameroun&quot;,
+            &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+            &quot;description&quot;: &quot;Une Osc&quot;,
+            &quot;personne_contact&quot;: &quot;Tala&quot;,
+            &quot;telephone&quot;: &quot;691201946&quot;,
+            &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+            &quot;site_web&quot;: &quot;site.com&quot;,
+            &quot;facebook&quot;: &quot;facebook&quot;,
+            &quot;twitter&quot;: &quot;twitter&quot;,
+            &quot;instagram&quot;: &quot;instagram&quot;,
+            &quot;linkedin&quot;: &quot;linkedlin&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;,
+            &quot;siege&quot;: &quot;Adamaoua&quot;,
+            &quot;user_id&quot;: 2,
+            &quot;active&quot;: false
+        }
+    },
+    &quot;message&quot;: &quot;ZoneIntervention retrieved successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-zonesintervention--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-zonesintervention--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-zonesintervention--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-zonesintervention--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-zonesintervention--id-"></code></pre>
+</span>
+<form id="form-GETapi-zonesintervention--id-" data-method="GET"
+      data-path="api/zonesintervention/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-zonesintervention--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-zonesintervention--id-"
+                    onclick="tryItOut('GETapi-zonesintervention--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-zonesintervention--id-"
+                    onclick="cancelTryOut('GETapi-zonesintervention--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-zonesintervention--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/zonesintervention/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-zonesintervention--id-"
+               value="repellendus"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the ZoneIntervention.</p>
+            </p>
+                    </form>
+
+            <h2 id="zoneintervention-management-PUTapi-zonesintervention--id-">Update a ZoneIntervention.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-zonesintervention--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/zonesintervention/7" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"osc_id\": 10,
+    \"name\": \"Faim\",
+    \"longitude\": \"13\",
+    \"latitude\": \"2\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/zonesintervention/7"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "osc_id": 10,
+    "name": "Faim",
+    "longitude": "13",
+    "latitude": "2"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:8000/api/zonesintervention/7',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'osc_id' =&gt; 10,
+            'name' =&gt; 'Faim',
+            'longitude' =&gt; '13',
+            'latitude' =&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/zonesintervention/7'
+payload = {
+    "osc_id": 10,
+    "name": "Faim",
+    "longitude": "13",
+    "latitude": "2"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-zonesintervention--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 7,
+        &quot;osc_id&quot;: 1,
+        &quot;name&quot;: &quot;Zone&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;
+    },
+    &quot;message&quot;: &quot;ZoneIntervention updated successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-zonesintervention--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-zonesintervention--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-zonesintervention--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-zonesintervention--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-zonesintervention--id-"></code></pre>
+</span>
+<form id="form-PUTapi-zonesintervention--id-" data-method="PUT"
+      data-path="api/zonesintervention/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-zonesintervention--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-zonesintervention--id-"
+                    onclick="tryItOut('PUTapi-zonesintervention--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-zonesintervention--id-"
+                    onclick="cancelTryOut('PUTapi-zonesintervention--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-zonesintervention--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/zonesintervention/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/zonesintervention/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-zonesintervention--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-zonesintervention--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-zonesintervention--id-"
+               value="7"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the zonesintervention.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>osc_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="osc_id"
+               data-endpoint="PUTapi-zonesintervention--id-"
+               value="10"
+               data-component="body" hidden>
+    <br>
+<p>The osc id.</p>
+        </p>
+                <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-zonesintervention--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>The name of zoneIntervention.</p>
+        </p>
+                <p>
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="PUTapi-zonesintervention--id-"
+               value="13"
+               data-component="body" hidden>
+    <br>
+<p>The longitude of zoneIntervention.</p>
+        </p>
+                <p>
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="PUTapi-zonesintervention--id-"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>The latitude of zoneIntervention.</p>
+        </p>
+        </form>
+
+            <h2 id="zoneintervention-management-DELETEapi-zonesintervention--id-">Delete a ZoneIntervention.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-zonesintervention--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/zonesintervention/vero" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/zonesintervention/vero"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:8000/api/zonesintervention/vero',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/zonesintervention/vero'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-zonesintervention--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 7,
+        &quot;osc_id&quot;: 1,
+        &quot;name&quot;: &quot;Zone&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;
+    },
+    &quot;message&quot;: &quot;ZoneIntervention deleted successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-zonesintervention--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-zonesintervention--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-zonesintervention--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-zonesintervention--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-zonesintervention--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-zonesintervention--id-" data-method="DELETE"
+      data-path="api/zonesintervention/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-zonesintervention--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-zonesintervention--id-"
+                    onclick="tryItOut('DELETEapi-zonesintervention--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-zonesintervention--id-"
+                    onclick="cancelTryOut('DELETEapi-zonesintervention--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-zonesintervention--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/zonesintervention/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-zonesintervention--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-zonesintervention--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-zonesintervention--id-"
+               value="vero"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the ZoneIntervention.</p>
+            </p>
+                    </form>
 
         <h1 id="account-management">Account management</h1>
 
@@ -342,7 +1271,7 @@ response.json()</code></pre></div>
     --header "X-Authorization: apiKey" \
     --data "{
     \"email\": \"gautier@position.cm\",
-    \"token\": \"fugiat\",
+    \"token\": \"assumenda\",
     \"password\": \"gautier124\",
     \"password_confirmation\": \"gautier124\"
 }"
@@ -362,7 +1291,7 @@ const headers = {
 
 let body = {
     "email": "gautier@position.cm",
-    "token": "fugiat",
+    "token": "assumenda",
     "password": "gautier124",
     "password_confirmation": "gautier124"
 };
@@ -386,7 +1315,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'email' =&gt; 'gautier@position.cm',
-            'token' =&gt; 'fugiat',
+            'token' =&gt; 'assumenda',
             'password' =&gt; 'gautier124',
             'password_confirmation' =&gt; 'gautier124',
         ],
@@ -403,7 +1332,7 @@ import json
 url = 'http://localhost:8000/api/auth/password/reset'
 payload = {
     "email": "gautier@position.cm",
-    "token": "fugiat",
+    "token": "assumenda",
     "password": "gautier124",
     "password_confirmation": "gautier124"
 }
@@ -486,7 +1415,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-auth-password-reset"
-               value="fugiat"
+               value="assumenda"
                data-component="body" hidden>
     <br>
 <p>token give in mail.</p>
@@ -3184,6 +4113,1662 @@ response.json()</code></pre></div>
     <br>
 <p>The ID of the CategorieOdd.</p>
             </p>
+                    </form>
+
+        <h1 id="osc-management">OSC management</h1>
+
+    <p>APIs for managing OSCs</p>
+
+            <h2 id="osc-management-GETapi-osc">Get all OSCs.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-osc">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/osc" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/osc"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/osc',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/osc'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-osc">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;OSC&quot;,
+            &quot;abbreviation&quot;: &quot;os&quot;,
+            &quot;numero_osc&quot;: &quot;123&quot;,
+            &quot;pays&quot;: &quot;Cameroun&quot;,
+            &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+            &quot;description&quot;: &quot;Une Osc&quot;,
+            &quot;personne_contact&quot;: &quot;Tala&quot;,
+            &quot;telephone&quot;: &quot;691201946&quot;,
+            &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+            &quot;site_web&quot;: &quot;site.com&quot;,
+            &quot;facebook&quot;: &quot;facebook&quot;,
+            &quot;twitter&quot;: &quot;twitter&quot;,
+            &quot;instagram&quot;: &quot;instagram&quot;,
+            &quot;linkedin&quot;: &quot;linkedlin&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;,
+            &quot;siege&quot;: &quot;Adamaoua&quot;,
+            &quot;user_id&quot;: 2,
+            &quot;active&quot;: false,
+            &quot;user&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Gautier&quot;,
+                &quot;email&quot;: &quot;bt@sogefi.cm&quot;,
+                &quot;email_verified_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;,
+                &quot;role&quot;: 2,
+                &quot;deleted_at&quot;: null,
+                &quot;created_at&quot;: &quot;2022-04-04T08:52:53.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;
+            },
+            &quot;categorie_odds&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;category_number&quot;: &quot;2.2&quot;,
+                    &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+                    &quot;id_odd&quot;: 2,
+                    &quot;pivot&quot;: {
+                        &quot;osc_id&quot;: 1,
+                        &quot;categorie_odd_id&quot;: 2,
+                        &quot;description&quot;: &quot;Une Osc1&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 1,
+                    &quot;category_number&quot;: &quot;2.1&quot;,
+                    &quot;intitule&quot;: &quot;Mon OBJECTIF Durable&quot;,
+                    &quot;id_odd&quot;: 2,
+                    &quot;pivot&quot;: {
+                        &quot;osc_id&quot;: 1,
+                        &quot;categorie_odd_id&quot;: 1,
+                        &quot;description&quot;: &quot;Une Osc&quot;
+                    }
+                }
+            ],
+            &quot;zone_interventions&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone2&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone3&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                }
+            ]
+        }
+    ],
+    &quot;message&quot;: &quot;Liste des OSCs&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-osc" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-osc"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-osc"></code></pre>
+</span>
+<span id="execution-error-GETapi-osc" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-osc"></code></pre>
+</span>
+<form id="form-GETapi-osc" data-method="GET"
+      data-path="api/osc"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-osc', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-osc"
+                    onclick="tryItOut('GETapi-osc');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-osc"
+                    onclick="cancelTryOut('GETapi-osc');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-osc" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/osc</code></b>
+        </p>
+                    </form>
+
+            <h2 id="osc-management-POSTapi-osc">Add a new OSC.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-osc">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/osc" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"name\": \"Faim\",
+    \"abbreviation\": \"F\",
+    \"numero_osc\": \"12\",
+    \"pays\": \"France\",
+    \"date_fondation\": \"12\\/12\\/12\",
+    \"description\": \"Faim\",
+    \"personne_contact\": \"Faim\",
+    \"telephone\": \"12\",
+    \"email_osc\": \"Faim\",
+    \"site_web\": \"Faim\",
+    \"facebook\": \"Faim\",
+    \"twitter\": \"Faim\",
+    \"instagram\": \"Faim\",
+    \"linkedin\": \"Faim\",
+    \"longitude\": \"Faim\",
+    \"latitude\": \"Faim\",
+    \"siege\": \"Faim\",
+    \"zone_intervention\": \"[ {\\\"name\\\":\\\"Zone\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone2\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone3\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"}]\",
+    \"osccategoriesOdd\": \"[{\\\"id\\\" : 12,\\\"description\\\":\\\"Une Osc\\\"},{\\\"id\\\" : 20,\\\"description\\\":\\\"Une Osc1\\\"}]\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/osc"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "name": "Faim",
+    "abbreviation": "F",
+    "numero_osc": "12",
+    "pays": "France",
+    "date_fondation": "12\/12\/12",
+    "description": "Faim",
+    "personne_contact": "Faim",
+    "telephone": "12",
+    "email_osc": "Faim",
+    "site_web": "Faim",
+    "facebook": "Faim",
+    "twitter": "Faim",
+    "instagram": "Faim",
+    "linkedin": "Faim",
+    "longitude": "Faim",
+    "latitude": "Faim",
+    "siege": "Faim",
+    "zone_intervention": "[ {\"name\":\"Zone\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone2\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone3\",\"longitude\":\"13\",\"latitude\":\"7\"}]",
+    "osccategoriesOdd": "[{\"id\" : 12,\"description\":\"Une Osc\"},{\"id\" : 20,\"description\":\"Une Osc1\"}]"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:8000/api/osc',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Faim',
+            'abbreviation' =&gt; 'F',
+            'numero_osc' =&gt; '12',
+            'pays' =&gt; 'France',
+            'date_fondation' =&gt; '12/12/12',
+            'description' =&gt; 'Faim',
+            'personne_contact' =&gt; 'Faim',
+            'telephone' =&gt; '12',
+            'email_osc' =&gt; 'Faim',
+            'site_web' =&gt; 'Faim',
+            'facebook' =&gt; 'Faim',
+            'twitter' =&gt; 'Faim',
+            'instagram' =&gt; 'Faim',
+            'linkedin' =&gt; 'Faim',
+            'longitude' =&gt; 'Faim',
+            'latitude' =&gt; 'Faim',
+            'siege' =&gt; 'Faim',
+            'zone_intervention' =&gt; '[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]',
+            'osccategoriesOdd' =&gt; '[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/osc'
+payload = {
+    "name": "Faim",
+    "abbreviation": "F",
+    "numero_osc": "12",
+    "pays": "France",
+    "date_fondation": "12\/12\/12",
+    "description": "Faim",
+    "personne_contact": "Faim",
+    "telephone": "12",
+    "email_osc": "Faim",
+    "site_web": "Faim",
+    "facebook": "Faim",
+    "twitter": "Faim",
+    "instagram": "Faim",
+    "linkedin": "Faim",
+    "longitude": "Faim",
+    "latitude": "Faim",
+    "siege": "Faim",
+    "zone_intervention": "[ {\"name\":\"Zone\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone2\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone3\",\"longitude\":\"13\",\"latitude\":\"7\"}]",
+    "osccategoriesOdd": "[{\"id\" : 12,\"description\":\"Une Osc\"},{\"id\" : 20,\"description\":\"Une Osc1\"}]"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-osc">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;OSC&quot;,
+        &quot;abbreviation&quot;: &quot;os&quot;,
+        &quot;numero_osc&quot;: &quot;123&quot;,
+        &quot;pays&quot;: &quot;Cameroun&quot;,
+        &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+        &quot;description&quot;: &quot;Une Osc&quot;,
+        &quot;personne_contact&quot;: &quot;Tala&quot;,
+        &quot;telephone&quot;: &quot;691201946&quot;,
+        &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+        &quot;site_web&quot;: &quot;site.com&quot;,
+        &quot;facebook&quot;: &quot;facebook&quot;,
+        &quot;twitter&quot;: &quot;twitter&quot;,
+        &quot;instagram&quot;: &quot;instagram&quot;,
+        &quot;linkedin&quot;: &quot;linkedlin&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;,
+        &quot;siege&quot;: &quot;Adamaoua&quot;,
+        &quot;user_id&quot;: 2,
+        &quot;id&quot;: 1
+    },
+    &quot;message&quot;: &quot;OSC created successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-osc" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-osc"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-osc"></code></pre>
+</span>
+<span id="execution-error-POSTapi-osc" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-osc"></code></pre>
+</span>
+<form id="form-POSTapi-osc" data-method="POST"
+      data-path="api/osc"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-osc', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-osc"
+                    onclick="tryItOut('POSTapi-osc');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-osc"
+                    onclick="cancelTryOut('POSTapi-osc');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-osc" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/osc</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-osc" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-osc"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the name of the osc.</p>
+        </p>
+                <p>
+            <b><code>abbreviation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="abbreviation"
+               data-endpoint="POSTapi-osc"
+               value="F"
+               data-component="body" hidden>
+    <br>
+<p>the abbreviation of the osc.</p>
+        </p>
+                <p>
+            <b><code>numero_osc</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="numero_osc"
+               data-endpoint="POSTapi-osc"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the osc.</p>
+        </p>
+                <p>
+            <b><code>pays</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="pays"
+               data-endpoint="POSTapi-osc"
+               value="France"
+               data-component="body" hidden>
+    <br>
+<p>the country of the osc.</p>
+        </p>
+                <p>
+            <b><code>date_fondation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="date_fondation"
+               data-endpoint="POSTapi-osc"
+               value="12/12/12"
+               data-component="body" hidden>
+    <br>
+<p>the date of the osc.</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the description of the osc.</p>
+        </p>
+                <p>
+            <b><code>personne_contact</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="personne_contact"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the contact person of the osc.</p>
+        </p>
+                <p>
+            <b><code>telephone</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="telephone"
+               data-endpoint="POSTapi-osc"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the telephone of the osc.</p>
+        </p>
+                <p>
+            <b><code>email_osc</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email_osc"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the email of the osc.</p>
+        </p>
+                <p>
+            <b><code>site_web</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="site_web"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the website of the osc.</p>
+        </p>
+                <p>
+            <b><code>facebook</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="facebook"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the facebook of the osc.</p>
+        </p>
+                <p>
+            <b><code>twitter</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="twitter"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the twitter of the osc.</p>
+        </p>
+                <p>
+            <b><code>instagram</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="instagram"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the instagram of the osc.</p>
+        </p>
+                <p>
+            <b><code>linkedin</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="linkedin"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the linkedin of the osc.</p>
+        </p>
+                <p>
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the longitude of the osc.</p>
+        </p>
+                <p>
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the latitude of the osc.</p>
+        </p>
+                <p>
+            <b><code>siege</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="siege"
+               data-endpoint="POSTapi-osc"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the siege of the osc.</p>
+        </p>
+                <p>
+            <b><code>zone_intervention</code></b>&nbsp;&nbsp;<small>required</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="zone_intervention"
+               data-endpoint="POSTapi-osc"
+               value="[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]"
+               data-component="body" hidden>
+    <br>
+<p>the zone of the osc.</p>
+        </p>
+                <p>
+            <b><code>osccategoriesOdd</code></b>&nbsp;&nbsp;<small>required</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="osccategoriesOdd"
+               data-endpoint="POSTapi-osc"
+               value="[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]"
+               data-component="body" hidden>
+    <br>
+<p>the categories of the osc.</p>
+        </p>
+        </form>
+
+            <h2 id="osc-management-GETapi-osc--id-">Get a single OSC.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-osc--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/osc/error" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/osc/error"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/osc/error',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/osc/error'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-osc--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;OSC&quot;,
+        &quot;abbreviation&quot;: &quot;os&quot;,
+        &quot;numero_osc&quot;: &quot;123&quot;,
+        &quot;pays&quot;: &quot;Cameroun&quot;,
+        &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+        &quot;description&quot;: &quot;Une Osc&quot;,
+        &quot;personne_contact&quot;: &quot;Tala&quot;,
+        &quot;telephone&quot;: &quot;691201946&quot;,
+        &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+        &quot;site_web&quot;: &quot;site.com&quot;,
+        &quot;facebook&quot;: &quot;facebook&quot;,
+        &quot;twitter&quot;: &quot;twitter&quot;,
+        &quot;instagram&quot;: &quot;instagram&quot;,
+        &quot;linkedin&quot;: &quot;linkedlin&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;,
+        &quot;siege&quot;: &quot;Adamaoua&quot;,
+        &quot;user_id&quot;: 2,
+        &quot;active&quot;: false,
+        &quot;user&quot;: {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Gautier&quot;,
+            &quot;email&quot;: &quot;bt@sogefi.cm&quot;,
+            &quot;email_verified_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;,
+            &quot;role&quot;: 2,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-04-04T08:52:53.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;
+        },
+        &quot;categorie_odds&quot;: [
+            {
+                &quot;id&quot;: 2,
+                &quot;category_number&quot;: &quot;2.2&quot;,
+                &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+                &quot;id_odd&quot;: 2,
+                &quot;pivot&quot;: {
+                    &quot;osc_id&quot;: 1,
+                    &quot;categorie_odd_id&quot;: 2,
+                    &quot;description&quot;: &quot;Une Osc1&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 1,
+                &quot;category_number&quot;: &quot;2.1&quot;,
+                &quot;intitule&quot;: &quot;Mon OBJECTIF Durable&quot;,
+                &quot;id_odd&quot;: 2,
+                &quot;pivot&quot;: {
+                    &quot;osc_id&quot;: 1,
+                    &quot;categorie_odd_id&quot;: 1,
+                    &quot;description&quot;: &quot;Une Osc&quot;
+                }
+            }
+        ],
+        &quot;zone_interventions&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;osc_id&quot;: 1,
+                &quot;name&quot;: &quot;Zone&quot;,
+                &quot;longitude&quot;: &quot;13&quot;,
+                &quot;latitude&quot;: &quot;7&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;osc_id&quot;: 1,
+                &quot;name&quot;: &quot;Zone2&quot;,
+                &quot;longitude&quot;: &quot;13&quot;,
+                &quot;latitude&quot;: &quot;7&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;osc_id&quot;: 1,
+                &quot;name&quot;: &quot;Zone3&quot;,
+                &quot;longitude&quot;: &quot;13&quot;,
+                &quot;latitude&quot;: &quot;7&quot;
+            }
+        ]
+    },
+    &quot;message&quot;: &quot;OSC retrieved successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-osc--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-osc--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-osc--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-osc--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-osc--id-"></code></pre>
+</span>
+<form id="form-GETapi-osc--id-" data-method="GET"
+      data-path="api/osc/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-osc--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-osc--id-"
+                    onclick="tryItOut('GETapi-osc--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-osc--id-"
+                    onclick="cancelTryOut('GETapi-osc--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-osc--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/osc/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-osc--id-"
+               value="error"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the OSC.</p>
+            </p>
+                    </form>
+
+            <h2 id="osc-management-PUTapi-osc--id-">Update a OSC.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-osc--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/osc/rerum" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey" \
+    --data "{
+    \"name\": \"Faim\",
+    \"abbreviation\": \"F\",
+    \"numero_osc\": \"12\",
+    \"pays\": \"France\",
+    \"date_fondation\": \"12\\/12\\/12\",
+    \"description\": \"Faim\",
+    \"personne_contact\": \"Faim\",
+    \"telephone\": \"12\",
+    \"email_osc\": \"Faim\",
+    \"site_web\": \"Faim\",
+    \"facebook\": \"Faim\",
+    \"twitter\": \"Faim\",
+    \"instagram\": \"Faim\",
+    \"linkedin\": \"Faim\",
+    \"longitude\": \"Faim\",
+    \"latitude\": \"Faim\",
+    \"siege\": \"Faim\",
+    \"zone_intervention\": \"[ {\\\"name\\\":\\\"Zone\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone2\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone3\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"}]\",
+    \"osccategoriesOdd\": \"[{\\\"id\\\" : 12,\\\"description\\\":\\\"Une Osc\\\"},{\\\"id\\\" : 20,\\\"description\\\":\\\"Une Osc1\\\"}]\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/osc/rerum"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+let body = {
+    "name": "Faim",
+    "abbreviation": "F",
+    "numero_osc": "12",
+    "pays": "France",
+    "date_fondation": "12\/12\/12",
+    "description": "Faim",
+    "personne_contact": "Faim",
+    "telephone": "12",
+    "email_osc": "Faim",
+    "site_web": "Faim",
+    "facebook": "Faim",
+    "twitter": "Faim",
+    "instagram": "Faim",
+    "linkedin": "Faim",
+    "longitude": "Faim",
+    "latitude": "Faim",
+    "siege": "Faim",
+    "zone_intervention": "[ {\"name\":\"Zone\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone2\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone3\",\"longitude\":\"13\",\"latitude\":\"7\"}]",
+    "osccategoriesOdd": "[{\"id\" : 12,\"description\":\"Une Osc\"},{\"id\" : 20,\"description\":\"Une Osc1\"}]"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:8000/api/osc/rerum',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Faim',
+            'abbreviation' =&gt; 'F',
+            'numero_osc' =&gt; '12',
+            'pays' =&gt; 'France',
+            'date_fondation' =&gt; '12/12/12',
+            'description' =&gt; 'Faim',
+            'personne_contact' =&gt; 'Faim',
+            'telephone' =&gt; '12',
+            'email_osc' =&gt; 'Faim',
+            'site_web' =&gt; 'Faim',
+            'facebook' =&gt; 'Faim',
+            'twitter' =&gt; 'Faim',
+            'instagram' =&gt; 'Faim',
+            'linkedin' =&gt; 'Faim',
+            'longitude' =&gt; 'Faim',
+            'latitude' =&gt; 'Faim',
+            'siege' =&gt; 'Faim',
+            'zone_intervention' =&gt; '[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]',
+            'osccategoriesOdd' =&gt; '[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/osc/rerum'
+payload = {
+    "name": "Faim",
+    "abbreviation": "F",
+    "numero_osc": "12",
+    "pays": "France",
+    "date_fondation": "12\/12\/12",
+    "description": "Faim",
+    "personne_contact": "Faim",
+    "telephone": "12",
+    "email_osc": "Faim",
+    "site_web": "Faim",
+    "facebook": "Faim",
+    "twitter": "Faim",
+    "instagram": "Faim",
+    "linkedin": "Faim",
+    "longitude": "Faim",
+    "latitude": "Faim",
+    "siege": "Faim",
+    "zone_intervention": "[ {\"name\":\"Zone\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone2\",\"longitude\":\"13\",\"latitude\":\"7\"},{\"name\":\"Zone3\",\"longitude\":\"13\",\"latitude\":\"7\"}]",
+    "osccategoriesOdd": "[{\"id\" : 12,\"description\":\"Une Osc\"},{\"id\" : 20,\"description\":\"Une Osc1\"}]"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-osc--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;OSCUPDATE&quot;,
+        &quot;abbreviation&quot;: &quot;os&quot;,
+        &quot;numero_osc&quot;: &quot;123&quot;,
+        &quot;pays&quot;: &quot;Cameroun&quot;,
+        &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+        &quot;description&quot;: &quot;Une Osc&quot;,
+        &quot;personne_contact&quot;: &quot;Tala&quot;,
+        &quot;telephone&quot;: &quot;691201946&quot;,
+        &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+        &quot;site_web&quot;: &quot;site.com&quot;,
+        &quot;facebook&quot;: &quot;facebook&quot;,
+        &quot;twitter&quot;: &quot;twitter&quot;,
+        &quot;instagram&quot;: &quot;instagram&quot;,
+        &quot;linkedin&quot;: &quot;linkedlin&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;,
+        &quot;siege&quot;: &quot;Adamaoua&quot;,
+        &quot;user_id&quot;: 2,
+        &quot;active&quot;: false
+    },
+    &quot;message&quot;: &quot;OSC updated successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-osc--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-osc--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-osc--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-osc--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-osc--id-"></code></pre>
+</span>
+<form id="form-PUTapi-osc--id-" data-method="PUT"
+      data-path="api/osc/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-osc--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-osc--id-"
+                    onclick="tryItOut('PUTapi-osc--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-osc--id-"
+                    onclick="cancelTryOut('PUTapi-osc--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-osc--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/osc/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/osc/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-osc--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-osc--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-osc--id-"
+               value="rerum"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the OSC.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the name of the osc.</p>
+        </p>
+                <p>
+            <b><code>abbreviation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="abbreviation"
+               data-endpoint="PUTapi-osc--id-"
+               value="F"
+               data-component="body" hidden>
+    <br>
+<p>the abbreviation of the osc.</p>
+        </p>
+                <p>
+            <b><code>numero_osc</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="numero_osc"
+               data-endpoint="PUTapi-osc--id-"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the number of the osc.</p>
+        </p>
+                <p>
+            <b><code>pays</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="pays"
+               data-endpoint="PUTapi-osc--id-"
+               value="France"
+               data-component="body" hidden>
+    <br>
+<p>the country of the osc.</p>
+        </p>
+                <p>
+            <b><code>date_fondation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="date_fondation"
+               data-endpoint="PUTapi-osc--id-"
+               value="12/12/12"
+               data-component="body" hidden>
+    <br>
+<p>the date of the osc.</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the description of the osc.</p>
+        </p>
+                <p>
+            <b><code>personne_contact</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="personne_contact"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the contact person of the osc.</p>
+        </p>
+                <p>
+            <b><code>telephone</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="telephone"
+               data-endpoint="PUTapi-osc--id-"
+               value="12"
+               data-component="body" hidden>
+    <br>
+<p>the telephone of the osc.</p>
+        </p>
+                <p>
+            <b><code>email_osc</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email_osc"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the email of the osc.</p>
+        </p>
+                <p>
+            <b><code>site_web</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="site_web"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the website of the osc.</p>
+        </p>
+                <p>
+            <b><code>facebook</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="facebook"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the facebook of the osc.</p>
+        </p>
+                <p>
+            <b><code>twitter</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="twitter"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the twitter of the osc.</p>
+        </p>
+                <p>
+            <b><code>instagram</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="instagram"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the instagram of the osc.</p>
+        </p>
+                <p>
+            <b><code>linkedin</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="linkedin"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the linkedin of the osc.</p>
+        </p>
+                <p>
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the longitude of the osc.</p>
+        </p>
+                <p>
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the latitude of the osc.</p>
+        </p>
+                <p>
+            <b><code>siege</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="siege"
+               data-endpoint="PUTapi-osc--id-"
+               value="Faim"
+               data-component="body" hidden>
+    <br>
+<p>the siege of the osc.</p>
+        </p>
+                <p>
+            <b><code>zone_intervention</code></b>&nbsp;&nbsp;<small>required</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="zone_intervention"
+               data-endpoint="PUTapi-osc--id-"
+               value="[ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]"
+               data-component="body" hidden>
+    <br>
+<p>the zone of the osc.</p>
+        </p>
+                <p>
+            <b><code>osccategoriesOdd</code></b>&nbsp;&nbsp;<small>required</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="osccategoriesOdd"
+               data-endpoint="PUTapi-osc--id-"
+               value="[{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]"
+               data-component="body" hidden>
+    <br>
+<p>the categories of the osc.</p>
+        </p>
+        </form>
+
+            <h2 id="osc-management-DELETEapi-osc--id-">Delete a OSC.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-osc--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/osc/eum" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/osc/eum"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:8000/api/osc/eum',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/osc/eum'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-osc--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;OSCUPDATE&quot;,
+        &quot;abbreviation&quot;: &quot;os&quot;,
+        &quot;numero_osc&quot;: &quot;123&quot;,
+        &quot;pays&quot;: &quot;Cameroun&quot;,
+        &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+        &quot;description&quot;: &quot;Une Osc&quot;,
+        &quot;personne_contact&quot;: &quot;Tala&quot;,
+        &quot;telephone&quot;: &quot;691201946&quot;,
+        &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+        &quot;site_web&quot;: &quot;site.com&quot;,
+        &quot;facebook&quot;: &quot;facebook&quot;,
+        &quot;twitter&quot;: &quot;twitter&quot;,
+        &quot;instagram&quot;: &quot;instagram&quot;,
+        &quot;linkedin&quot;: &quot;linkedlin&quot;,
+        &quot;longitude&quot;: &quot;13&quot;,
+        &quot;latitude&quot;: &quot;7&quot;,
+        &quot;siege&quot;: &quot;Adamaoua&quot;,
+        &quot;user_id&quot;: 2,
+        &quot;active&quot;: false
+    },
+    &quot;message&quot;: &quot;OSC deleted successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-osc--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-osc--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-osc--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-osc--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-osc--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-osc--id-" data-method="DELETE"
+      data-path="api/osc/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-osc--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-osc--id-"
+                    onclick="tryItOut('DELETEapi-osc--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-osc--id-"
+                    onclick="cancelTryOut('DELETEapi-osc--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-osc--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/osc/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-osc--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-osc--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-osc--id-"
+               value="eum"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the OSC.</p>
+            </p>
+                    </form>
+
+            <h2 id="osc-management-GETapi-activeosc">getActiveOscs.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-activeosc">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/activeosc" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "X-Authorization: apiKey"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/activeosc"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "apiKey",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:8000/api/activeosc',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; 'apiKey',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8000/api/activeosc'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': 'apiKey'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-activeosc">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;OSC&quot;,
+            &quot;abbreviation&quot;: &quot;os&quot;,
+            &quot;numero_osc&quot;: &quot;123&quot;,
+            &quot;pays&quot;: &quot;Cameroun&quot;,
+            &quot;date_fondation&quot;: &quot;2020-05-13&quot;,
+            &quot;description&quot;: &quot;Une Osc&quot;,
+            &quot;personne_contact&quot;: &quot;Tala&quot;,
+            &quot;telephone&quot;: &quot;691201946&quot;,
+            &quot;email_osc&quot;: &quot;test@mail.com&quot;,
+            &quot;site_web&quot;: &quot;site.com&quot;,
+            &quot;facebook&quot;: &quot;facebook&quot;,
+            &quot;twitter&quot;: &quot;twitter&quot;,
+            &quot;instagram&quot;: &quot;instagram&quot;,
+            &quot;linkedin&quot;: &quot;linkedlin&quot;,
+            &quot;longitude&quot;: &quot;13&quot;,
+            &quot;latitude&quot;: &quot;7&quot;,
+            &quot;siege&quot;: &quot;Adamaoua&quot;,
+            &quot;user_id&quot;: 2,
+            &quot;active&quot;: false,
+            &quot;user&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Gautier&quot;,
+                &quot;email&quot;: &quot;bt@sogefi.cm&quot;,
+                &quot;email_verified_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;,
+                &quot;role&quot;: 2,
+                &quot;deleted_at&quot;: null,
+                &quot;created_at&quot;: &quot;2022-04-04T08:52:53.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-04-04T08:53:31.000000Z&quot;
+            },
+            &quot;categorie_odds&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;category_number&quot;: &quot;2.2&quot;,
+                    &quot;intitule&quot;: &quot;Mon OBJECTIF&quot;,
+                    &quot;id_odd&quot;: 2,
+                    &quot;pivot&quot;: {
+                        &quot;osc_id&quot;: 1,
+                        &quot;categorie_odd_id&quot;: 2,
+                        &quot;description&quot;: &quot;Une Osc1&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 1,
+                    &quot;category_number&quot;: &quot;2.1&quot;,
+                    &quot;intitule&quot;: &quot;Mon OBJECTIF Durable&quot;,
+                    &quot;id_odd&quot;: 2,
+                    &quot;pivot&quot;: {
+                        &quot;osc_id&quot;: 1,
+                        &quot;categorie_odd_id&quot;: 1,
+                        &quot;description&quot;: &quot;Une Osc&quot;
+                    }
+                }
+            ],
+            &quot;zone_interventions&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone2&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;osc_id&quot;: 1,
+                    &quot;name&quot;: &quot;Zone3&quot;,
+                    &quot;longitude&quot;: &quot;13&quot;,
+                    &quot;latitude&quot;: &quot;7&quot;
+                }
+            ]
+        }
+    ],
+    &quot;message&quot;: &quot;Liste des OSCs&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-activeosc" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-activeosc"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-activeosc"></code></pre>
+</span>
+<span id="execution-error-GETapi-activeosc" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-activeosc"></code></pre>
+</span>
+<form id="form-GETapi-activeosc" data-method="GET"
+      data-path="api/activeosc"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","X-Authorization":"apiKey"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activeosc', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-activeosc"
+                    onclick="tryItOut('GETapi-activeosc');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-activeosc"
+                    onclick="cancelTryOut('GETapi-activeosc');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-activeosc" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/activeosc</code></b>
+        </p>
                     </form>
 
     

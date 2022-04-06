@@ -31,6 +31,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|CategorieOdd withTrashed()
  * @method static \Illuminate\Database\Query\Builder|CategorieOdd withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Osc[] $oscs
+ * @property-read int|null $oscs_count
  */
 class CategorieOdd extends Model
 {
@@ -45,8 +47,15 @@ class CategorieOdd extends Model
         'created_at', 'updated_at', 'deleted_at'
     ];
 
+
+
     public function odd()
     {
         return $this->belongsTo(Odd::class, 'id_odd');
+    }
+
+    public function oscs()
+    {
+        return $this->belongsToMany(Osc::class, "osc_categorie_odds", "categorie_odd_id", "osc_id");
     }
 }

@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "name": "OSC",
+        "abbreviation": "os",
+        "numero_osc": "123",
+        "pays": "Cameroun",
+        "date_fondation": "2020-05-13",
+        "description": "Une Osc",
+        "personne_contact": "Tala",
+        "telephone": "691201946",
+        "email_osc": "test@mail.com",
+        "site_web": "site.com",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "instagram": "instagram",
+        "linkedin": "linkedlin",
+        "longitude": "13",
+        "latitude": "7",
+        "siege": "Adamaoua",
+        "user_id": 2,
+        "active": false,
+        "user": {
+            "id": 2,
+            "name": "Gautier",
+            "email": "bt@sogefi.cm",
+            "email_verified_at": "2022-04-04T08:53:31.000000Z",
+            "role": 2,
+            "deleted_at": null,
+            "created_at": "2022-04-04T08:52:53.000000Z",
+            "updated_at": "2022-04-04T08:53:31.000000Z"
+        },
+        "categorie_odds": [
+            {
+                "id": 2,
+                "category_number": "2.2",
+                "intitule": "Mon OBJECTIF",
+                "id_odd": 2,
+                "pivot": {
+                    "osc_id": 1,
+                    "categorie_odd_id": 2,
+                    "description": "Une Osc1"
+                }
+            },
+            {
+                "id": 1,
+                "category_number": "2.1",
+                "intitule": "Mon OBJECTIF Durable",
+                "id_odd": 2,
+                "pivot": {
+                    "osc_id": 1,
+                    "categorie_odd_id": 1,
+                    "description": "Une Osc"
+                }
+            }
+        ],
+        "zone_interventions": [
+            {
+                "id": 1,
+                "osc_id": 1,
+                "name": "Zone",
+                "longitude": "13",
+                "latitude": "7"
+            },
+            {
+                "id": 2,
+                "osc_id": 1,
+                "name": "Zone2",
+                "longitude": "13",
+                "latitude": "7"
+            },
+            {
+                "id": 3,
+                "osc_id": 1,
+                "name": "Zone3",
+                "longitude": "13",
+                "latitude": "7"
+            }
+        ]
+    },
+    "message": "OSC retrieved successfully."
+}

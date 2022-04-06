@@ -1,0 +1,291 @@
+name: 'ZoneIntervention management'
+description: |-
+
+  APIs for managing ZoneInterventions
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/zonesintervention
+    metadata:
+      title: 'Get all ZoneInterventions.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Authorization: apiKey
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "data": [
+                  {
+                      "id": 7,
+                      "osc_id": 1,
+                      "name": "Zone",
+                      "longitude": "13",
+                      "latitude": "7"
+                  },
+                  {
+                      "id": 8,
+                      "osc_id": 1,
+                      "name": "Zone2",
+                      "longitude": "13",
+                      "latitude": "7"
+                  },
+                  {
+                      "id": 9,
+                      "osc_id": 1,
+                      "name": "Zone3",
+                      "longitude": "13",
+                      "latitude": "7"
+                  }
+              ],
+              "message": "Liste des ZoneInterventions"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/zonesintervention
+    metadata:
+      title: 'Add a new ZoneIntervention.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Authorization: apiKey
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      osc_id:
+        name: osc_id
+        description: 'The osc id.'
+        required: true
+        example: 7
+        type: integer
+        custom: []
+      name:
+        name: name
+        description: 'The name of zoneIntervention.'
+        required: true
+        example: Faim
+        type: string
+        custom: []
+      longitude:
+        name: longitude
+        description: 'The longitude of zoneIntervention.'
+        required: true
+        example: '13'
+        type: string
+        custom: []
+      latitude:
+        name: latitude
+        description: 'The latitude of zoneIntervention.'
+        required: true
+        example: '2'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "data": {
+                  "id": 7,
+                  "osc_id": 1,
+                  "name": "Zone",
+                  "longitude": "13",
+                  "latitude": "7"
+              },
+              "message": "ZoneIntervention created successfully."
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/zonesintervention/{id}'
+    metadata:
+      title: 'Get a single ZoneIntervention.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Authorization: apiKey
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ZoneIntervention.'
+        required: true
+        example: repellendus
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "data": {
+                  "id": 8,
+                  "osc_id": 1,
+                  "name": "Zone2",
+                  "longitude": "13",
+                  "latitude": "7",
+                  "oscs": {
+                      "id": 1,
+                      "name": "OSCUPDATE1",
+                      "abbreviation": "os",
+                      "numero_osc": "123",
+                      "pays": "Cameroun",
+                      "date_fondation": "2020-05-13",
+                      "description": "Une Osc",
+                      "personne_contact": "Tala",
+                      "telephone": "691201946",
+                      "email_osc": "test@mail.com",
+                      "site_web": "site.com",
+                      "facebook": "facebook",
+                      "twitter": "twitter",
+                      "instagram": "instagram",
+                      "linkedin": "linkedlin",
+                      "longitude": "13",
+                      "latitude": "7",
+                      "siege": "Adamaoua",
+                      "user_id": 2,
+                      "active": false
+                  }
+              },
+              "message": "ZoneIntervention retrieved successfully."
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/zonesintervention/{id}'
+    metadata:
+      title: 'Update a ZoneIntervention.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Authorization: apiKey
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the zonesintervention.'
+        required: true
+        example: 7
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      osc_id:
+        name: osc_id
+        description: 'The osc id.'
+        required: true
+        example: 10
+        type: integer
+        custom: []
+      name:
+        name: name
+        description: 'The name of zoneIntervention.'
+        required: true
+        example: Faim
+        type: string
+        custom: []
+      longitude:
+        name: longitude
+        description: 'The longitude of zoneIntervention.'
+        required: true
+        example: '13'
+        type: string
+        custom: []
+      latitude:
+        name: latitude
+        description: 'The latitude of zoneIntervention.'
+        required: true
+        example: '2'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "data": {
+                  "id": 7,
+                  "osc_id": 1,
+                  "name": "Zone",
+                  "longitude": "13",
+                  "latitude": "7"
+              },
+              "message": "ZoneIntervention updated successfully."
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/zonesintervention/{id}'
+    metadata:
+      title: 'Delete a ZoneIntervention.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Authorization: apiKey
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ZoneIntervention.'
+        required: true
+        example: vero
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "data": {
+                  "id": 7,
+                  "osc_id": 1,
+                  "name": "Zone",
+                  "longitude": "13",
+                  "latitude": "7"
+              },
+              "message": "ZoneIntervention deleted successfully."
+          }
+        headers: []
+        description: '200'
+    responseFields: []

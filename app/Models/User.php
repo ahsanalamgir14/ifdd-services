@@ -46,6 +46,8 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Osc[] $oscs
+ * @property-read int|null $oscs_count
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -80,4 +82,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function oscs()
+    {
+        return $this->hasMany(Osc::class, 'user_id');
+    }
 }

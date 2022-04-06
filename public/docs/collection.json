@@ -10,11 +10,233 @@
     ],
     "info": {
         "name": "Services IFDD",
-        "_postman_id": "8b0e5ed0-6a3e-40b7-b2eb-e4881c1cd581",
+        "_postman_id": "b6761334-7109-410f-b750-7c8fad6fb534",
         "description": "Ceci est la documentation de l'API de Services IFDD",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "ZoneIntervention management",
+            "description": "\nAPIs for managing ZoneInterventions",
+            "item": [
+                {
+                    "name": "Get all ZoneInterventions.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/zonesintervention",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/zonesintervention"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"osc_id\": 1,\n            \"name\": \"Zone\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\"\n        },\n        {\n            \"id\": 8,\n            \"osc_id\": 1,\n            \"name\": \"Zone2\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\"\n        },\n        {\n            \"id\": 9,\n            \"osc_id\": 1,\n            \"name\": \"Zone3\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\"\n        }\n    ],\n    \"message\": \"Liste des ZoneInterventions\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a new ZoneIntervention.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/zonesintervention",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/zonesintervention"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"osc_id\":7,\"name\":\"Faim\",\"longitude\":\"13\",\"latitude\":\"2\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 7,\n        \"osc_id\": 1,\n        \"name\": \"Zone\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\"\n    },\n    \"message\": \"ZoneIntervention created successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a single ZoneIntervention.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/zonesintervention\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/zonesintervention\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "repellendus",
+                                    "description": "The ID of the ZoneIntervention."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 8,\n        \"osc_id\": 1,\n        \"name\": \"Zone2\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\",\n        \"oscs\": {\n            \"id\": 1,\n            \"name\": \"OSCUPDATE1\",\n            \"abbreviation\": \"os\",\n            \"numero_osc\": \"123\",\n            \"pays\": \"Cameroun\",\n            \"date_fondation\": \"2020-05-13\",\n            \"description\": \"Une Osc\",\n            \"personne_contact\": \"Tala\",\n            \"telephone\": \"691201946\",\n            \"email_osc\": \"test@mail.com\",\n            \"site_web\": \"site.com\",\n            \"facebook\": \"facebook\",\n            \"twitter\": \"twitter\",\n            \"instagram\": \"instagram\",\n            \"linkedin\": \"linkedlin\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\",\n            \"siege\": \"Adamaoua\",\n            \"user_id\": 2,\n            \"active\": false\n        }\n    },\n    \"message\": \"ZoneIntervention retrieved successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a ZoneIntervention.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/zonesintervention\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/zonesintervention\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "7",
+                                    "description": "The ID of the zonesintervention."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"osc_id\":10,\"name\":\"Faim\",\"longitude\":\"13\",\"latitude\":\"2\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 7,\n        \"osc_id\": 1,\n        \"name\": \"Zone\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\"\n    },\n    \"message\": \"ZoneIntervention updated successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a ZoneIntervention.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/zonesintervention\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/zonesintervention\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "vero",
+                                    "description": "The ID of the ZoneIntervention."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 7,\n        \"osc_id\": 1,\n        \"name\": \"Zone\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\"\n    },\n    \"message\": \"ZoneIntervention deleted successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Account management",
             "description": "",
@@ -87,7 +309,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"gautier@position.cm\",\"token\":\"fugiat\",\"password\":\"gautier124\",\"password_confirmation\":\"gautier124\"}"
+                            "raw": "{\"email\":\"gautier@position.cm\",\"token\":\"assumenda\",\"password\":\"gautier124\",\"password_confirmation\":\"gautier124\"}"
                         },
                         "description": "",
                         "auth": {
@@ -784,6 +1006,267 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"category_number\": \"2.1\",\n        \"intitule\": \"Mon OBJECTIF Durable\",\n        \"id_odd\": 2\n    },\n    \"message\": \"CategorieOdd supprim\u00e9 avec succ\u00e8s\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "OSC management",
+            "description": "\nAPIs for managing OSCs",
+            "item": [
+                {
+                    "name": "Get all OSCs.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/osc",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/osc"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"OSC\",\n            \"abbreviation\": \"os\",\n            \"numero_osc\": \"123\",\n            \"pays\": \"Cameroun\",\n            \"date_fondation\": \"2020-05-13\",\n            \"description\": \"Une Osc\",\n            \"personne_contact\": \"Tala\",\n            \"telephone\": \"691201946\",\n            \"email_osc\": \"test@mail.com\",\n            \"site_web\": \"site.com\",\n            \"facebook\": \"facebook\",\n            \"twitter\": \"twitter\",\n            \"instagram\": \"instagram\",\n            \"linkedin\": \"linkedlin\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\",\n            \"siege\": \"Adamaoua\",\n            \"user_id\": 2,\n            \"active\": false,\n            \"user\": {\n                \"id\": 2,\n                \"name\": \"Gautier\",\n                \"email\": \"bt@sogefi.cm\",\n                \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n                \"role\": 2,\n                \"deleted_at\": null,\n                \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n                \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n            },\n            \"categorie_odds\": [\n                {\n                    \"id\": 2,\n                    \"category_number\": \"2.2\",\n                    \"intitule\": \"Mon OBJECTIF\",\n                    \"id_odd\": 2,\n                    \"pivot\": {\n                        \"osc_id\": 1,\n                        \"categorie_odd_id\": 2,\n                        \"description\": \"Une Osc1\"\n                    }\n                },\n                {\n                    \"id\": 1,\n                    \"category_number\": \"2.1\",\n                    \"intitule\": \"Mon OBJECTIF Durable\",\n                    \"id_odd\": 2,\n                    \"pivot\": {\n                        \"osc_id\": 1,\n                        \"categorie_odd_id\": 1,\n                        \"description\": \"Une Osc\"\n                    }\n                }\n            ],\n            \"zone_interventions\": [\n                {\n                    \"id\": 1,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                },\n                {\n                    \"id\": 2,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone2\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                },\n                {\n                    \"id\": 3,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone3\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Liste des OSCs\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a new OSC.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/osc",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/osc"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Faim\",\"abbreviation\":\"F\",\"numero_osc\":\"12\",\"pays\":\"France\",\"date_fondation\":\"12\\\/12\\\/12\",\"description\":\"Faim\",\"personne_contact\":\"Faim\",\"telephone\":\"12\",\"email_osc\":\"Faim\",\"site_web\":\"Faim\",\"facebook\":\"Faim\",\"twitter\":\"Faim\",\"instagram\":\"Faim\",\"linkedin\":\"Faim\",\"longitude\":\"Faim\",\"latitude\":\"Faim\",\"siege\":\"Faim\",\"zone_intervention\":\"[ {\\\"name\\\":\\\"Zone\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone2\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone3\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"}]\",\"osccategoriesOdd\":\"[{\\\"id\\\" : 12,\\\"description\\\":\\\"Une Osc\\\"},{\\\"id\\\" : 20,\\\"description\\\":\\\"Une Osc1\\\"}]\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"OSC\",\n        \"abbreviation\": \"os\",\n        \"numero_osc\": \"123\",\n        \"pays\": \"Cameroun\",\n        \"date_fondation\": \"2020-05-13\",\n        \"description\": \"Une Osc\",\n        \"personne_contact\": \"Tala\",\n        \"telephone\": \"691201946\",\n        \"email_osc\": \"test@mail.com\",\n        \"site_web\": \"site.com\",\n        \"facebook\": \"facebook\",\n        \"twitter\": \"twitter\",\n        \"instagram\": \"instagram\",\n        \"linkedin\": \"linkedlin\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\",\n        \"siege\": \"Adamaoua\",\n        \"user_id\": 2,\n        \"id\": 1\n    },\n    \"message\": \"OSC created successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a single OSC.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/osc\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/osc\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "error",
+                                    "description": "The ID of the OSC."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"OSC\",\n        \"abbreviation\": \"os\",\n        \"numero_osc\": \"123\",\n        \"pays\": \"Cameroun\",\n        \"date_fondation\": \"2020-05-13\",\n        \"description\": \"Une Osc\",\n        \"personne_contact\": \"Tala\",\n        \"telephone\": \"691201946\",\n        \"email_osc\": \"test@mail.com\",\n        \"site_web\": \"site.com\",\n        \"facebook\": \"facebook\",\n        \"twitter\": \"twitter\",\n        \"instagram\": \"instagram\",\n        \"linkedin\": \"linkedlin\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\",\n        \"siege\": \"Adamaoua\",\n        \"user_id\": 2,\n        \"active\": false,\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Gautier\",\n            \"email\": \"bt@sogefi.cm\",\n            \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n            \"role\": 2,\n            \"deleted_at\": null,\n            \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n            \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n        },\n        \"categorie_odds\": [\n            {\n                \"id\": 2,\n                \"category_number\": \"2.2\",\n                \"intitule\": \"Mon OBJECTIF\",\n                \"id_odd\": 2,\n                \"pivot\": {\n                    \"osc_id\": 1,\n                    \"categorie_odd_id\": 2,\n                    \"description\": \"Une Osc1\"\n                }\n            },\n            {\n                \"id\": 1,\n                \"category_number\": \"2.1\",\n                \"intitule\": \"Mon OBJECTIF Durable\",\n                \"id_odd\": 2,\n                \"pivot\": {\n                    \"osc_id\": 1,\n                    \"categorie_odd_id\": 1,\n                    \"description\": \"Une Osc\"\n                }\n            }\n        ],\n        \"zone_interventions\": [\n            {\n                \"id\": 1,\n                \"osc_id\": 1,\n                \"name\": \"Zone\",\n                \"longitude\": \"13\",\n                \"latitude\": \"7\"\n            },\n            {\n                \"id\": 2,\n                \"osc_id\": 1,\n                \"name\": \"Zone2\",\n                \"longitude\": \"13\",\n                \"latitude\": \"7\"\n            },\n            {\n                \"id\": 3,\n                \"osc_id\": 1,\n                \"name\": \"Zone3\",\n                \"longitude\": \"13\",\n                \"latitude\": \"7\"\n            }\n        ]\n    },\n    \"message\": \"OSC retrieved successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a OSC.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/osc\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/osc\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "rerum",
+                                    "description": "The ID of the OSC."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Faim\",\"abbreviation\":\"F\",\"numero_osc\":\"12\",\"pays\":\"France\",\"date_fondation\":\"12\\\/12\\\/12\",\"description\":\"Faim\",\"personne_contact\":\"Faim\",\"telephone\":\"12\",\"email_osc\":\"Faim\",\"site_web\":\"Faim\",\"facebook\":\"Faim\",\"twitter\":\"Faim\",\"instagram\":\"Faim\",\"linkedin\":\"Faim\",\"longitude\":\"Faim\",\"latitude\":\"Faim\",\"siege\":\"Faim\",\"zone_intervention\":\"[ {\\\"name\\\":\\\"Zone\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone2\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"},{\\\"name\\\":\\\"Zone3\\\",\\\"longitude\\\":\\\"13\\\",\\\"latitude\\\":\\\"7\\\"}]\",\"osccategoriesOdd\":\"[{\\\"id\\\" : 12,\\\"description\\\":\\\"Une Osc\\\"},{\\\"id\\\" : 20,\\\"description\\\":\\\"Une Osc1\\\"}]\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"OSCUPDATE\",\n        \"abbreviation\": \"os\",\n        \"numero_osc\": \"123\",\n        \"pays\": \"Cameroun\",\n        \"date_fondation\": \"2020-05-13\",\n        \"description\": \"Une Osc\",\n        \"personne_contact\": \"Tala\",\n        \"telephone\": \"691201946\",\n        \"email_osc\": \"test@mail.com\",\n        \"site_web\": \"site.com\",\n        \"facebook\": \"facebook\",\n        \"twitter\": \"twitter\",\n        \"instagram\": \"instagram\",\n        \"linkedin\": \"linkedlin\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\",\n        \"siege\": \"Adamaoua\",\n        \"user_id\": 2,\n        \"active\": false\n    },\n    \"message\": \"OSC updated successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a OSC.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/osc\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/osc\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "eum",
+                                    "description": "The ID of the OSC."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"OSCUPDATE\",\n        \"abbreviation\": \"os\",\n        \"numero_osc\": \"123\",\n        \"pays\": \"Cameroun\",\n        \"date_fondation\": \"2020-05-13\",\n        \"description\": \"Une Osc\",\n        \"personne_contact\": \"Tala\",\n        \"telephone\": \"691201946\",\n        \"email_osc\": \"test@mail.com\",\n        \"site_web\": \"site.com\",\n        \"facebook\": \"facebook\",\n        \"twitter\": \"twitter\",\n        \"instagram\": \"instagram\",\n        \"linkedin\": \"linkedlin\",\n        \"longitude\": \"13\",\n        \"latitude\": \"7\",\n        \"siege\": \"Adamaoua\",\n        \"user_id\": 2,\n        \"active\": false\n    },\n    \"message\": \"OSC deleted successfully.\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getActiveOscs.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activeosc",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activeosc"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "apiKey"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"OSC\",\n            \"abbreviation\": \"os\",\n            \"numero_osc\": \"123\",\n            \"pays\": \"Cameroun\",\n            \"date_fondation\": \"2020-05-13\",\n            \"description\": \"Une Osc\",\n            \"personne_contact\": \"Tala\",\n            \"telephone\": \"691201946\",\n            \"email_osc\": \"test@mail.com\",\n            \"site_web\": \"site.com\",\n            \"facebook\": \"facebook\",\n            \"twitter\": \"twitter\",\n            \"instagram\": \"instagram\",\n            \"linkedin\": \"linkedlin\",\n            \"longitude\": \"13\",\n            \"latitude\": \"7\",\n            \"siege\": \"Adamaoua\",\n            \"user_id\": 2,\n            \"active\": false,\n            \"user\": {\n                \"id\": 2,\n                \"name\": \"Gautier\",\n                \"email\": \"bt@sogefi.cm\",\n                \"email_verified_at\": \"2022-04-04T08:53:31.000000Z\",\n                \"role\": 2,\n                \"deleted_at\": null,\n                \"created_at\": \"2022-04-04T08:52:53.000000Z\",\n                \"updated_at\": \"2022-04-04T08:53:31.000000Z\"\n            },\n            \"categorie_odds\": [\n                {\n                    \"id\": 2,\n                    \"category_number\": \"2.2\",\n                    \"intitule\": \"Mon OBJECTIF\",\n                    \"id_odd\": 2,\n                    \"pivot\": {\n                        \"osc_id\": 1,\n                        \"categorie_odd_id\": 2,\n                        \"description\": \"Une Osc1\"\n                    }\n                },\n                {\n                    \"id\": 1,\n                    \"category_number\": \"2.1\",\n                    \"intitule\": \"Mon OBJECTIF Durable\",\n                    \"id_odd\": 2,\n                    \"pivot\": {\n                        \"osc_id\": 1,\n                        \"categorie_odd_id\": 1,\n                        \"description\": \"Une Osc\"\n                    }\n                }\n            ],\n            \"zone_interventions\": [\n                {\n                    \"id\": 1,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                },\n                {\n                    \"id\": 2,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone2\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                },\n                {\n                    \"id\": 3,\n                    \"osc_id\": 1,\n                    \"name\": \"Zone3\",\n                    \"longitude\": \"13\",\n                    \"latitude\": \"7\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Liste des OSCs\"\n}\n",
                             "name": ""
                         }
                     ]
