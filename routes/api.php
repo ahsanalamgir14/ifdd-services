@@ -28,11 +28,17 @@ Route::middleware('auth.apikey')->group(
         Route::post('auth/login', [App\Http\Controllers\Api\UserController::class, 'login']);
 
 
-        Route::apiResource('odd', App\Http\Controllers\Api\OddController::class);
-        Route::apiResource('categorieodd', App\Http\Controllers\Api\CategorieOddController::class);
-        Route::apiResource('osc', App\Http\Controllers\Api\OscController::class);
+        Route::get('odd', [App\Http\Controllers\Api\OddController::class, 'index']);
+        Route::get('odd/{id}', [App\Http\Controllers\Api\OddController::class, 'show']);
 
-        Route::apiResource('zonesintervention', App\Http\Controllers\Api\ZoneInterventionController::class);
+        Route::get('categorieodd', [App\Http\Controllers\Api\CategorieOddController::class, 'index']);
+        Route::get('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'show']);
+
+        Route::get('osc', [App\Http\Controllers\Api\OscController::class, 'index']);
+        Route::get('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'show']);
+
+        Route::get('zonesintervention', [App\Http\Controllers\Api\ZoneInterventionController::class, 'index']);
+        Route::get('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'show']);
 
         Route::get('activeosc', [App\Http\Controllers\Api\OscController::class, 'getActiveOscs']);
 
@@ -42,6 +48,22 @@ Route::middleware('auth.apikey')->group(
                 Route::post('user/update/{id}', [App\Http\Controllers\Api\UserController::class, 'updateuser']);
                 Route::delete('user/delete/{id}', [App\Http\Controllers\Api\UserController::class, 'deleteuser']);
                 Route::get('user/me', [App\Http\Controllers\Api\UserController::class, 'getUser']);
+
+                Route::post('odd', [App\Http\Controllers\Api\OddController::class, 'store']);
+                Route::put('odd/{id}', [App\Http\Controllers\Api\OddController::class, 'update']);
+                Route::delete('odd/{id}', [App\Http\Controllers\Api\OddController::class, 'destroy']);
+
+                Route::post('categorieodd', [App\Http\Controllers\Api\CategorieOddController::class, 'store']);
+                Route::put('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'update']);
+                Route::delete('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'destroy']);
+
+                Route::post('osc', [App\Http\Controllers\Api\OscController::class, 'store']);
+                Route::put('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'update']);
+                Route::delete('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'destroy']);
+
+                Route::post('zonesintervention', [App\Http\Controllers\Api\ZoneInterventionController::class, 'store']);
+                Route::put('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'update']);
+                Route::delete('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'destroy']);
             }
         );
     }
