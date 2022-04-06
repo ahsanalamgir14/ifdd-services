@@ -1,0 +1,42 @@
+version: "3"
+services:
+    ifdd-services:
+        build:
+            context: .
+            dockerfile: .docker/Dockerfile
+        image: ifdd-services
+        container_name: ifdd-services
+        ports:
+            - '${APP_PORT:-80}:80'
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - ifdd-services
+        depends_on:
+            - ifdd-services-pgsql
+
+    ifdd-services-pgsql:
+        restart: always
+        image: 'postgres:13'
+        ports:
+            - '${FORWARD_DB_PORT:-5432}:5432'
+        container_name: ifdd-services-pgsql
+        environment:
+            PGPASSWORD: '${PG_PASSWORD:-secret}'
+            POSTGRES_DB: '${DB_DATABASE}'
+            POSTGRES_USER: '${DB_USERNAME}'
+            POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
+        volumes:
+            - 'db-pgsql:/var/lib/postgresql/data'
+        networks:
+            - ifdd-services
+        healthcheck:
+            test: ["CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}"]
+            retries: 3
+            timeout: 5s
+networks:
+    ifdd-services:
+        driver: bridge
+volumes:
+    db-pgsql:
+        driver: local
