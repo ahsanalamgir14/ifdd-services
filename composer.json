@@ -1,27 +1,34 @@
 {
-    "name": "laravel/laravel",
+    "name": "ifdd/services",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "IFDD Services",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "ifdd",
+        "api",
+        "services"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "ejarnutowski/laravel-api-key": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^9.0",
+        "laravel/passport": "^10.3",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.0",
+        "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
+        "knuckleswtf/scribe": "^3.25",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10"
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
         "psr-4": {

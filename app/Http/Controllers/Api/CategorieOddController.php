@@ -1,0 +1,146 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Models\CategorieOdd;
+use App\Models\Odd;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
+/**
+ *
+ * @group ODD management
+ *
+ * APIs for managing ODDs
+ */
+class CategorieOddController extends BaseController
+{
+
+    /**
+     * Get all CategorieOdds.
+     *
+     * @header Content-Type application/json
+     * @responseFile storage/responses/getcategorieodds.json
+     */
+    public function index()
+    {
+        $categorieOdds = CategorieOdd::all();
+        $categorieOdds->each(function ($categorieOdd) {
+            $categorieOdd->odd;
+        });
+        return $this->sendResponse($categorieOdds, 'Liste des CategorieOdds');
+    }
+
+
+    /**
+     * Add a new CategorieOdd.
+     *
+     * @authenticated
+     * @header Content-Type application/json
+     * @bodyParam category_number int required the number of the categorieOdd. Example:12
+     * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
+     * @bodyParam id_odd int required the id of the odd. Example: 1
+     * @responseFile storage/responses/addcategorieodd.json
+     */
+    public function store(Request $request)
+    {
+        $validator =  Validator::make($request->all(), [
+            'category_number' => 'required',
+            'intitule' => 'required',
+            'id_odd' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('Erreur de paramètres.', $validator->errors(), 400);
+        }
+
+        try {
+            DB::beginTransaction();
+
+
+            $categorieOdd = CategorieOdd::create($request->all());
+            DB::commit();
+            return $this->sendResponse($categorieOdd, 'CategorieOdd créé avec succès', 201);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->sendError('Erreur lors de la création de la catégorie.', $e->getMessage(), 400);
+        }
+    }
+
+
+    /**
+     * Show the specified CategorieOdd.
+     * @urlParam id required The ID of the CategorieOdd. Example: 1
+     * @responseFile storage/responses/showcategorieodd.json
+     */
+    public function show($id)
+    {
+        $categorieOdd = CategorieOdd::find($id);
+        $categorieOdd->odd;
+        return $this->sendResponse($categorieOdd, 'CategorieOdd retrouvé avec succès');
+    }
+
+    /**
+     * Update the specified CategorieOdd.
+     *
+     * @authenticated
+     * @header Content-Type application/json
+     * @urlParam id required The ID of the CategorieOdd. Example: 1
+     * @bodyParam category_number int required the number of the categorieOdd. Example:12
+     * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
+     * @bodyParam id_odd int required the id of the odd. Example: 1
+     * @responseFile storage/responses/updatecategorieodd.json
+     */
+    public function update(Request $request, $id)
+    {
+
+        $validator =  Validator::make($request->all(), [
+            'category_number' => 'required',
+            'intitule' => 'required',
+            'id_odd' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('Erreur de paramètres.', $validator->errors(), 400);
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $categorieOdd = CategorieOdd::find($id);
+            $categorieOdd->update($request->all());
+
+            DB::commit();
+            return $this->sendResponse($categorieOdd, 'CategorieOdd modifié avec succès', 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->sendError('Erreur lors de la modification de la catégorie.', $e->getMessage(), 400);
+        }
+    }
+
+
+    /**
+     * Delete the specified CategorieOdd.
+     *
+     * @authenticated
+     * @urlParam id required The ID of the CategorieOdd. Example: 1
+     * @responseFile storage/responses/deletecategorieodd.json
+     */
+    public function destroy($id)
+    {
+
+        try {
+            DB::beginTransaction();
+
+            $categorieOdd = CategorieOdd::find($id);
+            $categorieOdd->delete();
+
+            DB::commit();
+            return $this->sendResponse($categorieOdd, 'CategorieOdd supprimé avec succès', 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->sendError('Erreur lors de la suppression de la catégorie.', $e->getMessage(), 400);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "name": "Faim",
+        "number": "15",
+        "number_categorie": "3",
+        "logo_odd": "https://www.logo.cm",
+        "color": "#e4243c"
+    },
+    "message": "Modification de l'odd reussie"
+}

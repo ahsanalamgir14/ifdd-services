@@ -1,0 +1,33 @@
+{
+    "success": true,
+    "data": {
+        "id": 8,
+        "osc_id": 1,
+        "name": "Zone2",
+        "longitude": "13",
+        "latitude": "7",
+        "oscs": {
+            "id": 1,
+            "name": "OSCUPDATE1",
+            "abbreviation": "os",
+            "numero_osc": "123",
+            "pays": "Cameroun",
+            "date_fondation": "2020-05-13",
+            "description": "Une Osc",
+            "personne_contact": "Tala",
+            "telephone": "691201946",
+            "email_osc": "test@mail.com",
+            "site_web": "site.com",
+            "facebook": "facebook",
+            "twitter": "twitter",
+            "instagram": "instagram",
+            "linkedin": "linkedlin",
+            "longitude": "13",
+            "latitude": "7",
+            "siege": "Adamaoua",
+            "user_id": 2,
+            "active": false
+        }
+    },
+    "message": "ZoneIntervention retrieved successfully."
+}
