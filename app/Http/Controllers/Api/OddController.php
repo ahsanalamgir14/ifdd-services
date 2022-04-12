@@ -79,8 +79,9 @@ class OddController extends BaseController
      * @urlParam id int required the id of the odd. Example: 2
      * @responseFile storage/responses/showodd.json
      */
-    public function show(Odd $odd)
+    public function show($id)
     {
+        $odd = Odd::find($id);
         $odd->categorieOdd;
         return $this->sendResponse($odd, 'Odd trouvé');
     }

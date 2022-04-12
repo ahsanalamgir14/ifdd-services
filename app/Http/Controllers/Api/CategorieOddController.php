@@ -38,7 +38,7 @@ class CategorieOddController extends BaseController
      *
      * @authenticated
      * @header Content-Type application/json
-     * @bodyParam category_number int required the number of the categorieOdd. Example:12
+     * @bodyParam category_number string required the number of the categorieOdd. Example:12.1
      * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/addcategorieodd.json
@@ -87,7 +87,7 @@ class CategorieOddController extends BaseController
      * @authenticated
      * @header Content-Type application/json
      * @urlParam id required The ID of the CategorieOdd. Example: 1
-     * @bodyParam category_number int required the number of the categorieOdd. Example:12
+     * @bodyParam category_number string required the number of the categorieOdd. Example:12.2
      * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/updatecategorieodd.json
