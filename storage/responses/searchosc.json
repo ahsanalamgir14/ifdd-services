@@ -1,0 +1,374 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 10,
+            "user_id": 1,
+            "name": "Mouvement des Jeunes pour le Réveil et le Developpement",
+            "abbreviation": "MJRD",
+            "numero_osc": "1",
+            "pays": "Bénin",
+            "date_fondation": "2004-03-22",
+            "description": "Le Mouvement des Jeunes pour le Réveil et le Développement est une organisation à caractère social, humanitaire et de solidarité internationale œuvrant dans les domaines de : Education scolaire des enfants et des jeunes ; Autonomisation des jeunes, des femmes et l’alphabétisation, Prévention et préservation de l’environnement, Paix, Sécurité Sports. Il est membre du Conseil Economique, Social et Culturel de l’Union Africaine (AU-ECOSOCC) et doté du statut  consultatif  spécial du Conseil Economique  et Social des Nations Unies (ECOSOC –ONU), statut d’observateur  de la Convention Cadre des Nations Unies sur les Changements Climatiques (CCNUCC)..",
+            "personne_contact": "PADONOU Sourou Fabrice",
+            "telephone": "+229  97605031",
+            "email_osc": "reveildeveloppement@yahoo,fr",
+            "site_web": null,
+            "facebook": "https://web.facebook.com/Mouvement-des-Jeunes-pour-le-R%C3%A9veil-et-le-D%C3%A9veloppement-MJRD-B%C3%A9nin-465842477578421/",
+            "twitter": null,
+            "instagram": null,
+            "linkedin": null,
+            "longitude": "7.775176",
+            "latitude": "2.209265",
+            "siege": "Quartier : Ayédèro / DASSA-ZOUME  dans la vons de la station de pompage SONEB;BP : 84   Dassa –Zoumé",
+            "active": false,
+            "pivot": {
+                "categorie_odd_id": 145,
+                "osc_id": 10
+            },
+            "user": {
+                "id": 1,
+                "name": "Admin",
+                "email": "admin@ifdd.cm",
+                "email_verified_at": "2022-04-06T15:35:15.000000Z",
+                "role": 1,
+                "deleted_at": null,
+                "created_at": "2022-04-06T15:35:15.000000Z",
+                "updated_at": "2022-04-06T15:35:15.000000Z"
+            },
+            "categorie_odds": [
+                {
+                    "id": 143,
+                    "category_number": "16.5",
+                    "intitule": "Réduire substantiellement la corruption et les pots-de-vin",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 10,
+                        "categorie_odd_id": 143,
+                        "description": "X (Activité :Echange avec les femmes sur la nécessité des consultations prénatales, l’hygiène corporelle et  l’allaitement  maternel)"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                },
+                {
+                    "id": 145,
+                    "category_number": "16.7",
+                    "intitule": "Assurer un processus décisionnel réactif, inclusif et représentatif",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 10,
+                        "categorie_odd_id": 145,
+                        "description": "X (Activité : Echange avec les femmes sur la nécessité des consultations prénatales )"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                }
+            ],
+            "zone_interventions": [
+                {
+                    "id": 4,
+                    "osc_id": 10,
+                    "name": "Zone",
+                    "longitude": "13",
+                    "latitude": "7"
+                },
+                {
+                    "id": 5,
+                    "osc_id": 10,
+                    "name": "Zone2",
+                    "longitude": "13",
+                    "latitude": "7"
+                },
+                {
+                    "id": 6,
+                    "osc_id": 10,
+                    "name": "Zone3",
+                    "longitude": "13",
+                    "latitude": "7"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "user_id": 1,
+            "name": "SECOURS HUMANITAIRE BENIN",
+            "abbreviation": "SEHUBE ONG",
+            "numero_osc": "2",
+            "pays": "Bénin",
+            "date_fondation": "2006-01-15",
+            "description": "SEHUBE intervient dans la lutte contre l'enfance malheureuse; la promotion de la femme et l'intermédiation sociale en santé. Actions concrètes: - Intervention pour la sauvegarde du droit des enfants; insertion socio professionnelle des jeunes (fille et garçon) vulnérables - Facilitation de la gestion des conflits conjugaux; appui technique à l'autonomisation des femmes en situation difficile - Mobilisation sociale en santé de la reproduction et santé oculaire , la lutte contre le SIDA, le paludisme- Appui à l'analyse et le contrôle des actions publiques en faveur du bien - être des enfants et des femmes. Projets: Changement d'habitude par Opposition à la corruption en milieu scolaire (CHOC/MS) GIZ; Appui nutritionnel aux PVVIH par les Communautés à la base, FOND Mondial/PMLS 2;",
+            "personne_contact": "VIAHO C. A. GERARD",
+            "telephone": "97491777",
+            "email_osc": "sehubeong@yahoo.fr",
+            "site_web": null,
+            "facebook": "www.facebook.com/sehubeong",
+            "twitter": null,
+            "instagram": null,
+            "linkedin": null,
+            "longitude": "2.616667",
+            "latitude": "9.350000",
+            "siege": "Parakou, quartier Dépôt, immeuble CCIB en face du Lycée Mathieu Bouké",
+            "active": false,
+            "pivot": {
+                "categorie_odd_id": 145,
+                "osc_id": 13
+            },
+            "user": {
+                "id": 1,
+                "name": "Admin",
+                "email": "admin@ifdd.cm",
+                "email_verified_at": "2022-04-06T15:35:15.000000Z",
+                "role": 1,
+                "deleted_at": null,
+                "created_at": "2022-04-06T15:35:15.000000Z",
+                "updated_at": "2022-04-06T15:35:15.000000Z"
+            },
+            "categorie_odds": [
+                {
+                    "id": 143,
+                    "category_number": "16.5",
+                    "intitule": "Réduire substantiellement la corruption et les pots-de-vin",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 13,
+                        "categorie_odd_id": 143,
+                        "description": "Projet AReB (Apprentissage de la Redevabilité à la Base)  par la professionalisation de la responsabilité dans les lieux d'apprentissage FOSIR 1 MdSC / Coopération Suisse"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                },
+                {
+                    "id": 145,
+                    "category_number": "16.7",
+                    "intitule": "Assurer un processus décisionnel réactif, inclusif et représentatif",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 13,
+                        "categorie_odd_id": 145,
+                        "description": "*Participation aux activités des pools thématiques de la MdSC avec un positionnement au Pool 7 (pour l'atteinte de l'ODD 16) dans lequel SEHUBE ONG est Chef de file Parakou, Chef de file Borgou.                                        * SEHUBE ONG est membre du Conseil Consultatif pour la Promotion de la Société Civile au Bénin et Point Focal Borgou du Centre de Promotion de la Société Civile (CPSC )"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                }
+            ],
+            "zone_interventions": [
+                {
+                    "id": 8,
+                    "osc_id": 13,
+                    "name": "Parakou,  Borgou, NORD BENIN",
+                    "longitude": "2.616667",
+                    "latitude": "9.350000"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "user_id": 1,
+            "name": "Mouvement des Jeunes pour le Réveil et le Developpement",
+            "abbreviation": "MJRD",
+            "numero_osc": "1",
+            "pays": "Bénin",
+            "date_fondation": "2004-03-22",
+            "description": "Le Mouvement des Jeunes pour le Réveil et le Développement est une organisation à caractère social, humanitaire et de solidarité internationale œuvrant dans les domaines de : Education scolaire des enfants et des jeunes ; Autonomisation des jeunes, des femmes et l’alphabétisation, Prévention et préservation de l’environnement, Paix, Sécurité Sports. Il est membre du Conseil Economique, Social et Culturel de l’Union Africaine (AU-ECOSOCC) et doté du statut  consultatif  spécial du Conseil Economique  et Social des Nations Unies (ECOSOC –ONU), statut d’observateur  de la Convention Cadre des Nations Unies sur les Changements Climatiques (CCNUCC)..",
+            "personne_contact": "PADONOU Sourou Fabrice",
+            "telephone": "+229  97605031",
+            "email_osc": "reveildeveloppement@yahoo,fr",
+            "site_web": null,
+            "facebook": "https://web.facebook.com/Mouvement-des-Jeunes-pour-le-R%C3%A9veil-et-le-D%C3%A9veloppement-MJRD-B%C3%A9nin-465842477578421/",
+            "twitter": null,
+            "instagram": null,
+            "linkedin": null,
+            "longitude": "7.775176",
+            "latitude": "2.209265",
+            "siege": "Quartier : Ayédèro / DASSA-ZOUME  dans la vons de la station de pompage SONEB;BP : 84   Dassa –Zoumé",
+            "active": false,
+            "pivot": {
+                "categorie_odd_id": 143,
+                "osc_id": 10
+            },
+            "user": {
+                "id": 1,
+                "name": "Admin",
+                "email": "admin@ifdd.cm",
+                "email_verified_at": "2022-04-06T15:35:15.000000Z",
+                "role": 1,
+                "deleted_at": null,
+                "created_at": "2022-04-06T15:35:15.000000Z",
+                "updated_at": "2022-04-06T15:35:15.000000Z"
+            },
+            "categorie_odds": [
+                {
+                    "id": 143,
+                    "category_number": "16.5",
+                    "intitule": "Réduire substantiellement la corruption et les pots-de-vin",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 10,
+                        "categorie_odd_id": 143,
+                        "description": "X (Activité :Echange avec les femmes sur la nécessité des consultations prénatales, l’hygiène corporelle et  l’allaitement  maternel)"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                },
+                {
+                    "id": 145,
+                    "category_number": "16.7",
+                    "intitule": "Assurer un processus décisionnel réactif, inclusif et représentatif",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 10,
+                        "categorie_odd_id": 145,
+                        "description": "X (Activité : Echange avec les femmes sur la nécessité des consultations prénatales )"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                }
+            ],
+            "zone_interventions": [
+                {
+                    "id": 4,
+                    "osc_id": 10,
+                    "name": "Zone",
+                    "longitude": "13",
+                    "latitude": "7"
+                },
+                {
+                    "id": 5,
+                    "osc_id": 10,
+                    "name": "Zone2",
+                    "longitude": "13",
+                    "latitude": "7"
+                },
+                {
+                    "id": 6,
+                    "osc_id": 10,
+                    "name": "Zone3",
+                    "longitude": "13",
+                    "latitude": "7"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "user_id": 1,
+            "name": "SECOURS HUMANITAIRE BENIN",
+            "abbreviation": "SEHUBE ONG",
+            "numero_osc": "2",
+            "pays": "Bénin",
+            "date_fondation": "2006-01-15",
+            "description": "SEHUBE intervient dans la lutte contre l'enfance malheureuse; la promotion de la femme et l'intermédiation sociale en santé. Actions concrètes: - Intervention pour la sauvegarde du droit des enfants; insertion socio professionnelle des jeunes (fille et garçon) vulnérables - Facilitation de la gestion des conflits conjugaux; appui technique à l'autonomisation des femmes en situation difficile - Mobilisation sociale en santé de la reproduction et santé oculaire , la lutte contre le SIDA, le paludisme- Appui à l'analyse et le contrôle des actions publiques en faveur du bien - être des enfants et des femmes. Projets: Changement d'habitude par Opposition à la corruption en milieu scolaire (CHOC/MS) GIZ; Appui nutritionnel aux PVVIH par les Communautés à la base, FOND Mondial/PMLS 2;",
+            "personne_contact": "VIAHO C. A. GERARD",
+            "telephone": "97491777",
+            "email_osc": "sehubeong@yahoo.fr",
+            "site_web": null,
+            "facebook": "www.facebook.com/sehubeong",
+            "twitter": null,
+            "instagram": null,
+            "linkedin": null,
+            "longitude": "2.616667",
+            "latitude": "9.350000",
+            "siege": "Parakou, quartier Dépôt, immeuble CCIB en face du Lycée Mathieu Bouké",
+            "active": false,
+            "pivot": {
+                "categorie_odd_id": 143,
+                "osc_id": 13
+            },
+            "user": {
+                "id": 1,
+                "name": "Admin",
+                "email": "admin@ifdd.cm",
+                "email_verified_at": "2022-04-06T15:35:15.000000Z",
+                "role": 1,
+                "deleted_at": null,
+                "created_at": "2022-04-06T15:35:15.000000Z",
+                "updated_at": "2022-04-06T15:35:15.000000Z"
+            },
+            "categorie_odds": [
+                {
+                    "id": 143,
+                    "category_number": "16.5",
+                    "intitule": "Réduire substantiellement la corruption et les pots-de-vin",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 13,
+                        "categorie_odd_id": 143,
+                        "description": "Projet AReB (Apprentissage de la Redevabilité à la Base)  par la professionalisation de la responsabilité dans les lieux d'apprentissage FOSIR 1 MdSC / Coopération Suisse"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                },
+                {
+                    "id": 145,
+                    "category_number": "16.7",
+                    "intitule": "Assurer un processus décisionnel réactif, inclusif et représentatif",
+                    "id_odd": 16,
+                    "pivot": {
+                        "osc_id": 13,
+                        "categorie_odd_id": 145,
+                        "description": "*Participation aux activités des pools thématiques de la MdSC avec un positionnement au Pool 7 (pour l'atteinte de l'ODD 16) dans lequel SEHUBE ONG est Chef de file Parakou, Chef de file Borgou.                                        * SEHUBE ONG est membre du Conseil Consultatif pour la Promotion de la Société Civile au Bénin et Point Focal Borgou du Centre de Promotion de la Société Civile (CPSC )"
+                    },
+                    "odd": {
+                        "id": 16,
+                        "name": "PAIX, JUSTICE ET INSTITUTIONS EFFICACES",
+                        "number": "16",
+                        "number_categorie": 12,
+                        "logo_odd": "https://service.geo.sm/var/www/odd/odd16.png",
+                        "color": "#02548a"
+                    }
+                }
+            ],
+            "zone_interventions": [
+                {
+                    "id": 8,
+                    "osc_id": 13,
+                    "name": "Parakou,  Borgou, NORD BENIN",
+                    "longitude": "2.616667",
+                    "latitude": "9.350000"
+                }
+            ]
+        }
+    ],
+    "message": "OSC retrieved successfully."
+}
