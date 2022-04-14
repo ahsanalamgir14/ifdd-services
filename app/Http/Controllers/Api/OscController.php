@@ -30,7 +30,9 @@ class OscController extends BaseController
 
         foreach ($oscs as $osc) {
             $osc->user;
-            $osc->categorieOdds;
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                $categorieOdd->odd;
+            }
             $osc->zoneInterventions;
         }
         return $this->sendResponse($oscs, 'Liste des OSCs');
@@ -48,7 +50,10 @@ class OscController extends BaseController
 
         foreach ($oscs as $osc) {
             $osc->user;
-            $osc->categorieOdds;
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                $categorieOdd->odd;
+            }
+            $osc->zoneInterventions;
         }
         return $this->sendResponse($oscs, 'Liste des OSCs');
     }
@@ -144,10 +149,13 @@ class OscController extends BaseController
      * @urlParam id required The ID of the OSC.
      * @responseFile storage/responses/getosc.json
      */
-    public function show(Osc $osc)
+    public function show($id)
     {
+        $osc = Osc::find($id);
         $osc->user;
-        $osc->categorieOdds;
+        foreach ($osc->categorieOdds as $categorieOdd) {
+            $categorieOdd->odd;
+        }
         $osc->zoneInterventions;
         return $this->sendResponse($osc, 'OSC retrieved successfully.');
     }
@@ -266,5 +274,31 @@ class OscController extends BaseController
             DB::rollback();
             return $this->sendError('Error', $th->getMessage());
         }
+    }
+
+
+    /**
+     * Search OSCs by idsCategorieOdd.
+     * @bodyParam idsCategorieOdd required The ids of the categories of the OSC. Example: 12,20
+     * @responseFile storage/responses/searchosc.json
+     */
+    public function searchOsc(Request $request)
+    {
+        $idsCategorieOdd = explode(',', $request->idsCategorieOdd);
+
+        for ($i = 0; $i < count($idsCategorieOdd); $i++) {
+            $categorieOdd = CategorieOdd::find($idsCategorieOdd[$i]);
+            $categorieOdd->oscs;
+            foreach ($categorieOdd->oscs as $osc) {
+                $osc->user;
+                foreach ($osc->categorieOdds as $categorieOdd) {
+                    $categorieOdd->odd;
+                }
+                $osc->zoneInterventions;
+                $data[] = $osc;
+            }
+        }
+
+        return $this->sendResponse($data, 'OSC retrieved successfully.');
     }
 }
