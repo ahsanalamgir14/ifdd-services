@@ -286,6 +286,8 @@ class OscController extends BaseController
     {
         $idsCategorieOdd = explode(',', $request->idsCategorieOdd);
 
+        $data = array();
+
         for ($i = 0; $i < count($idsCategorieOdd); $i++) {
             $categorieOdd = CategorieOdd::find($idsCategorieOdd[$i]);
             $categorieOdd->oscs;
@@ -295,10 +297,55 @@ class OscController extends BaseController
                     $categorieOdd->odd;
                 }
                 $osc->zoneInterventions;
-                $data[] = $osc;
+                $bool = $this->checkIfOscInDataArray($data, $osc);
+                if ($bool == false) {
+                    $data[] = $osc;
+                }
             }
         }
 
         return $this->sendResponse($data, 'OSC retrieved successfully.');
+    }
+
+
+    public function checkIfOscInDataArray($data, $osc)
+    {
+        foreach ($data as $d) {
+            if ($d->id == $osc->id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Search OSCs.
+     *
+     * @header Content-Type application/json
+     * @urlParam q string required the query search. Example: ONG
+     * @responseFile storage/responses/getoscs.json
+     */
+
+    public function searchOscByQuery(Request $request)
+    {
+        $q  = $request->input('q');
+
+
+        $oscs = Osc::where('name', 'LIKE', '%' . $q . '%')
+            ->orWhere('pays', 'LIKE', '%' . $q . '%')
+            ->orWhere('abbreviation', 'LIKE', '%' . $q . '%')
+            ->orWhere('description', 'LIKE', '%' . $q . '%')
+            ->orWhere('siege', 'LIKE', '%' . $q . '%')
+            ->get();
+
+        foreach ($oscs as $osc) {
+            $osc->user;
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                $categorieOdd->odd;
+            }
+            $osc->zoneInterventions;
+        }
+
+        return $this->sendResponse($oscs, 'OSC retrieved successfully.');
     }
 }
