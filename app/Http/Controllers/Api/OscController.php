@@ -308,15 +308,7 @@ class OscController extends BaseController
     }
 
 
-    public function checkIfOscInDataArray($data, $osc)
-    {
-        foreach ($data as $d) {
-            if ($d->id == $osc->id) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     /**
      * Search OSCs.

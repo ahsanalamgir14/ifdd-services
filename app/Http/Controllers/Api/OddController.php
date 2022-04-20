@@ -161,10 +161,16 @@ class OddController extends BaseController
     {
         $oscs = Osc::all();
         $count = 0;
+        $data = array();
         foreach ($oscs as $osc) {
             foreach ($osc->categorieOdds as $categorieOdd) {
                 if ($categorieOdd->odd->id == $idOdd) {
-                    $count++;
+
+                    $bool = $this->checkIfOscInDataArray($data, $osc);
+                    if ($bool == false) {
+                        $data[] = $osc;
+                        $count++;
+                    }
                 }
             }
         }
