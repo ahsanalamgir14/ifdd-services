@@ -40,4 +40,14 @@ class BaseController extends Controller
 
         return response()->json($response, $code);
     }
+
+    public function checkIfOscInDataArray($data, $osc)
+    {
+        foreach ($data as $d) {
+            if ($d->id == $osc->id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
