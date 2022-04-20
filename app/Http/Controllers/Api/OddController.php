@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Odd;
+use App\Models\Osc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -28,6 +29,8 @@ class OddController extends BaseController
 
         foreach ($odds as $odd) {
             $odd->categorieOdd;
+            $count = $this->countOscByOdd($odd->id);
+            $odd->count_osc = $count;
         }
         return $this->sendResponse($odds, 'Liste des ODDs');
     }
@@ -83,6 +86,8 @@ class OddController extends BaseController
     {
         $odd = Odd::find($id);
         $odd->categorieOdd;
+        $count = $this->countOscByOdd($id);
+        $odd->count_osc = $count;
         return $this->sendResponse($odd, 'Odd trouvé');
     }
 
@@ -150,5 +155,19 @@ class OddController extends BaseController
             DB::rollBack();
             return $this->sendError('Erreur.', ['error' => $th->getMessage()], 400);
         }
+    }
+
+    public function countOscByOdd($idOdd)
+    {
+        $oscs = Osc::all();
+        $count = 0;
+        foreach ($oscs as $osc) {
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                if ($categorieOdd->odd->id == $idOdd) {
+                    $count++;
+                }
+            }
+        }
+        return $count;
     }
 }

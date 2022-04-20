@@ -37,6 +37,7 @@ Route::middleware('auth.apikey')->group(
         Route::get('osc', [App\Http\Controllers\Api\OscController::class, 'index']);
         Route::get('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'show']);
         Route::post('search/osc', [App\Http\Controllers\Api\OscController::class, 'searchOsc']);
+        Route::get('searchosc', [App\Http\Controllers\Api\OscController::class, 'searchOscByQuery']);
 
         Route::get('zonesintervention', [App\Http\Controllers\Api\ZoneInterventionController::class, 'index']);
         Route::get('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'show']);
