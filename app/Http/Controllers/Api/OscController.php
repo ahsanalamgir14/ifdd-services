@@ -340,4 +340,18 @@ class OscController extends BaseController
 
         return $this->sendResponse($oscs, 'OSC retrieved successfully.');
     }
+
+
+    /**
+     * Count OSCs.
+     *
+     * @header Content-Type application/json
+     * @responseFile storage/responses/countosc.json
+     */
+    public function countOscInDb()
+    {
+        $oscs = Osc::all();
+        $count = count($oscs);
+        return $this->sendResponse($count, 'number of OSCs in db');
+    }
 }
