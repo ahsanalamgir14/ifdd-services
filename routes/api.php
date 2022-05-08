@@ -35,6 +35,7 @@ Route::middleware('auth.apikey')->group(
         Route::get('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'show']);
 
         Route::get('osc', [App\Http\Controllers\Api\OscController::class, 'index']);
+        Route::get('count/osc', [App\Http\Controllers\Api\OscController::class, 'countOscInDb']);
         Route::get('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'show']);
         Route::post('search/osc', [App\Http\Controllers\Api\OscController::class, 'searchOsc']);
         Route::get('searchosc', [App\Http\Controllers\Api\OscController::class, 'searchOscByQuery']);
