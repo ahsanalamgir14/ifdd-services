@@ -255,8 +255,9 @@ class OscController extends BaseController
      * @authenticated
      * @responseFile storage/responses/deleteosc.json
      */
-    public function destroy(Osc $osc)
+    public function destroy($id)
     {
+        $osc = Osc::find($id);
 
         try {
             DB::beginTransaction();
