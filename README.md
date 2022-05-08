@@ -26,6 +26,9 @@ MAIL_ENCRYPTION=TLS
 MAIL_FROM_ADDRESS=infos@ifdd.com
 MAIL_FROM_NAME=IFDD
 
+
+APP_FRONTEND=url_to_frontend
+
 ```
 
 -   edit & add Docker config in .env
