@@ -104,25 +104,21 @@ class OddController extends BaseController
      * @bodyParam color string required the color of the odd. Example: #000000
      * @responseFile storage/responses/updateodd.json
      */
-    public function update(Request $request, Odd $odd)
+    public function update(Request $request, $id)
     {
+        $odd = Odd::find($id);
 
-        $validator =  Validator::make($request->all(), [
-            'name' => 'required',
-            'number' => 'required',
-            'number_categorie' => 'required',
-            'logo_odd' => 'required',
-            'color' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Erreur de paramètres.', $validator->errors(), 400);
-        }
 
         try {
             DB::beginTransaction();
 
-            $odd->update($request->all());
+            $odd->name = $request->name ?? $odd->name;
+            $odd->number = $request->number ?? $odd->number;
+            $odd->number_categorie = $request->number_categorie ?? $odd->number_categorie;
+            $odd->logo_odd = $request->logo_odd ?? $odd->logo_odd;
+            $odd->color = $request->color ?? $odd->color;
+            $odd->save();
+
 
             DB::commit();
 
