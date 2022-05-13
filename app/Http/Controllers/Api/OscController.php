@@ -66,7 +66,6 @@ class OscController extends BaseController
      * @header Content-Type application/json
      * @bodyParam name string required the name of the osc. Example: Faim
      * @bodyParam abbreviation string required the abbreviation of the osc. Example: F
-     * @bodyParam numero_osc string required the number of the osc. Example: 12
      * @bodyParam pays string required the country of the osc. Example: France
      * @bodyParam date_fondation string required the date of the osc. Example: 12/12/12
      * @bodyParam description string  the description of the osc. Example: Faim
@@ -92,7 +91,6 @@ class OscController extends BaseController
         $validator = Validator::make($input, [
             'name' => 'required',
             'abbreviation' => 'required',
-            'numero_osc' => 'required',
             'pays' => 'required',
             'date_fondation' => 'required',
             'description' => '',
@@ -168,7 +166,6 @@ class OscController extends BaseController
      * @header Content-Type application/json
      * @bodyParam name string required the name of the osc. Example: Faim
      * @bodyParam abbreviation string required the abbreviation of the osc. Example: F
-     * @bodyParam numero_osc string required the number of the osc. Example: 12
      * @bodyParam pays string required the country of the osc. Example: France
      * @bodyParam date_fondation string required the date of the osc. Example: 12/12/12
      * @bodyParam description string  the description of the osc. Example: Faim
@@ -187,40 +184,36 @@ class OscController extends BaseController
      * @bodyParam osccategoriesOdd required the categories of the osc. Example: [{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]
      * @responseFile storage/responses/updateosc.json
      */
-    public function update(Request $request, Osc $osc)
+    public function update(Request $request, $id)
     {
+        $osc = Osc::find($id);
+
+
         $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'abbreviation' => 'required',
-            'numero_osc' => 'required',
-            'pays' => 'required',
-            'date_fondation' => 'required',
-            'description' => '',
-            'personne_contact' => 'required',
-            'telephone' => 'required',
-            'email_osc' => 'required',
-            'site_web' => '',
-            'facebook' => '',
-            'twitter' => '',
-            'instagram' => '',
-            'linkedin' => '',
-            'longitude' => 'required',
-            'latitude' => 'required',
-            'siege' => 'required',
-            'zone_intervention' => 'required',
-            'osccategoriesOdd' => 'required',
 
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
 
         try {
             DB::beginTransaction();
 
-            $osc->update($input);
+
+            $osc->name = $request->name ?? $osc->name;
+            $osc->abbreviation = $request->abbreviation ?? $osc->abbreviation;
+            $osc->pays = $request->pays ?? $osc->pays;
+            $osc->date_fondation = $request->date_fondation ?? $osc->date_fondation;
+            $osc->description = $request->description ?? $osc->description;
+            $osc->personne_contact = $request->personne_contact ?? $osc->personne_contact;
+            $osc->telephone = $request->telephone ?? $osc->telephone;
+            $osc->email_osc = $request->email_osc ?? $osc->email_osc;
+            $osc->site_web = $request->site_web ?? $osc->site_web;
+            $osc->facebook = $request->facebook ?? $osc->facebook;
+            $osc->twitter = $request->twitter ?? $osc->twitter;
+            $osc->instagram = $request->instagram ?? $osc->instagram;
+            $osc->linkedin = $request->linkedin ?? $osc->linkedin;
+            $osc->longitude = $request->longitude ?? $osc->longitude;
+            $osc->latitude = $request->latitude ?? $osc->latitude;
+            $osc->siege = $request->siege ?? $osc->siege;
+
+            $osc->save();
 
             $osc->categorieOdds()->detach();
 
@@ -228,7 +221,7 @@ class OscController extends BaseController
                 $osc->categorieOdds()->attach($categorieOdd['id'], ['description' => $categorieOdd['description']]);
             }
 
-            $osc->zoneInterventions()->delete();
+            /* $osc->zoneInterventions()->delete();
 
             foreach ($request->zone_intervention as $zone) {
                 ZoneIntervention::create([
@@ -237,7 +230,7 @@ class OscController extends BaseController
                     'longitude' => $zone['longitude'],
                     'latitude' => $zone['latitude'],
                 ]);
-            }
+            }*/
 
             DB::commit();
 

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('abbreviation');
-            $table->string('numero_osc');
             $table->string('pays');
             $table->date('date_fondation');
             $table->text('description')->nullable();
