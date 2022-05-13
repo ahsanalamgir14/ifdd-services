@@ -74,7 +74,6 @@ class Osc extends Model
         'user_id',
         'name',
         'abbreviation',
-        'numero_osc',
         'pays',
         'date_fondation',
         'description',
