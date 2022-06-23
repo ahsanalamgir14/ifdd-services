@@ -27,6 +27,7 @@ class OscController extends BaseController
     public function index()
     {
         $oscs = Osc::paginate(50);
+        $oscs->setPath(env('APP_URL') . '/api/osc');
 
         foreach ($oscs as $osc) {
             $osc->user;
@@ -47,6 +48,7 @@ class OscController extends BaseController
     public function getActiveOscs()
     {
         $oscs = Osc::where('active', 1)->paginate(50);
+        $oscs->setPath(env('APP_URL') . '/api/osc');
 
         foreach ($oscs as $osc) {
             $osc->user;
