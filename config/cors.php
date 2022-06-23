@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['*.position.cm', '*.geosm.org', 'http://ifdddemo.geosm.org', 'http://ifddadmin.geosm.org', 'http://localhost:4200'],
 
     'allowed_origins_patterns' => [],
 
