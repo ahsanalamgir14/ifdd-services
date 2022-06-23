@@ -28,7 +28,13 @@ class OscController extends BaseController
     {
         $oscs = Osc::paginate(50);
 
-
+        foreach ($oscs as $osc) {
+            $osc->user;
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                $categorieOdd->odd;
+            }
+            $osc->zoneInterventions;
+        }
         return $this->sendResponse($oscs, 'Liste des OSCs');
     }
 
@@ -42,7 +48,13 @@ class OscController extends BaseController
     {
         $oscs = Osc::where('active', 1)->paginate(50);
 
-
+        foreach ($oscs as $osc) {
+            $osc->user;
+            foreach ($osc->categorieOdds as $categorieOdd) {
+                $categorieOdd->odd;
+            }
+            $osc->zoneInterventions;
+        }
         return $this->sendResponse($oscs, 'Liste des OSCs');
     }
 

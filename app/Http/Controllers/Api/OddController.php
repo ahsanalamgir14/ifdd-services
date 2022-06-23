@@ -29,7 +29,7 @@ class OddController extends BaseController
 
         foreach ($odds as $odd) {
             $odd->categorieOdd;
-            $count = $this->countOscByOdd($odd->id);
+            $count = 10;
             $odd->count_osc = $count;
         }
         return $this->sendResponse($odds, 'Liste des ODDs');
