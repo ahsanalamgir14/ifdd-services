@@ -158,6 +158,7 @@ class OddController extends BaseController
     public function countOscByOdd($idOdd)
     {
         $count = DB::table('osc_categorie_odds')
+            ->join('osc', 'osc_categorie_odds.osc_id', '=', 'osc.id')
             ->join('categorie_odds', 'osc_categorie_odds.categorie_odd_id', '=', 'categorie_odds.id')
             ->join('odds', 'categorie_odds.id_odd', '=', 'odds.id')
             ->where('odds.id', '=', $idOdd)
