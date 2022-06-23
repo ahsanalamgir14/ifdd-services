@@ -156,7 +156,7 @@ class OddController extends BaseController
     // get a odd by id and return the number of oscs associated to this odd by categorieOdd
     public function countOscByOdd($idOdd)
     {
-        $count = DB::table('osc_categorie_odds')
+        $count = DB::table('oscs')
             ->join('categorie_odds', 'osc_categorie_odds.categorie_odd_id', '=', 'categorie_odds.id')
             ->join('odds', 'categorie_odds.id_odd', '=', 'odds.id')
             ->where('odds.id', '=', $idOdd)
