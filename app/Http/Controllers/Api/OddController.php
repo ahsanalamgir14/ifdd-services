@@ -29,7 +29,7 @@ class OddController extends BaseController
 
         foreach ($odds as $odd) {
             $odd->categorieOdd;
-            $count = 10;
+            $count = $this->countOscByOdd($odd->id);
             $odd->count_osc = $count;
         }
         return $this->sendResponse($odds, 'Liste des ODDs');
@@ -153,7 +153,18 @@ class OddController extends BaseController
         }
     }
 
+    // get a odd by id and return the number of oscs associated to this odd by categorieOdd
     public function countOscByOdd($idOdd)
+    {
+        $count = DB::table('osc_categorie_odds')
+            ->join('categorie_odds', 'osc_categorie_odds.categorie_odd_id', '=', 'categorie_odds.id')
+            ->join('odds', 'categorie_odds.id_odd', '=', 'odds.id')
+            ->where('odds.id', '=', $idOdd)
+            ->count();
+        return $count;
+    }
+
+    /*  public function countOscByOdd($idOdd)
     {
         $oscs = Osc::all();
         $count = 0;
@@ -171,5 +182,5 @@ class OddController extends BaseController
             }
         }
         return $count;
-    }
+    }*/
 }
