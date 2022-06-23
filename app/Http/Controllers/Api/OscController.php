@@ -221,16 +221,6 @@ class OscController extends BaseController
                 $osc->categorieOdds()->attach($categorieOdd['id'], ['description' => $categorieOdd['description']]);
             }
 
-            /* $osc->zoneInterventions()->delete();
-
-            foreach ($request->zone_intervention as $zone) {
-                ZoneIntervention::create([
-                    'osc_id' => $osc->id,
-                    'name' => $zone['name'],
-                    'longitude' => $zone['longitude'],
-                    'latitude' => $zone['latitude'],
-                ]);
-            }*/
 
             DB::commit();
 
@@ -315,14 +305,15 @@ class OscController extends BaseController
     public function searchOscByQuery(Request $request)
     {
         $q  = $request->input('q');
+        $oscs = OSC::search($q)->get();
 
 
-        $oscs = Osc::where('name', 'LIKE', '%' . $q . '%')
+        /* $oscs = Osc::where('name', 'LIKE', '%' . $q . '%')
             ->orWhere('pays', 'LIKE', '%' . $q . '%')
             ->orWhere('abbreviation', 'LIKE', '%' . $q . '%')
             ->orWhere('description', 'LIKE', '%' . $q . '%')
             ->orWhere('siege', 'LIKE', '%' . $q . '%')
-            ->get();
+            ->get();*/
 
         foreach ($oscs as $osc) {
             $osc->user;
