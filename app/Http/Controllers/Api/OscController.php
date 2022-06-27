@@ -309,14 +309,6 @@ class OscController extends BaseController
         $q  = $request->input('q');
         $oscs = OSC::search($q)->get();
 
-
-        /* $oscs = Osc::where('name', 'LIKE', '%' . $q . '%')
-            ->orWhere('pays', 'LIKE', '%' . $q . '%')
-            ->orWhere('abbreviation', 'LIKE', '%' . $q . '%')
-            ->orWhere('description', 'LIKE', '%' . $q . '%')
-            ->orWhere('siege', 'LIKE', '%' . $q . '%')
-            ->get();*/
-
         foreach ($oscs as $osc) {
             $osc->user;
             foreach ($osc->categorieOdds as $categorieOdd) {
