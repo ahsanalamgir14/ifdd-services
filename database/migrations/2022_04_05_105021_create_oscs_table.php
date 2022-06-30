@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('abbreviation');
             $table->string('pays');
-            $table->date('date_fondation');
+            $table->date('date_fondation')->nullable();
             $table->text('description')->nullable();
-            $table->string('personne_contact');
-            $table->string('telephone');
-            $table->string('email_osc');
+            $table->string('personne_contact')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email_osc')->nullable();
             $table->string('site_web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
