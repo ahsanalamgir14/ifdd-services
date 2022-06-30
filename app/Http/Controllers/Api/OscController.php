@@ -69,11 +69,11 @@ class OscController extends BaseController
      * @bodyParam name string required the name of the osc. Example: Faim
      * @bodyParam abbreviation string required the abbreviation of the osc. Example: F
      * @bodyParam pays string required the country of the osc. Example: France
-     * @bodyParam date_fondation string required the date of the osc. Example: 12/12/12
+     * @bodyParam date_fondation string the date of the osc. Example: 12/12/12
      * @bodyParam description string  the description of the osc. Example: Faim
-     * @bodyParam personne_contact string required the contact person of the osc. Example: Faim
-     * @bodyParam telephone string required the telephone of the osc. Example: 12
-     * @bodyParam email_osc string required the email of the osc. Example: Faim
+     * @bodyParam personne_contact string the contact person of the osc. Example: Faim
+     * @bodyParam telephone string  the telephone of the osc. Example: 12
+     * @bodyParam email_osc string the email of the osc. Example: Faim
      * @bodyParam site_web string  the website of the osc. Example: Faim
      * @bodyParam facebook string  the facebook of the osc. Example: Faim
      * @bodyParam twitter string  the twitter of the osc. Example: Faim
@@ -94,11 +94,11 @@ class OscController extends BaseController
             'name' => 'required',
             'abbreviation' => 'required',
             'pays' => 'required',
-            'date_fondation' => 'required',
+            'date_fondation' => '',
             'description' => '',
-            'personne_contact' => 'required',
-            'telephone' => 'required',
-            'email_osc' => 'required',
+            'personne_contact' => '',
+            'telephone' => '',
+            'email_osc' => '',
             'site_web' => '',
             'facebook' => '',
             'twitter' => '',
