@@ -29,6 +29,9 @@ MAIL_FROM_NAME=IFDD
 
 APP_FRONTEND=url_to_frontend
 
+MEILISEARCH_HOST=host
+MEILISEARCH_KEY=key
+
 ```
 
 -   edit & add Docker config in .env
@@ -50,7 +53,7 @@ $ php artisan key:generate
 $ php artisan migrate
 $ php artisan passport:install
 $ php artisan db:seed
-$ php artisan apikey:generate app1
+$ php artisan apikey:generate demo
 $ php artisan storage:link
 $ php artisan scribe:generate
 $ exit
@@ -77,4 +80,4 @@ Accept: application/json
 X-Authorization : yourApiKey
 ```
 
--   Documentation Link : https://prrojectUrl/docs
+-   Documentation Link : https://projectUrl/docs

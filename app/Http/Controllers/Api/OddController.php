@@ -153,19 +153,6 @@ class OddController extends BaseController
         }
     }
 
-    // get a odd by id and return the number of oscs associated to this odd by categorieOdd
-
-    /* public function countOscByOdd($idOdd)
-    {
-        $count = DB::table('osc_categorie_odds')
-            ->join('categorie_odds', 'osc_categorie_odds.categorie_odd_id', '=', 'categorie_odds.id')
-            ->join('odds', 'categorie_odds.id_odd', '=', 'odds.id')
-            ->where('odds.id', '=', $idOdd)
-            ->distinct()
-            ->count();
-        return $count;
-    }*/
-
     // generate sql query to count all oscs by odd id and return the number of oscs associated to this odd by categorieOdd
     public function countOscByOdd($idOdd)
     {
@@ -176,24 +163,4 @@ class OddController extends BaseController
         $count = DB::select($sql);
         return $count[0]->count;
     }
-
-    /*  public function countOscByOdd($idOdd)
-    {
-        $oscs = Osc::all();
-        $count = 0;
-        $data = array();
-        foreach ($oscs as $osc) {
-            foreach ($osc->categorieOdds as $categorieOdd) {
-                if ($categorieOdd->odd->id == $idOdd) {
-
-                    $bool = $this->checkIfOscInDataArray($data, $osc);
-                    if ($bool == false) {
-                        $data[] = $osc;
-                        $count++;
-                    }
-                }
-            }
-        }
-        return $count;
-    }*/
 }
