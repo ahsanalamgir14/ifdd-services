@@ -137,8 +137,9 @@ class OddController extends BaseController
      * @urlParam id int required the id of the odd. Example: 2
      * @responseFile storage/responses/deleteodd.json
      */
-    public function destroy(Odd $odd)
+    public function destroy($id)
     {
+        $odd = Odd::find($id);
         try {
             DB::beginTransaction();
 
