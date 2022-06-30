@@ -65,10 +65,10 @@ class ZoneInterventionController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($zoneIntervention, 'ZoneIntervention created successfully.');
+            return $this->sendResponse($zoneIntervention, 'ZoneIntervention created successfully.', 201);
         } catch (\Exception $e) {
             DB::rollback();
-            return $this->sendError('Error', $e->getMessage());
+            return $this->sendError('Error', $e->getMessage(), 400);
         }
     }
 
@@ -112,7 +112,7 @@ class ZoneInterventionController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return $this->sendError('Validation Error.', $validator->errors(), 400);
         }
 
         try {
@@ -123,10 +123,10 @@ class ZoneInterventionController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($zoneIntervention, 'ZoneIntervention updated successfully.');
+            return $this->sendResponse($zoneIntervention, 'ZoneIntervention updated successfully.', 201);
         } catch (\Exception $e) {
             DB::rollback();
-            return $this->sendError('Error', $e->getMessage());
+            return $this->sendError('Error', $e->getMessage(), 200);
         }
     }
 
@@ -148,7 +148,7 @@ class ZoneInterventionController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($zoneIntervention, 'ZoneIntervention deleted successfully.');
+            return $this->sendResponse($zoneIntervention, 'ZoneIntervention deleted successfully.', 201);
         } catch (\Exception $e) {
             DB::rollback();
             return $this->sendError('Error', $e->getMessage());

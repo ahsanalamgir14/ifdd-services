@@ -112,7 +112,7 @@ class CategorieOddController extends BaseController
             $categorieOdd->update($request->all());
 
             DB::commit();
-            return $this->sendResponse($categorieOdd, 'CategorieOdd modifié avec succès', 200);
+            return $this->sendResponse($categorieOdd, 'CategorieOdd modifié avec succès', 201);
         } catch (\Exception $e) {
             DB::rollBack();
             return $this->sendError('Erreur lors de la modification de la catégorie.', $e->getMessage(), 400);
@@ -137,7 +137,7 @@ class CategorieOddController extends BaseController
             $categorieOdd->delete();
 
             DB::commit();
-            return $this->sendResponse($categorieOdd, 'CategorieOdd supprimé avec succès', 200);
+            return $this->sendResponse($categorieOdd, 'CategorieOdd supprimé avec succès', 201);
         } catch (\Exception $e) {
             DB::rollBack();
             return $this->sendError('Erreur lors de la suppression de la catégorie.', $e->getMessage(), 400);

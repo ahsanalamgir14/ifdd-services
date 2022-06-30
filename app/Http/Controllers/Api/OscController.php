@@ -136,10 +136,10 @@ class OscController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($osc, 'OSC created successfully.');
+            return $this->sendResponse($osc, 'OSC created successfully.', 201);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $this->sendError('Error', $th->getMessage());
+            return $this->sendError('Error', $th->getMessage(), 400);
         }
     }
 
@@ -226,10 +226,10 @@ class OscController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($osc, 'OSC updated successfully.');
+            return $this->sendResponse($osc, 'OSC updated successfully.', 201);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $this->sendError('Error', $th->getMessage());
+            return $this->sendError('Error', $th->getMessage(), 400);
         }
     }
 
@@ -255,10 +255,10 @@ class OscController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($osc, 'OSC deleted successfully.');
+            return $this->sendResponse($osc, 'OSC deleted successfully.', 201);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $this->sendError('Error', $th->getMessage());
+            return $this->sendError('Error', $th->getMessage(), 400);
         }
     }
 
@@ -308,14 +308,6 @@ class OscController extends BaseController
     {
         $q  = $request->input('q');
         $oscs = OSC::search($q)->get();
-
-
-        /* $oscs = Osc::where('name', 'LIKE', '%' . $q . '%')
-            ->orWhere('pays', 'LIKE', '%' . $q . '%')
-            ->orWhere('abbreviation', 'LIKE', '%' . $q . '%')
-            ->orWhere('description', 'LIKE', '%' . $q . '%')
-            ->orWhere('siege', 'LIKE', '%' . $q . '%')
-            ->get();*/
 
         foreach ($oscs as $osc) {
             $osc->user;

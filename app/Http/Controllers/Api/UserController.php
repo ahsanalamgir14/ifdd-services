@@ -71,10 +71,10 @@ class UserController extends BaseController
 
                 return $this->sendResponse($success, 'Connexion réussie.');
             } else {
-                return $this->sendError("Email not verified.", ['error' => 'Unauthorised'], 400);
+                return $this->sendError("Email not verified.", ['error' => 'Unauthorised'], 401);
             }
         } else {
-            return $this->sendError('Pas autorisé.', ['error' => 'Login Error']);
+            return $this->sendError('Pas autorisé.', ['error' => 'Login Error'], 400);
         }
     }
 
