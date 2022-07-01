@@ -223,6 +223,23 @@ class OscController extends BaseController
                 $osc->categorieOdds()->attach($categorieOdd['id'], ['description' => $categorieOdd['description']]);
             }
 
+            foreach ($request->zone_intervention as $zone) {
+                $zoneIntervention = ZoneIntervention::where('osc_id', $osc->id)->where('id', $zone['id'])->first();
+                if ($zoneIntervention) {
+                    $zoneIntervention->name = $zone['name'];
+                    $zoneIntervention->longitude = $zone['longitude'];
+                    $zoneIntervention->latitude = $zone['latitude'];
+                    $zoneIntervention->save();
+                } else {
+                    ZoneIntervention::create([
+                        'osc_id' => $osc->id,
+                        'name' => $zone['name'],
+                        'longitude' => $zone['longitude'],
+                        'latitude' => $zone['latitude'],
+                    ]);
+                }
+            }
+
 
             DB::commit();
 
