@@ -100,8 +100,9 @@ class ZoneInterventionController extends BaseController
      * @responseFile storage/responses/updatezoneintervention.json
      *
      */
-    public function update(Request $request, ZoneIntervention $zoneIntervention)
+    public function update(Request $request, $id)
     {
+        $zoneIntervention = ZoneIntervention::find($id);
         $input = $request->all();
 
         $validator = Validator::make($input, [
@@ -119,7 +120,10 @@ class ZoneInterventionController extends BaseController
 
             DB::beginTransaction();
 
-            $zoneIntervention->update($input);
+            $zoneIntervention->name = $input['name'] ?? $zoneIntervention->name;
+            $zoneIntervention->longitude = $input['longitude'] ?? $zoneIntervention->longitude;
+            $zoneIntervention->latitude = $input['latitude'] ?? $zoneIntervention->latitude;
+            $zoneIntervention->save();
 
             DB::commit();
 
@@ -138,8 +142,9 @@ class ZoneInterventionController extends BaseController
      * @urlParam id required The ID of the ZoneIntervention.
      * @responseFile storage/responses/deletezoneintervention.json
      */
-    public function destroy(ZoneIntervention $zoneIntervention)
+    public function destroy($id)
     {
+        $zoneIntervention = ZoneIntervention::find($id);
         try {
 
             DB::beginTransaction();
