@@ -215,30 +215,41 @@ class OscController extends BaseController
             $osc->latitude = $request->latitude ?? $osc->latitude;
             $osc->siege = $request->siege ?? $osc->siege;
 
+            if ($request->active) {
+                $osc->active = $request->active;
+            }
+
             $osc->save();
 
-            $osc->categorieOdds()->detach();
+            if ($request->osccategoriesOdd) {
+                $osc->categorieOdds()->detach();
 
-            foreach ($input['osccategoriesOdd'] as $categorieOdd) {
-                $osc->categorieOdds()->attach($categorieOdd['id'], ['description' => $categorieOdd['description']]);
-            }
-
-            foreach ($request->zone_intervention as $zone) {
-                $zoneIntervention = ZoneIntervention::where('osc_id', $osc->id)->where('id', $zone['id'])->first();
-                if ($zoneIntervention) {
-                    $zoneIntervention->name = $zone['name'];
-                    $zoneIntervention->longitude = $zone['longitude'];
-                    $zoneIntervention->latitude = $zone['latitude'];
-                    $zoneIntervention->save();
-                } else {
-                    ZoneIntervention::create([
-                        'osc_id' => $osc->id,
-                        'name' => $zone['name'],
-                        'longitude' => $zone['longitude'],
-                        'latitude' => $zone['latitude'],
-                    ]);
+                foreach ($input['osccategoriesOdd'] as $categorieOdd) {
+                    $osc->categorieOdds()->attach($categorieOdd['id'], ['description' => $categorieOdd['description']]);
                 }
             }
+
+            if ($request->zone_intervention) {
+
+                foreach ($request->zone_intervention as $zone) {
+                    $zoneIntervention = ZoneIntervention::where('osc_id', $osc->id)->where('id', $zone['id'])->first();
+                    if ($zoneIntervention) {
+                        $zoneIntervention->name = $zone['name'];
+                        $zoneIntervention->longitude = $zone['longitude'];
+                        $zoneIntervention->latitude = $zone['latitude'];
+                        $zoneIntervention->save();
+                    } else {
+                        ZoneIntervention::create([
+                            'osc_id' => $osc->id,
+                            'name' => $zone['name'],
+                            'longitude' => $zone['longitude'],
+                            'latitude' => $zone['latitude'],
+                        ]);
+                    }
+                }
+            }
+
+
 
 
             DB::commit();
