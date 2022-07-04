@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('longitude');
             $table->string('latitude');
-            $table->string('siege');
+            $table->text('siege');
             $table->boolean('active')->default(false);
             $table->softDeletes();
             $table->timestamps();
