@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('auth/email/verify/{id}', [App\Http\Controllers\Api\VerificationController::class, 'verify'])->name('verification.verify');
 Route::get('auth/email/resend', [App\Http\Controllers\Api\VerificationController::class, 'resend'])->name('verification.resend');
 
-Route::post('search/osc', [App\Http\Controllers\Api\OscController::class, 'searchOsc']);
-
-
 Route::middleware('auth.apikey')->group(
     function () {
 
