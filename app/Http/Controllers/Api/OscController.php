@@ -302,8 +302,8 @@ class OscController extends BaseController
 
         $data = array();
 
-        for ($i = 0; $i < count($idsCategorieOdd); $i++) {
-            $categorieOdd = CategorieOdd::find($idsCategorieOdd[$i]);
+        foreach ($idsCategorieOdd as $iValue) {
+            $categorieOdd = CategorieOdd::find($iValue);
             $categorieOdd->oscs;
             foreach ($categorieOdd->oscs as $osc) {
                 $osc->user;

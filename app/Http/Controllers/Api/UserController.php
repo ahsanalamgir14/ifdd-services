@@ -44,9 +44,9 @@ class UserController extends BaseController
 
         if ($user) {
             return $this->sendResponse($success, 'Création réussie verifiez vos mails.');
-        } else {
-            return $this->sendError("Pas autorisé.", ['error' => 'Unauthorised']);
         }
+
+        return $this->sendError("Pas autorisé.", ['error' => 'Unauthorised']);
     }
 
 
@@ -70,12 +70,12 @@ class UserController extends BaseController
                 $success['user'] = $user;
 
                 return $this->sendResponse($success, 'Connexion réussie.');
-            } else {
-                return $this->sendError("Email not verified.", ['error' => 'Unauthorised'], 401);
             }
-        } else {
-            return $this->sendError('Pas autorisé.', ['error' => 'Login Error'], 400);
+
+            return $this->sendError("Email not verified.", ['error' => 'Unauthorised'], 401);
         }
+
+        return $this->sendError('Pas autorisé.', ['error' => 'Login Error'], 400);
     }
 
     /**
@@ -94,9 +94,9 @@ class UserController extends BaseController
 
         if ($revoque) {
             return $this->sendResponse("", 'Deconnexion réussie.');
-        } else {
-            return $this->sendError('Pas autorisé.', ['error' => 'Echec de deconnexion'], 400);
         }
+
+        return $this->sendError('Pas autorisé.', ['error' => 'Echec de deconnexion'], 400);
     }
 
     /**
@@ -115,9 +115,9 @@ class UserController extends BaseController
             $success["user"] = $user;
 
             return $this->sendResponse($success, 'Utilisateur');
-        } else {
-            return $this->sendError('Pas autorisé.', ['error' => 'Unauthorised']);
         }
+
+        return $this->sendError('Pas autorisé.', ['error' => 'Unauthorised']);
     }
 
     /**

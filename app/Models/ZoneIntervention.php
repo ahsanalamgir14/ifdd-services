@@ -37,10 +37,7 @@ class ZoneIntervention extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'osc_id',
-        'name', 'longitude', 'latitude',
-    ];
+    protected $guarded = [];
 
     protected $hidden = [
         'created_at', 'updated_at', 'deleted_at'
