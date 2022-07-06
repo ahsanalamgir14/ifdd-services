@@ -24,9 +24,10 @@ class OscController extends BaseController
      * @header Content-Type application/json
      * @responseFile storage/responses/getoscs.json
      */
-    public function index()
+    public function index(Request $request)
     {
-        $oscs = Osc::paginate(50);
+        $per_page = $request->input('per_page') ?? 50;
+        $oscs = Osc::paginate($per_page);
         $oscs->setPath(env('APP_URL') . '/api/osc');
 
         foreach ($oscs as $osc) {
@@ -45,9 +46,10 @@ class OscController extends BaseController
      * @header Content-Type application/json
      * @responseFile storage/responses/getoscs.json
      */
-    public function getActiveOscs()
+    public function getActiveOscs(Request $request)
     {
-        $oscs = Osc::where('active', 1)->paginate(50);
+        $per_page = $request->input('per_page') ?? 50;
+        $oscs = Osc::where('active', 1)->paginate($per_page);
         $oscs->setPath(env('APP_URL') . '/api/osc');
 
         foreach ($oscs as $osc) {
