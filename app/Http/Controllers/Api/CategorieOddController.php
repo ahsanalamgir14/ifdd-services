@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\StoreCategorieOddRequest;
 use App\Models\CategorieOdd;
-use App\Models\Odd;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 
 /**
  *
@@ -26,9 +24,7 @@ class CategorieOddController extends BaseController
     public function index()
     {
         $categorieOdds = CategorieOdd::all();
-        $categorieOdds->each(function ($categorieOdd) {
-            $categorieOdd->odd;
-        });
+        $categorieOdds->each(fn($categorieOdd) => $categorieOdd->odd);
         return $this->sendResponse($categorieOdds, 'Liste des CategorieOdds');
     }
 
@@ -43,27 +39,12 @@ class CategorieOddController extends BaseController
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/addcategorieodd.json
      */
-    public function store(Request $request)
+    public function store(StoreCategorieOddRequest $request)
     {
-        $validator =  Validator::make($request->all(), [
-            'category_number' => 'required',
-            'intitule' => 'required',
-            'id_odd' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Erreur de paramètres.', $validator->errors(), 400);
-        }
-
         try {
-            DB::beginTransaction();
-
-
             $categorieOdd = CategorieOdd::create($request->all());
-            DB::commit();
             return $this->sendResponse($categorieOdd, 'CategorieOdd créé avec succès', 201);
         } catch (\Exception $e) {
-            DB::rollBack();
             return $this->sendError('Erreur lors de la création de la catégorie.', $e->getMessage(), 400);
         }
     }
@@ -71,13 +52,11 @@ class CategorieOddController extends BaseController
 
     /**
      * Show the specified CategorieOdd.
-     * @urlParam id required The ID of the CategorieOdd. Example: 1
+     * @urlParam CategorieOdd required The ID of the CategorieOdd. Example: 1
      * @responseFile storage/responses/showcategorieodd.json
      */
-    public function show($id)
+    public function show(CategorieOdd $categorieOdd)
     {
-        $categorieOdd = CategorieOdd::find($id);
-        $categorieOdd->odd;
         return $this->sendResponse($categorieOdd, 'CategorieOdd retrouvé avec succès');
     }
 
@@ -92,18 +71,8 @@ class CategorieOddController extends BaseController
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/updatecategorieodd.json
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategorieOddRequest $request, $id)
     {
-
-        $validator =  Validator::make($request->all(), [
-            'category_number' => 'required',
-            'intitule' => 'required',
-            'id_odd' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Erreur de paramètres.', $validator->errors(), 400);
-        }
 
         try {
             DB::beginTransaction();
@@ -127,19 +96,13 @@ class CategorieOddController extends BaseController
      * @urlParam id required The ID of the CategorieOdd. Example: 1
      * @responseFile storage/responses/deletecategorieodd.json
      */
-    public function destroy($id)
+    public function destroy(CategorieOdd $categorieOdd)
     {
 
         try {
-            DB::beginTransaction();
-
-            $categorieOdd = CategorieOdd::find($id);
             $categorieOdd->delete();
-
-            DB::commit();
             return $this->sendResponse($categorieOdd, 'CategorieOdd supprimé avec succès', 201);
         } catch (\Exception $e) {
-            DB::rollBack();
             return $this->sendError('Erreur lors de la suppression de la catégorie.', $e->getMessage(), 400);
         }
     }

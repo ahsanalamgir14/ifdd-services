@@ -26,6 +26,7 @@
         "meilisearch/meilisearch-php": "^0.23.3"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "knuckleswtf/scribe": "^3.25",
