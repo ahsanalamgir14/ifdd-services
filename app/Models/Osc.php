@@ -109,4 +109,9 @@ class Osc extends Model
     {
         return $this->hasMany(ZoneIntervention::class, 'osc_id');
     }
+
+    public function oscCategorieOdds()
+    {
+        return $this->hasMany(OscCategorieOdd::class, 'osc_id');
+    }
 }

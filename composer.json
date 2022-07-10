@@ -12,7 +12,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "doctrine/dbal": "^3.3",
         "ejarnutowski/laravel-api-key": "^1.0",
+        "filament/filament": "^2.13",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.2",
@@ -51,7 +53,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
