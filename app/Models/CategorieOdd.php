@@ -48,7 +48,6 @@ class CategorieOdd extends Model
     ];
 
 
-
     public function odd()
     {
         return $this->belongsTo(Odd::class, 'id_odd');
