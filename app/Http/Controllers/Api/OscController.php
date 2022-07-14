@@ -314,7 +314,7 @@ class OscController extends BaseController
                 }
                 $osc->zoneInterventions;
                 $bool = $this->checkIfOscInDataArray($data, $osc);
-                if ($bool == false) {
+                if (!$bool) {
                     $data[] = $osc;
                 }
             }
