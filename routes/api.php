@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,12 +31,12 @@ Route::middleware('auth.apikey')->group(
         Route::get('odd/{id}', [App\Http\Controllers\Api\OddController::class, 'show']);
 
         Route::get('categorieodd', [App\Http\Controllers\Api\CategorieOddController::class, 'index']);
-        Route::get('categorieodd/{categorieOdd}', [App\Http\Controllers\Api\CategorieOddController::class, 'show']);
+        Route::get('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'show']);
 
         Route::get('osc', [App\Http\Controllers\Api\OscController::class, 'index']);
         Route::get('count/osc', [App\Http\Controllers\Api\OscController::class, 'countOscInDb']);
         Route::get('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'show']);
-//        Route::post('search/osc', [App\Http\Controllers\Api\OscController::class, 'searchOsc']);
+        Route::post('search/osc', [App\Http\Controllers\Api\OscController::class, 'searchOsc']);
         Route::get('searchosc', [App\Http\Controllers\Api\OscController::class, 'searchOscByQuery']);
 
         Route::get('zonesintervention', [App\Http\Controllers\Api\ZoneInterventionController::class, 'index']);
@@ -58,7 +57,7 @@ Route::middleware('auth.apikey')->group(
 
                 Route::post('categorieodd', [App\Http\Controllers\Api\CategorieOddController::class, 'store']);
                 Route::put('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'update']);
-                Route::delete('categorieodd/{categorieOdd}', [App\Http\Controllers\Api\CategorieOddController::class, 'destroy']);
+                Route::delete('categorieodd/{id}', [App\Http\Controllers\Api\CategorieOddController::class, 'destroy']);
 
                 Route::post('osc', [App\Http\Controllers\Api\OscController::class, 'store']);
                 Route::put('osc/{id}', [App\Http\Controllers\Api\OscController::class, 'update']);
