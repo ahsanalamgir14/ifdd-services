@@ -71,7 +71,25 @@ class Osc extends Model
 {
     use HasFactory, SoftDeletes, Searchable;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'abbreviation',
+        'pays',
+        'date_fondation',
+        'description',
+        'personne_contact',
+        'telephone',
+        'email_osc',
+        'site_web',
+        'facebook',
+        'twitter',
+        'instagram',
+        'linkedin',
+        'longitude',
+        'latitude',
+        'siege', 'active'
+    ];
 
     protected $hidden = [
         'created_at', 'updated_at', 'deleted_at'
