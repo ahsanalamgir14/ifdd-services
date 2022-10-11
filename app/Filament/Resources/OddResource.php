@@ -7,6 +7,7 @@ use App\Filament\Resources\OddResource\RelationManagers;
 use App\Models\Odd;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -14,6 +15,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\TemporaryUploadedFile;
 
 class OddResource extends Resource
 {
@@ -37,9 +39,15 @@ class OddResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('number_categorie')
                     ->required(),
-                Forms\Components\TextInput::make('logo_odd')
-                    ->required()
-                    ->maxLength(255),
+                FileUpload::make('logo_odd')
+                    ->disk('public')
+                    ->directory('uploads/odd/logos')
+                    ->image()
+                    ->loadingIndicatorPosition('left')
+                    ->enableDownload()
+                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                        return (string) str($file->getClientOriginalName())->prepend(time() . '_');
+                    }),
                 ColorPicker::make('color')
                     ->required()
             ]);

@@ -6,6 +6,7 @@ use App\Filament\Resources\CategorieOddResource\Pages;
 use App\Filament\Resources\CategorieOddResource\RelationManagers;
 use App\Models\CategorieOdd;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -33,7 +34,8 @@ class CategorieOddResource extends Resource
                 Forms\Components\TextInput::make('intitule')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('id_odd')
+                Select::make('id_odd')
+                    ->relationship('odd', 'name')
                     ->required(),
             ]);
     }
