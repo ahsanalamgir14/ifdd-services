@@ -27,7 +27,8 @@ class OscController extends BaseController
     public function index(Request $request)
     {
         $per_page = $request->input('per_page') ?? 50;
-        $oscs = Osc::paginate($per_page);
+        //  $oscs = Osc::paginate($per_page);
+        $oscs = Osc::where('active', 1)->paginate($per_page);
         $oscs->setPath(env('APP_URL') . '/api/osc');
 
         foreach ($oscs as $osc) {
