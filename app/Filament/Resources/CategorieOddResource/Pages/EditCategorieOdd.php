@@ -10,6 +10,7 @@ class EditCategorieOdd extends EditRecord
 {
     protected static string $resource = CategorieOddResource::class;
 
+
     protected function getActions(): array
     {
         return [

@@ -11,6 +11,8 @@ class ListOscs extends ListRecords
 {
     protected static string $resource = OscResource::class;
 
+    protected static ?string $title = 'Organisations';
+
 
 
     protected function getActions(): array

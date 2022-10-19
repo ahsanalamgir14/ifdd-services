@@ -22,6 +22,8 @@ class UserResource extends Resource
 
     protected static ?string $title = 'Users';
 
+    protected static ?string $navigationLabel = 'Utilisateurs';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -56,12 +58,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('role'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

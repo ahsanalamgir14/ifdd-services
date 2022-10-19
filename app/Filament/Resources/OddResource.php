@@ -21,6 +21,8 @@ class OddResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationLabel = 'Objectifs de Developpement Durable';
+
     protected static ?string $title = 'ODD';
 
     protected static ?string $recordTitleAttribute = 'odds';
@@ -52,12 +54,7 @@ class OddResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('number'),
                 Tables\Columns\TextColumn::make('number_categorie'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+
                 Tables\Columns\TextColumn::make('logo_odd'),
                 Tables\Columns\TextColumn::make('color'),
             ])

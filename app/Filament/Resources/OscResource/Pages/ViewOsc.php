@@ -10,6 +10,8 @@ class ViewOsc extends ViewRecord
 {
     protected static string $resource = OscResource::class;
 
+    protected static ?string $title = 'Organistaions';
+
     protected function getActions(): array
     {
         return [
