@@ -14,6 +14,8 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 class CategorieOddResource extends Resource
 {
     protected static ?string $model = CategorieOdd::class;
@@ -22,7 +24,7 @@ class CategorieOddResource extends Resource
 
     protected static ?string $title = 'Cibles des ODDs';
 
-    protected static ?string $navigationLabel = 'Cibles des ODDs';
+    protected static ?string $navigationLabel = 'Cibles des Objectifs';
 
     public static function form(Form $form): Form
     {
@@ -47,12 +49,8 @@ class CategorieOddResource extends Resource
                 Tables\Columns\TextColumn::make('category_number'),
                 Tables\Columns\TextColumn::make('intitule'),
                 Tables\Columns\TextColumn::make('id_odd'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+
+
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -65,6 +63,7 @@ class CategorieOddResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make()
             ]);
     }
 
@@ -91,5 +90,12 @@ class CategorieOddResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public function getTableBulkActions()
+    {
+        return  [
+            ExportBulkAction::make()
+        ];
     }
 }

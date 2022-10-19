@@ -10,6 +10,7 @@ class EditOdd extends EditRecord
 {
     protected static string $resource = OddResource::class;
 
+
     protected function getActions(): array
     {
         return [

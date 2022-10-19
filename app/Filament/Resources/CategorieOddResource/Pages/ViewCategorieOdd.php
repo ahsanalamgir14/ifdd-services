@@ -10,6 +10,8 @@ class ViewCategorieOdd extends ViewRecord
 {
     protected static string $resource = CategorieOddResource::class;
 
+    protected static ?string $title = 'Cibles de ODDs';
+
     protected function getActions(): array
     {
         return [

@@ -15,11 +15,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 class OddResource extends Resource
 {
     protected static ?string $model = Odd::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    protected static ?string $navigationLabel = 'Objectifs de Developpement Durable';
 
     protected static ?string $title = 'ODD';
 
@@ -52,12 +56,7 @@ class OddResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('number'),
                 Tables\Columns\TextColumn::make('number_categorie'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+
                 Tables\Columns\TextColumn::make('logo_odd'),
                 Tables\Columns\TextColumn::make('color'),
             ])
@@ -72,6 +71,7 @@ class OddResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make()
             ]);
     }
 
@@ -103,5 +103,12 @@ class OddResource extends Resource
     public static function getGlobalSearchResultTitle(Model $record): string
     {
         return $record->name;
+    }
+
+    public function getTableBulkActions()
+    {
+        return  [
+            ExportBulkAction::make()
+        ];
     }
 }

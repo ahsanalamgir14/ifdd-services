@@ -10,6 +10,8 @@ class ViewOdd extends ViewRecord
 {
     protected static string $resource = OddResource::class;
 
+    protected static ?string $title = 'Objectifs de Developpement Durable';
+
     protected function getActions(): array
     {
         return [

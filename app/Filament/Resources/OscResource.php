@@ -21,6 +21,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class OscResource extends Resource
 {
@@ -28,7 +29,7 @@ class OscResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $title = 'Osc';
+    protected static ?string $navigationLabel = 'Organisations';
 
     protected static ?string $recordTitleAttribute = 'oscs';
 
@@ -112,27 +113,16 @@ class OscResource extends Resource
                 Tables\Columns\TextColumn::make('pays'),
                 Tables\Columns\TextColumn::make('date_fondation')
                     ->date(),
-                Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('personne_contact'),
                 Tables\Columns\TextColumn::make('telephone'),
                 Tables\Columns\TextColumn::make('email_osc'),
                 Tables\Columns\TextColumn::make('site_web'),
-                Tables\Columns\TextColumn::make('facebook'),
-                Tables\Columns\TextColumn::make('twitter'),
-                Tables\Columns\TextColumn::make('instagram'),
-                Tables\Columns\TextColumn::make('linkedin'),
-                Tables\Columns\TextColumn::make('longitude'),
-                Tables\Columns\TextColumn::make('latitude'),
                 Tables\Columns\TextColumn::make('siege'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+
                 Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\BooleanColumn::make('active'),
+                Tables\Columns\BooleanColumn::make('active')->sortable(),
             ])
+            ->defaultSort('active')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -144,6 +134,8 @@ class OscResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make()
+
             ]);
     }
 
@@ -173,5 +165,12 @@ class OscResource extends Resource
     public static function getGlobalSearchResultTitle(Model $record): string
     {
         return $record->name;
+    }
+
+    public function getTableBulkActions()
+    {
+        return  [
+            ExportBulkAction::make()
+        ];
     }
 }
