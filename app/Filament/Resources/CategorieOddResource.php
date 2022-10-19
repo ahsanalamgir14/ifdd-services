@@ -14,6 +14,8 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 class CategorieOddResource extends Resource
 {
     protected static ?string $model = CategorieOdd::class;
@@ -61,6 +63,7 @@ class CategorieOddResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make()
             ]);
     }
 
@@ -87,5 +90,12 @@ class CategorieOddResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public function getTableBulkActions()
+    {
+        return  [
+            ExportBulkAction::make()
+        ];
     }
 }

@@ -21,6 +21,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class OscResource extends Resource
 {
@@ -133,6 +134,8 @@ class OscResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make()
+
             ]);
     }
 
@@ -162,5 +165,12 @@ class OscResource extends Resource
     public static function getGlobalSearchResultTitle(Model $record): string
     {
         return $record->name;
+    }
+
+    public function getTableBulkActions()
+    {
+        return  [
+            ExportBulkAction::make()
+        ];
     }
 }
