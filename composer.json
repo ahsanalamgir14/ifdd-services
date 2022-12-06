@@ -15,7 +15,7 @@
         "doctrine/dbal": "^3.3",
         "ejarnutowski/laravel-api-key": "^1.0",
         "filament/filament": "^2.13",
-        "fruitcake/laravel-cors": "^2.0",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.2",
         "laravel/framework": "^9.0",
