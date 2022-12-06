@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('latitude');
             $table->text('siege');
             $table->boolean('active')->default(false);
+            $table->text('reference')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
