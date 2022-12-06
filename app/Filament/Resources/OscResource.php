@@ -79,6 +79,7 @@ class OscResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Textarea::make('siege')
                     ->required(),
+                Forms\Components\Textarea::make('reference'),
                 Hidden::make('user_id')->default(auth()->user()->id),
                 Forms\Components\Toggle::make('active')
                     ->required(),

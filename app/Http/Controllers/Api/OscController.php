@@ -84,6 +84,7 @@ class OscController extends BaseController
      * @bodyParam linkedin string  the linkedin of the osc. Example: Faim
      * @bodyParam longitude string required the longitude of the osc. Example: Faim
      * @bodyParam latitude string required the latitude of the osc. Example: Faim
+     * @bodyParam reference string the reference of the osc. Example: OMS
      * @bodyParam siege string required the siege of the osc. Example: Faim
      * @bodyParam zone_intervention required the zone of the osc. Example: [ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]
      * @bodyParam osccategoriesOdd required the categories of the osc. Example: [{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]
@@ -109,6 +110,7 @@ class OscController extends BaseController
             'linkedin' => '',
             'longitude' => 'required',
             'latitude' => 'required',
+            'reference' => '',
             'siege' => 'required',
             'zone_intervention' => 'required',
             'osccategoriesOdd' => 'required',
@@ -184,6 +186,7 @@ class OscController extends BaseController
      * @bodyParam linkedin string  the linkedin of the osc. Example: Faim
      * @bodyParam longitude string required the longitude of the osc. Example: Faim
      * @bodyParam latitude string required the latitude of the osc. Example: Faim
+     * @bodyParam reference string the reference of the osc. Example: OMS
      * @bodyParam siege string required the siege of the osc. Example: Faim
      * @bodyParam zone_intervention required the zone of the osc. Example: [ {"name":"Zone","longitude":"13","latitude":"7"},{"name":"Zone2","longitude":"13","latitude":"7"},{"name":"Zone3","longitude":"13","latitude":"7"}]
      * @bodyParam osccategoriesOdd required the categories of the osc. Example: [{"id" : 12,"description":"Une Osc"},{"id" : 20,"description":"Une Osc1"}]
@@ -216,6 +219,7 @@ class OscController extends BaseController
             $osc->linkedin = $request->linkedin ?? $osc->linkedin;
             $osc->longitude = $request->longitude ?? $osc->longitude;
             $osc->latitude = $request->latitude ?? $osc->latitude;
+            $osc->reference = $request->reference ?? $osc->reference;
             $osc->siege = $request->siege ?? $osc->siege;
 
             if ($request->active) {
