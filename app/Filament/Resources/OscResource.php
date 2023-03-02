@@ -50,6 +50,9 @@ class OscResource extends Resource
                     ->options([
                         'Benin' => 'Benin',
                         'Togo' => 'Togo',
+                        'Cameroun' => 'Cameroun',
+                        'Senegal' => 'Senegal',
+                        'Cote d\'ivoire' => 'Cote d\'ivoire',
                     ]),
                 Forms\Components\DatePicker::make('date_fondation'),
                 Forms\Components\Textarea::make('description'),
