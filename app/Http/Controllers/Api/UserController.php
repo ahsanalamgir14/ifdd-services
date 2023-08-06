@@ -89,14 +89,24 @@ class UserController extends BaseController
     public function logout()
     {
         $user = Auth::user();
-        $token = $user->token();
+
+        if($user) {
+            $token = $user->token();
         $revoque = $token->revoke();
 
         if ($revoque) {
             return $this->sendResponse("", 'Deconnexion réussie.');
         }
-
+        
         return $this->sendError('Pas autorisé.', ['error' => 'Echec de deconnexion'], 400);
+        } 
+        else {
+             return $this->sendResponse("", 'Deconnexion réussie.');
+        }
+
+
+        
+
     }
 
     /**
