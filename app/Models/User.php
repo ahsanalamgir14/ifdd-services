@@ -87,7 +87,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     public function canAccessFilament(): bool
     {
-        return str_ends_with($this->email, '@francophonie.org') && $this->hasVerifiedEmail();
+        return str_ends_with($this->email, '@francophonie.org') || str_ends_with($this->email, '@ifdd.cm') && $this->hasVerifiedEmail();
     }
 
     public function oscs()
