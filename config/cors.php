@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*.geosm.org', '*.francophonie.org', 'http://localhost:4200'],
+    'allowed_origins' => ['*.geosm.org', '*.position.cm', '*.francophonie.org', 'http://localhost:4200'],
 
     'allowed_origins_patterns' => [],
 
