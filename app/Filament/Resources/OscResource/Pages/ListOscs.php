@@ -3,19 +3,14 @@
 namespace App\Filament\Resources\OscResource\Pages;
 
 use App\Filament\Resources\OscResource;
-use App\Filament\Resources\OscResource\Widgets\OscOverview;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListOscs extends ListRecords
 {
     protected static string $resource = OscResource::class;
 
-    protected static ?string $title = 'Organisations';
-
-
-
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

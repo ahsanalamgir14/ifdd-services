@@ -3,15 +3,14 @@
 namespace App\Filament\Resources\CategorieOddResource\Pages;
 
 use App\Filament\Resources\CategorieOddResource;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditCategorieOdd extends EditRecord
 {
     protected static string $resource = CategorieOddResource::class;
 
-
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\ViewAction::make(),
