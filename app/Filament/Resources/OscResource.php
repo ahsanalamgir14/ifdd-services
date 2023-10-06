@@ -4,36 +4,29 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OscResource\Pages;
 use App\Filament\Resources\OscResource\RelationManagers;
-use App\Filament\Resources\OscResource\Widgets\OscOverview;
-use App\Models\CategorieOdd;
 use App\Models\Osc;
+use App\Models\CategorieOdd;
 use Filament\Forms;
-use Filament\Forms\Components\Fieldset;
-use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\MultiSelect;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 
 class OscResource extends Resource
 {
     protected static ?string $model = Osc::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-building-library';
 
     protected static ?string $navigationLabel = 'Organisations';
 
     protected static ?string $recordTitleAttribute = 'oscs';
 
-
+    protected static ?string $navigationGroup = 'Objectifs';
 
     public static function form(Form $form): Form
     {
@@ -45,11 +38,14 @@ class OscResource extends Resource
                 Forms\Components\TextInput::make('abbreviation')
                     ->required()
                     ->maxLength(255),
-                Select::make('pays')
+                Forms\Components\Select::make('pays')
                     ->required()
                     ->options([
                         'Benin' => 'Benin',
                         'Togo' => 'Togo',
+                        'Cameroun' => 'Cameroun',
+                        'Senegal' => 'Senegal',
+                        'Cote d\'ivoire' => 'Cote d\'ivoire',
                     ]),
                 Forms\Components\DatePicker::make('date_fondation'),
                 Forms\Components\Textarea::make('description'),
@@ -80,26 +76,26 @@ class OscResource extends Resource
                 Forms\Components\Textarea::make('siege')
                     ->required(),
                 Forms\Components\Textarea::make('reference'),
-                Hidden::make('user_id')->default(auth()->user()->id),
+                Forms\Components\Hidden::make('user_id')->default(auth()->user()->id),
                 Forms\Components\Toggle::make('active')
                     ->required(),
-                Repeater::make('zoneInterventions')
+                Forms\Components\Repeater::make('zoneInterventions')
                     ->relationship()
                     ->schema([
-                        TextInput::make('name')->required(),
-                        TextInput::make('longitude')->required(),
-                        TextInput::make('latitude')->required()
+                        Forms\Components\TextInput::make('name')->required(),
+                        Forms\Components\TextInput::make('longitude')->required(),
+                        Forms\Components\TextInput::make('latitude')->required()
                             ->required(),
                     ])
                     ->columns(3),
-                Repeater::make('categorie_odd_id')
+                Forms\Components\Repeater::make('categorie_odd_id')
                     ->relationship('oscCategorieOdds')
                     ->schema([
-                        Select::make('categorie_odd_id')
+                        Forms\Components\Select::make('categorie_odd_id')
                             ->label('Cible Odd')
                             ->options(CategorieOdd::all()->pluck('category_number', 'id'))
                             ->searchable(),
-                        TextInput::make('description')->required(),
+                        Forms\Components\TextInput::make('description')->required(),
                     ])
                     ->columns(2)
             ]);
@@ -109,21 +105,48 @@ class OscResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('abbreviation'),
-                Tables\Columns\TextColumn::make('pays'),
+                Tables\Columns\TextColumn::make('name')
+                ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('abbreviation')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('pays')
+                ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('date_fondation')
-                    ->date(),
-                Tables\Columns\TextColumn::make('personne_contact'),
-                Tables\Columns\TextColumn::make('telephone'),
-                Tables\Columns\TextColumn::make('email_osc'),
-                Tables\Columns\TextColumn::make('site_web'),
-                Tables\Columns\TextColumn::make('siege'),
-
-                Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\BooleanColumn::make('active')->sortable(),
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('reference')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('personne_contact')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('telephone')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email_osc')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('site_web')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('longitude')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('latitude')
+                    ->searchable(),
+                Tables\Columns\IconColumn::make('active')
+                ->sortable()
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultSort('active')
+             
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -132,19 +155,25 @@ class OscResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\RestoreBulkAction::make(),
-                Tables\Actions\ForceDeleteBulkAction::make(),
-                ExportBulkAction::make()
-
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
+                ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make(),
             ]);
     }
-
+    
     public static function getRelations(): array
     {
-        return [];
+        return [
+            //
+        ];
     }
-
+    
     public static function getPages(): array
     {
         return [
@@ -153,25 +182,49 @@ class OscResource extends Resource
             'view' => Pages\ViewOsc::route('/{record}'),
             'edit' => Pages\EditOsc::route('/{record}/edit'),
         ];
-    }
-
+    }    
+    
     public static function getEloquentQuery(): Builder
-    {
+    { 
+        if( auth()->user()->role == 3) {
+            return parent::getEloquentQuery()->where('pays', 'Togo')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        } 
+        if( auth()->user()->role == 4) {
+            return parent::getEloquentQuery()->where('pays', 'Benin')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        }
+        if( auth()->user()->role == 5) {
+            return parent::getEloquentQuery()->where('pays', 'Cameroun')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        }
+        if( auth()->user()->role == 6) {
+            return parent::getEloquentQuery()->where('pays', 'Senegal')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        }
+        if( auth()->user()->role == 7) {
+            return parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        }
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+        
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string
-    {
-        return $record->name;
-    }
-
-    public function getTableBulkActions()
-    {
-        return  [
-            ExportBulkAction::make()
-        ];
-    }
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 }

@@ -3,14 +3,14 @@
 namespace App\Filament\Resources\OscResource\Pages;
 
 use App\Filament\Resources\OscResource;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditOsc extends EditRecord
 {
     protected static string $resource = OscResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\ViewAction::make(),

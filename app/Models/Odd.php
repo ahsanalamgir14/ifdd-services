@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use IbrahimBougaoua\FilamentSortOrder\Traits\SortOrder;
 
 /**
  * App\Models\Odd
@@ -39,7 +40,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Odd extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes ,SortOrder;
 
     protected $fillable = [
         'name',

@@ -6,37 +6,34 @@ use App\Filament\Resources\CategorieOddResource\Pages;
 use App\Filament\Resources\CategorieOddResource\RelationManagers;
 use App\Models\CategorieOdd;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class CategorieOddResource extends Resource
 {
     protected static ?string $model = CategorieOdd::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $title = 'Cibles des ODDs';
+     protected static ?string $navigationLabel = 'Cibles des Objectifs';
 
-    protected static ?string $navigationLabel = 'Cibles des Objectifs';
+     protected static ?string $navigationGroup = 'Objectifs';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_number')
+                 Forms\Components\TextInput::make('category_number')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('intitule')
                     ->required()
                     ->maxLength(255),
-                Select::make('id_odd')
+                Forms\Components\Select::make('id_odd')
                     ->relationship('odd', 'name')
                     ->required(),
             ]);
@@ -46,11 +43,25 @@ class CategorieOddResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_number'),
-                Tables\Columns\TextColumn::make('intitule'),
-                Tables\Columns\TextColumn::make('id_odd'),
-
-
+                Tables\Columns\TextColumn::make('category_number')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('intitule')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('id_odd')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -60,20 +71,24 @@ class CategorieOddResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\RestoreBulkAction::make(),
-                Tables\Actions\ForceDeleteBulkAction::make(),
-                ExportBulkAction::make()
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make(),
             ]);
     }
-
+    
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-
+    
     public static function getPages(): array
     {
         return [
@@ -82,8 +97,8 @@ class CategorieOddResource extends Resource
             'view' => Pages\ViewCategorieOdd::route('/{record}'),
             'edit' => Pages\EditCategorieOdd::route('/{record}/edit'),
         ];
-    }
-
+    }    
+    
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
@@ -92,10 +107,8 @@ class CategorieOddResource extends Resource
             ]);
     }
 
-    public function getTableBulkActions()
-    {
-        return  [
-            ExportBulkAction::make()
-        ];
-    }
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 }

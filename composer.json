@@ -12,33 +12,43 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "awcodes/filament-versions": "^2.0",
+        "awcodes/overlook": "^2.0",
+        "bezhansalleh/filament-google-analytics": "^2.0",
         "doctrine/dbal": "^3.3",
         "ejarnutowski/laravel-api-key": "^1.0",
-        "filament/filament": "^2.13",
-        "fruitcake/laravel-cors": "^2.0",
+        "filament/filament": "3.0-stable",
+        "filament/spatie-laravel-translatable-plugin": "3.0-stable",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.2",
-        "laravel/framework": "^9.0",
-        "laravel/passport": "^10.3",
-        "laravel/sanctum": "^3.0",
+        "ibrahimbougaoua/filament-sort-order": "^1.1",
+        "laravel/framework": "^10.0",
+        "laravel/passport": "^11.0",
+        "laravel/sanctum": "^3.2",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.5",
         "meilisearch/meilisearch-php": "^0.23.3",
-        "psr/simple-cache": "1.0",
-        "pxlrbt/filament-excel": "^1.1",
-        "shuvroroy/filament-spatie-laravel-backup": "^1.2",
-        "shuvroroy/filament-spatie-laravel-health": "^1.6"
+        "mohammadhprp/filament-ip-to-country-flag-column": "^1.0",
+        "njxqlus/filament-progressbar": "^1.0",
+        "psr/simple-cache": "2.0",
+        "pxlrbt/filament-environment-indicator": "^2.0",
+        "pxlrbt/filament-excel": "^2.1",
+        "shuvroroy/filament-spatie-laravel-backup": "^2.0",
+        "shuvroroy/filament-spatie-laravel-health": "^2.0",
+        "spatie/laravel-analytics": "^5.0",
+        "spatie/laravel-backup": "^8.3",
+        "spatie/laravel-health": "^1.23"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
-        "knuckleswtf/scribe": "^3.25",
+        "knuckleswtf/scribe": "^4.9",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "roave/security-advisories": "dev-latest",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -55,11 +65,11 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan filament:upgrade"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -76,8 +86,11 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
