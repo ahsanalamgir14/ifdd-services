@@ -20,6 +20,13 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 use Awcodes\Overlook\OverlookPlugin;
 use Awcodes\Overlook\Widgets\OverlookWidget;
+use Awcodes\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsWidget;
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
+use App\Filament\Pages\BackupPage;
+use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
+use App\Filament\Pages\HealthPage;
+use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -33,6 +40,12 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Dashboard des ODDs')
              ->favicon(asset('images/ifdd.png'))
              ->plugin(FilamentProgressbarPlugin::make()->color('#70af85'))
+             ->plugin(FilamentSpatieLaravelBackupPlugin::make()->usingPage(BackupPage::class))
+             ->plugin(FilamentSpatieLaravelHealthPlugin::make()->usingPage(HealthPage::class))
+             ->plugins([
+        EnvironmentIndicatorPlugin::make(),
+             ])
+     
             ->login()
             ->colors([
                 'primary' => "#70af85",
@@ -43,7 +56,7 @@ class AdminPanelProvider extends PanelProvider
                     \App\Filament\Resources\UserResource::class,
                 ])
             ->alphabetical()
-                ->sort(4)
+                ->sort(1)
                 ->columns([
                     'default' => 1,
                     'sm' => 2,
@@ -52,6 +65,7 @@ class AdminPanelProvider extends PanelProvider
                     'xl' => 5,
                     '2xl' => null,
                 ]),
+              // VersionsPlugin::make()->hasNavigationView(false),
         ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -62,6 +76,17 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                  OverlookWidget::class,
+                // VersionsWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByCountryWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByDeviceWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
+\BezhanSalleh\FilamentGoogleAnalytics\Widgets\TopReferrersListWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

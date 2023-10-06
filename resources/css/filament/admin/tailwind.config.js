@@ -7,5 +7,6 @@ export default {
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './vendor/awcodes/overlook/resources/**/*.blade.php',
+        './awcodes/filament-versions/resources/**/*.blade.php',
     ],
 }

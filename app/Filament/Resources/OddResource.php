@@ -12,6 +12,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\DownStepAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\UpStepAction;
 
 class OddResource extends Resource
 {
@@ -75,18 +78,23 @@ class OddResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                DownStepAction::make(),
+    UpStepAction::make(),
             ])
+            ->defaultSort('sort_order', 'asc')
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
                 ]),
             ])
             ->emptyStateActions([
