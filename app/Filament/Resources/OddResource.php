@@ -6,26 +6,27 @@ use App\Filament\Resources\OddResource\Pages;
 use App\Filament\Resources\OddResource\RelationManagers;
 use App\Models\Odd;
 use Filament\Forms;
-use Filament\Forms\Components\ColorPicker;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\DownStepAction;
+use IbrahimBougaoua\FilamentSortOrder\Actions\UpStepAction;
 
 class OddResource extends Resource
 {
     protected static ?string $model = Odd::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
 
-    protected static ?string $navigationLabel = 'Objectifs de Developpement Durable';
+     protected static ?string $navigationGroup = 'Objectifs';
 
-    protected static ?string $title = 'ODD';
+    protected static ?string $navigationLabel = 'ODDs';
+
+    protected static ?string $title = 'Objectifs de Developpement Durable';
 
     protected static ?string $recordTitleAttribute = 'odds';
 
@@ -33,7 +34,7 @@ class OddResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('number')
@@ -44,7 +45,7 @@ class OddResource extends Resource
                 Forms\Components\TextInput::make('logo_odd')
                     ->required()
                     ->maxLength(255),
-                ColorPicker::make('color')
+                Forms\Components\ColorPicker::make('color')
                     ->required()
             ]);
     }
@@ -53,35 +54,61 @@ class OddResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('number'),
-                Tables\Columns\TextColumn::make('number_categorie'),
-
-                Tables\Columns\TextColumn::make('logo_odd'),
-                Tables\Columns\TextColumn::make('color'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('number')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('number_categorie')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('logo_odd')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('color')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                DownStepAction::make(),
+    UpStepAction::make(),
             ])
+            ->defaultSort('sort_order', 'asc')
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\RestoreBulkAction::make(),
-                Tables\Actions\ForceDeleteBulkAction::make(),
-                ExportBulkAction::make()
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
+                ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\CreateAction::make(),
             ]);
     }
-
+    
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-
+    
     public static function getPages(): array
     {
         return [
@@ -90,8 +117,8 @@ class OddResource extends Resource
             'view' => Pages\ViewOdd::route('/{record}'),
             'edit' => Pages\EditOdd::route('/{record}/edit'),
         ];
-    }
-
+    }    
+    
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
@@ -100,15 +127,8 @@ class OddResource extends Resource
             ]);
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string
-    {
-        return $record->name;
-    }
-
-    public function getTableBulkActions()
-    {
-        return  [
-            ExportBulkAction::make()
-        ];
-    }
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 }

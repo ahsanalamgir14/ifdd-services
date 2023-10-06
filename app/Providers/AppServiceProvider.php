@@ -2,9 +2,19 @@
 
 namespace App\Providers;
 
-use Filament\Facades\Filament;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+
+use Spatie\Health\Facades\Health;
+use Spatie\Health\Checks\Checks\OptimizedAppCheck;
+use Spatie\Health\Checks\Checks\DebugModeCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+use Spatie\Health\Checks\Checks\DatabaseCheck;
+use Spatie\Health\Checks\Checks\DatabaseSizeCheck;
+use Spatie\Health\Checks\Checks\MeiliSearchCheck;
+use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
+use Spatie\Health\Checks\Checks\CacheCheck;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,8 +39,16 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        Filament::serving(function () {
-            Filament::registerTheme(mix('css/filament.css'));
-        });
+         Health::checks([
+            OptimizedAppCheck::new(),
+            DebugModeCheck::new(),
+            EnvironmentCheck::new(),
+            DatabaseCheck::new(),
+            DatabaseSizeCheck::new(),
+            MeiliSearchCheck::new(),
+            UsedDiskSpaceCheck::new(),
+            CacheCheck::new()
+
+        ]);
     }
 }

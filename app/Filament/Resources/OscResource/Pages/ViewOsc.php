@@ -3,16 +3,14 @@
 namespace App\Filament\Resources\OscResource\Pages;
 
 use App\Filament\Resources\OscResource;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewOsc extends ViewRecord
 {
     protected static string $resource = OscResource::class;
 
-    protected static ?string $title = 'Organistaions';
-
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\EditAction::make(),
