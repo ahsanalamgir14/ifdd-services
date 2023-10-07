@@ -40,12 +40,11 @@ class AppServiceProvider extends ServiceProvider
         }
 
          Health::checks([
-            OptimizedAppCheck::new(),
             DebugModeCheck::new(),
             EnvironmentCheck::new(),
             DatabaseCheck::new(),
             DatabaseSizeCheck::new(),
-            MeiliSearchCheck::new(),
+            MeiliSearchCheck::new()->url(env('MEILISEARCH_HOST') . '/health'),
             UsedDiskSpaceCheck::new(),
             CacheCheck::new()
 
