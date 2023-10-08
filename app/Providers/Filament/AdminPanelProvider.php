@@ -27,6 +27,7 @@ use App\Filament\Pages\BackupPage;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use App\Filament\Pages\HealthPage;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use Saade\FilamentLaravelLog\FilamentLaravelLogPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -42,6 +43,12 @@ class AdminPanelProvider extends PanelProvider
              ->plugin(FilamentProgressbarPlugin::make()->color('#70af85'))
              ->plugin(FilamentSpatieLaravelBackupPlugin::make()->usingPage(BackupPage::class))
              ->plugin(FilamentSpatieLaravelHealthPlugin::make()->usingPage(HealthPage::class))
+          /*  ->plugin(
+                FilamentLaravelLogPlugin::make()
+                ->navigationGroup('Paramètres')
+                ->navigationLabel('Logs')
+               
+            )*/
              ->plugins([
         EnvironmentIndicatorPlugin::make(),
              ])
