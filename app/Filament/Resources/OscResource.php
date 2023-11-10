@@ -46,6 +46,7 @@ class OscResource extends Resource
                         'Cameroun' => 'Cameroun',
                         'Senegal' => 'Senegal',
                         'Cote d\'ivoire' => 'Cote d\'ivoire',
+                        'Tanzanie' => 'Tanzanie',
                     ]),
                 Forms\Components\DatePicker::make('date_fondation'),
                 Forms\Components\Textarea::make('description'),
@@ -212,6 +213,12 @@ class OscResource extends Resource
         }
         if( auth()->user()->role == 7) {
             return parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+        }
+        if( auth()->user()->role == 8) {
+            return parent::getEloquentQuery()->where('pays', 'Tanzanie')
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
