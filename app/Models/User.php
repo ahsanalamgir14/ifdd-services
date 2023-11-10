@@ -87,7 +87,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     public function canAccessPanel(\Filament\Panel $panel): bool
     {
-        return str_ends_with($this->email, '@francophonie.org') || str_ends_with($this->email, '@ifdd.cm');
+        return $this->role != 2 ;
     }
 
     public function oscs()
