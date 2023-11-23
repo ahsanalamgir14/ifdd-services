@@ -44,6 +44,7 @@ class Odd extends Model
 
     protected $fillable = [
         'name',
+        'name_en',
         'number',
         'number_categorie', 'logo_odd', 'color'
     ];

@@ -40,7 +40,7 @@ class CategorieOdd extends Model
 
     protected $fillable = [
         'category_number',
-        'intitule', 'id_odd',
+        'intitule', 'name_en', 'id_odd',
     ];
 
     protected $hidden = [

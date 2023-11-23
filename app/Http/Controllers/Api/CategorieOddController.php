@@ -39,6 +39,7 @@ class CategorieOddController extends BaseController
      * @header Content-Type application/json
      * @bodyParam category_number string required the number of the categorieOdd. Example:12.1
      * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
+     * @bodyParam name_en string required the english name of the category odd. Example: Eat
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/addcategorieodd.json
      */
@@ -47,6 +48,7 @@ class CategorieOddController extends BaseController
         $validator =  Validator::make($request->all(), [
             'category_number' => 'required',
             'intitule' => 'required',
+            'name_en' => 'required',
             'id_odd' => 'required',
         ]);
 
@@ -88,6 +90,7 @@ class CategorieOddController extends BaseController
      * @urlParam id required The ID of the CategorieOdd. Example: 1
      * @bodyParam category_number string required the number of the categorieOdd. Example:12.2
      * @bodyParam intitule string required the title of the categorieOdd. Example: Faim
+     * @bodyParam name_en string required the english name of the category odd. Example: Eat
      * @bodyParam id_odd int required the id of the odd. Example: 1
      * @responseFile storage/responses/updatecategorieodd.json
      */
@@ -97,6 +100,7 @@ class CategorieOddController extends BaseController
         $validator =  Validator::make($request->all(), [
             'category_number' => 'required',
             'intitule' => 'required',
+            'name_en' => 'required',
             'id_odd' => 'required',
         ]);
 
