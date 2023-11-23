@@ -33,6 +33,9 @@ class CategorieOddResource extends Resource
                 Forms\Components\TextInput::make('intitule')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('name_en')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\Select::make('id_odd')
                     ->relationship('odd', 'name')
                     ->required(),
@@ -46,6 +49,8 @@ class CategorieOddResource extends Resource
                 Tables\Columns\TextColumn::make('category_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('intitule')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('name_en')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('id_odd')
                     ->numeric()
@@ -105,6 +110,11 @@ class CategorieOddResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->role == 1;
     }
 
     public static function getNavigationBadge(): ?string

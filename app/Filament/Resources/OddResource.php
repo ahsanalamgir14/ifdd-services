@@ -37,6 +37,9 @@ class OddResource extends Resource
                  Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('name_en')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('number')
                     ->required()
                     ->maxLength(255),
@@ -55,6 +58,8 @@ class OddResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('name_en')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('number')
                     ->searchable(),
@@ -125,6 +130,11 @@ class OddResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+     public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->role == 1;
     }
 
     public static function getNavigationBadge(): ?string

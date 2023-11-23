@@ -41,6 +41,7 @@ class OddController extends BaseController
      * @authenticated
      * @header Content-Type application/json
      * @bodyParam name string required the name of the odd. Example: Faim
+     * @bodyParam name_en string required the english name of the odd. Example: Eat
      * @bodyParam number int required the number of the odd. Example: 12
      * @bodyParam number_categorie int required number of categories contained in this odd. Example: 2
      * @bodyParam logo_odd string required the url of the logo of the odd. Example: http://www.logo.com
@@ -51,6 +52,7 @@ class OddController extends BaseController
     {
         $validator =  Validator::make($request->all(), [
             'name' => 'required',
+            'name_en' => 'required',
             'number' => 'required',
             'number_categorie' => 'required',
             'logo_odd' => 'required',
@@ -97,7 +99,8 @@ class OddController extends BaseController
      * @authenticated
      * @header Content-Type application/json
      * @urlParam id int required the id of the odd. Example: 2
-     * @bodyParam name string required the name of the odd. Example: Faim
+     * @bodyParam name string  the name of the odd. Example: Faim
+     * @bodyParam name_en string the english name of the odd. Example: Eat
      * @bodyParam number int required the number of the odd. Example: 12
      * @bodyParam number_categorie int required number of categories contained in this odd. Example: 2
      * @bodyParam logo_odd string required the url of the logo of the odd. Example: http://www.logo.com
@@ -113,6 +116,7 @@ class OddController extends BaseController
             DB::beginTransaction();
 
             $odd->name = $request->name ?? $odd->name;
+            $odd->name_en = $request->name_en ?? $odd->name_en;
             $odd->number = $request->number ?? $odd->number;
             $odd->number_categorie = $request->number_categorie ?? $odd->number_categorie;
             $odd->logo_odd = $request->logo_odd ?? $odd->logo_odd;

@@ -51,7 +51,7 @@ class UserResource extends Resource
                         '5' => 'User Cameroun',
                         '6' => 'User Senegal',
                         '7' => 'User Cote d\'ivoire',
-                        '8' => 'User Tanzanie',
+                        '8' => 'User Tanzania',
                     ])
                     ->required(),
             ]);
