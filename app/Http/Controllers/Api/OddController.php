@@ -25,7 +25,7 @@ class OddController extends BaseController
      */
     public function index()
     {
-        $odds = Odd::all();
+        $odds = Odd::orderBy('id','asc')->get();
 
         foreach ($odds as $odd) {
             $odd->categorieOdd;
