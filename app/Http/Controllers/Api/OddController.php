@@ -28,7 +28,7 @@ class OddController extends BaseController
         $odds = Odd::orderBy('id','asc')->get();
 
         foreach ($odds as $odd) {
-            $odd->categorieOdd;
+          $odd->categorieOdd = $odd->categorieOdd()->orderBy('id', 'asc')->get();
             $count = $this->countOscByOdd($odd->id);
             $odd->count_osc = $count;
         }
