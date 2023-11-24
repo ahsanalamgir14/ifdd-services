@@ -214,7 +214,7 @@ class OscResource extends Resource
             ]);
         }
         if( auth()->user()->role == 7) {
-            return parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')->orWhere('pays', 'Côte d\'ivoire')
+            return parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')->orWhere('pays', 'Côte d\'ivoire')->orWhere('pays', 'Côte d\'Ivoire')->orWhere('pays', 'Cote d\'Ivoire')
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
