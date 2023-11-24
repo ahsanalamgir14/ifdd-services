@@ -260,7 +260,7 @@ class OscResource extends Resource
 
     if( auth()->user()->role == 7) {
         
-    $country = parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')->orWhere('pays', 'Côte d\'ivoire');
+    $country = parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')->orWhere('pays', 'Côte d\'ivoire')->orWhere('pays', 'Côte d\'Ivoire')->orWhere('pays', 'Cote d\'Ivoire');
     return $country->count();
     }
 
