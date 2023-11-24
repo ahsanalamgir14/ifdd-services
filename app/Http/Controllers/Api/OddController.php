@@ -87,7 +87,7 @@ class OddController extends BaseController
     public function show($id)
     {
         $odd = Odd::find($id);
-        $odd->categorieOdd;
+        $odd->categorieOdd = $odd->categorieOdd()->orderBy('id', 'asc')->get();
         $count = $this->countOscByOdd($id);
         $odd->count_osc = $count;
         return $this->sendResponse($odd, 'Odd trouvé');
