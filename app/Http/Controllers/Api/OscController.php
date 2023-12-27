@@ -304,29 +304,38 @@ class OscController extends BaseController
      * @responseFile storage/responses/searchosc.json
      */
     public function searchOsc(Request $request)
-    {
-        $idsCategorieOdd = explode(',', $request->idsCategorieOdd);
+{
+    $idsCategorieOdd = explode(',', $request->idsCategorieOdd);
 
-        $data = array();
+    $data = array();
 
-        foreach ($idsCategorieOdd as $iValue) {
-            $categorieOdd = CategorieOdd::find($iValue);
-            $categorieOdd->oscs;
-            foreach ($categorieOdd->oscs as $osc) {
+    foreach ($idsCategorieOdd as $iValue) {
+        $categorieOdd = CategorieOdd::find($iValue);
+        $categorieOdd->oscs;
+
+        foreach ($categorieOdd->oscs as $osc) {
+            // Ajoutez une condition pour vérifier si l'OSC est active
+            if ($osc->active == 1) {
                 $osc->user;
+
                 foreach ($osc->categorieOdds as $categorieOdd) {
                     $categorieOdd->odd;
                 }
+
                 $osc->zoneInterventions;
+
                 $bool = $this->checkIfOscInDataArray($data, $osc);
+
                 if (!$bool) {
                     $data[] = $osc;
                 }
             }
         }
-
-        return $this->sendResponse($data, 'OSC retrieved successfully.');
     }
+
+    return $this->sendResponse($data, 'Active OSC retrieved successfully.');
+}
+
 
 
 
@@ -338,22 +347,30 @@ class OscController extends BaseController
      * @urlParam q string required the query search. Example: ONG
      * @responseFile storage/responses/getoscs.json
      */
+public function searchOscByQuery(Request $request)
+{
+    $q = $request->input('q');
+    $oscs = OSC::search($q)->where('active', 1)->get();
 
-    public function searchOscByQuery(Request $request)
-    {
-        $q  = $request->input('q');
-        $oscs = OSC::search($q)->get();
+    $filteredOscs = [];
 
-        foreach ($oscs as $osc) {
+    foreach ($oscs as $osc) {
+        // Ajoutez une condition pour vérifier si l'OSC est active
+        if ($osc->active == 1) {
             $osc->user;
+
             foreach ($osc->categorieOdds as $categorieOdd) {
                 $categorieOdd->odd;
             }
-            $osc->zoneInterventions;
-        }
 
-        return $this->sendResponse($oscs, 'OSC retrieved successfully.');
+            $osc->zoneInterventions;
+
+            $filteredOscs[] = $osc;
+        }
     }
+
+    return $this->sendResponse($filteredOscs, 'Active OSC retrieved successfully.');
+}
 
 
     /**
@@ -364,7 +381,7 @@ class OscController extends BaseController
      */
     public function countOscInDb()
     {
-        $oscs = Osc::all();
+        $oscs = Osc::where('active', 1)->get();
         $count = count($oscs);
         return $this->sendResponse($count, 'number of OSCs in db');
     }
