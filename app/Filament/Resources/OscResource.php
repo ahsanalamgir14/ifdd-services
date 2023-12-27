@@ -190,37 +190,56 @@ class OscResource extends Resource
     public static function getEloquentQuery(): Builder
     { 
         if( auth()->user()->role == 3) {
-            return parent::getEloquentQuery()->where('pays', 'Togo')
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query->where('pays', '=', 'Togo');
+    })
+            
+            
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
         } 
         if( auth()->user()->role == 4) {
-            return parent::getEloquentQuery()->where('pays', 'Benin')->orWhere('pays', 'Bénin')
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query->where('pays', '=', 'Benin')
+            ->orWhere('pays', '=', 'Bénin');
+    })
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
         }
-        if( auth()->user()->role == 5) {
-            return parent::getEloquentQuery()->where('pays', 'Cameroun')
+        if(auth()->user()->role == 5) {
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query->where('pays', '=', 'Cameroun');
+    })
+            
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
         }
         if( auth()->user()->role == 6) {
-            return parent::getEloquentQuery()->where('pays', 'Senegal')->orWhere('pays', 'Sénégal')
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query->where('pays','=', 'Senegal')->orWhere('pays','=', 'Sénégal');
+    })
+            
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
         }
         if( auth()->user()->role == 7) {
-            return parent::getEloquentQuery()->where('pays', 'Cote d\'ivoire')->orWhere('pays', 'Côte d\'ivoire')->orWhere('pays', 'Côte d\'Ivoire')->orWhere('pays', 'Cote d\'Ivoire')
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query ->where('pays','=', 'Cote d\'ivoire')->orWhere('pays', '=', 'Côte d\'ivoire')->orWhere('pays','=', 'Côte d\'Ivoire')->orWhere('pays','=', 'Cote d\'Ivoire');
+    })
+           
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
         }
         if( auth()->user()->role == 8) {
-            return parent::getEloquentQuery()->where('pays', 'Tanzania')
+            return parent::getEloquentQuery()->where(function ($query) {
+        $query->where('pays','=', 'Tanzania');
+    })
+            
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
