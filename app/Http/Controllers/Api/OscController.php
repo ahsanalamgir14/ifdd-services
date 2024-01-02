@@ -347,30 +347,21 @@ class OscController extends BaseController
      * @urlParam q string required the query search. Example: ONG
      * @responseFile storage/responses/getoscs.json
      */
-public function searchOscByQuery(Request $request)
-{
-    $q = $request->input('q');
-    $oscs = OSC::search($q)->where('active', 1)->get();
+ public function searchOscByQuery(Request $request)
+    {
+        $q  = $request->input('q');
+        $oscs = OSC::search($q)->get();
 
-    $filteredOscs = [];
-
-    foreach ($oscs as $osc) {
-        // Ajoutez une condition pour vérifier si l'OSC est active
-        if ($osc->active == 1) {
+        foreach ($oscs as $osc) {
             $osc->user;
-
             foreach ($osc->categorieOdds as $categorieOdd) {
                 $categorieOdd->odd;
             }
-
             $osc->zoneInterventions;
-
-            $filteredOscs[] = $osc;
         }
-    }
 
-    return $this->sendResponse($filteredOscs, 'Active OSC retrieved successfully.');
-}
+        return $this->sendResponse($oscs, 'OSC retrieved successfully.');
+    }
 
 
     /**
