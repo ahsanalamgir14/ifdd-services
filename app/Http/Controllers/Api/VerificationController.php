@@ -25,7 +25,7 @@ class VerificationController extends BaseController
             $user->markEmailAsVerified();
         }
         $success['user'] = $user;
-        return $this->sendResponse($success, 'Vérification Reussie');
+        return $this->sendResponse("", 'Verification Reussie');
     }
 
     /**
@@ -41,6 +41,6 @@ class VerificationController extends BaseController
 
         Auth::user()->sendEmailVerificationNotification();
         $success['user'] = auth()->user();
-        return $this->sendResponse($success, 'Email verification link sent on your email id');
+        return $this->sendResponse("", 'Email verification link sent on your email id');
     }
 }
