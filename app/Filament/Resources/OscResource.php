@@ -22,9 +22,9 @@ class OscResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-library';
 
-    protected static ?string $navigationLabel = 'Organisations';
+    protected static ?string $navigationLabel = 'Innovations'; //Organisations
 
-    protected static ?string $recordTitleAttribute = 'oscs';
+    protected static ?string $recordTitleAttribute = 'innovations';
 
     protected static ?string $navigationGroup = 'Objectifs';
 

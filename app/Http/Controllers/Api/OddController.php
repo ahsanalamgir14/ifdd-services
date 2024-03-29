@@ -32,7 +32,7 @@ class OddController extends BaseController
             $count = $this->countOscByOdd($odd->id);
             $odd->count_osc = $count;
         }
-        return $this->sendResponse($odds, 'Liste des ODDs');
+        return $this->sendResponse($odds, 'Liste des Thématiques');
     }
 
     /**
@@ -70,7 +70,7 @@ class OddController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($odd, "Création de l'odd reussie", 201);
+            return $this->sendResponse($odd, "Création de la thématique reussie", 201);
         } catch (\Throwable $th) {
             DB::rollBack();
             return $this->sendError('Erreur.', ['error' => $th->getMessage()], 400);
@@ -90,7 +90,7 @@ class OddController extends BaseController
         $odd->categorie_odd = $odd->categorieOdd()->orderBy('id', 'asc')->get();
         $count = $this->countOscByOdd($id);
         $odd->count_osc = $count;
-        return $this->sendResponse($odd, 'Odd trouvé');
+        return $this->sendResponse($odd, 'Thématique trouvé');
     }
 
     /**
@@ -126,7 +126,7 @@ class OddController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($odd, "Modification de l'odd reussie", 201);
+            return $this->sendResponse($odd, "Modification de la thématique reussie", 201);
         } catch (\Throwable $th) {
             DB::rollBack();
             return $this->sendError('Erreur.', ['error' => $th->getMessage()], 400);
@@ -151,7 +151,7 @@ class OddController extends BaseController
 
             DB::commit();
 
-            return $this->sendResponse($odd, "Suppression de l'odd reussie", 201);
+            return $this->sendResponse($odd, "Suppression de la thématique reussie", 201);
         } catch (\Throwable $th) {
             DB::rollBack();
             return $this->sendError('Erreur.', ['error' => $th->getMessage()], 400);

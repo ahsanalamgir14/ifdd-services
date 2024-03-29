@@ -24,11 +24,11 @@ class OddResource extends Resource
 
      protected static ?string $navigationGroup = 'Objectifs';
 
-    protected static ?string $navigationLabel = 'ODDs';
+    protected static ?string $navigationLabel = 'Thématiques'; //ODDs
 
     protected static ?string $title = 'Objectifs de Developpement Durable';
 
-    protected static ?string $recordTitleAttribute = 'odds';
+    protected static ?string $recordTitleAttribute = 'thématiques';
 
     public static function form(Form $form): Form
     {
