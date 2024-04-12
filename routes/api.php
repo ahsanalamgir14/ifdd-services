@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('auth/email/verify/{id}', [App\Http\Controllers\Api\VerificationController::class, 'verify'])->name('verification.verify');
 Route::get('auth/email/resend', [App\Http\Controllers\Api\VerificationController::class, 'resend'])->name('verification.resend');
+Route::post('auth/register', [App\Http\Controllers\Api\UserController::class, 'register']);
+Route::post('auth/login', [App\Http\Controllers\Api\UserController::class, 'login']);
 
-Route::middleware('auth.apikey')->group(
-    function () {
+// Route::middleware('auth.apikey')->group(
+//     function () {
 
 
         Route::post('auth/password/forgot', [App\Http\Controllers\Api\UserController::class, 'forgot']);
         Route::post('auth/password/reset', [App\Http\Controllers\Api\UserController::class, 'reset'])->name('password.reset');
 
-        Route::post('auth/register', [App\Http\Controllers\Api\UserController::class, 'register']);
-        Route::post('auth/login', [App\Http\Controllers\Api\UserController::class, 'login']);
 
 
         Route::get('odd', [App\Http\Controllers\Api\OddController::class, 'index']);
@@ -68,5 +68,5 @@ Route::middleware('auth.apikey')->group(
                 Route::delete('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'destroy']);
             }
         );
-    }
-);
+    // }
+// );

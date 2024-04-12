@@ -94,6 +94,7 @@ class OscController extends BaseController
     {
         $user = Auth::user();
         $input = $request->all();
+        // $input['active'] = true;
         $validator = Validator::make($input, [
             'name' => 'required',
             'abbreviation' => 'required',
