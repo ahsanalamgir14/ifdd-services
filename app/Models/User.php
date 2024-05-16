@@ -63,7 +63,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     protected $fillable = [
         'name',
         'email',
-        'password', 'role'
+        'password', 'role',      
+        'client_id',
     ];
 
     /**
@@ -98,5 +99,15 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token, $this->email));
+    }
+    public function getClientAttribute()
+    {
+        if ($this->role === 9 || $this->role === 2) {
+            return User::where('role', 3)
+                ->where('id', $this->id)
+                ->value('name');
+        }
+
+        return null;
     }
 }

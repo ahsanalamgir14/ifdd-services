@@ -54,6 +54,14 @@ class UserResource extends Resource
                         '8' => 'User Tanzania',
                     ])
                     ->required(),
+                    Forms\Components\Select::make('client_id')
+                    ->label('Client')
+                    ->options(function () {
+                        return User::where('role', 9)->pluck('name', 'id');
+                    })
+                    ->required()
+                    ->reactive()
+                    ,
             ]);
     }
 
@@ -71,6 +79,10 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('role')
                     ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Client')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
@@ -123,15 +135,21 @@ class UserResource extends Resource
     
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
+        $query = parent::getEloquentQuery();
+    
+        if (auth()->user()->role == 9) {
+            $query->where('client_id', auth()->user()->id);
+        } elseif (auth()->user()->role == 1) {
+            return $query;
+        } else {
+            return $query->whereNot('role', 9);
+        }
+        return $query;
     }
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->role == 1;
+        return auth()->user()->role == 1 || auth()->user()->role == 9;
     }
 
         public static function getNavigationBadge(): ?string
