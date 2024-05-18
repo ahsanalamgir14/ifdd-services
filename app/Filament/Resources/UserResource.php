@@ -8,12 +8,14 @@ use App\Models\User;
 use App\Models\Role;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mohammadhprp\IPToCountryFlagColumn\Columns\IPToCountryFlagColumn;
+use Filament\Forms\Get;
 
 class UserResource extends Resource
 {
@@ -29,7 +31,7 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                 Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
@@ -41,22 +43,48 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->dehydrateStateUsing(fn ($state) => bcrypt($state))
-    ->dehydrated(fn ($state) => filled($state))
+                    ->dehydrated(fn ($state) => filled($state))
                     ->maxLength(255),
-                Forms\Components\Select::make('role')
+                Select::make('role')
                     ->options(
                         Role::pluck('name', 'id')
                             ->prepend('Select a role', '')
                     )
-                    ->required(),
-                Forms\Components\Select::make('client')
-                    ->options(
-                        User::where('role', '9')
-                            ->pluck('name', 'id')
-                            ->prepend('Select a client', '')
-                    )
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        $role = Role::find($state);
+                        if ($role && $role->role_type == 'client') {
+                            $set('client_id', null);
+                        }
+                    }),
+                Select::make('client_id')
+                    ->label('Client')
+                    ->options(function (Get $get) {
+                        $roleId = $get('role');
+                        if ($roleId) {
+                            $role = Role::find($roleId);
+                            if ($role && $role->role_type == 'user') {
+                                $clientRole = Role::where('role_type', 'client')
+                                    ->where('country', $role->country)
+                                    ->first();
+                                if ($clientRole) {
+                                    return User::where('role', $clientRole->id)
+                                        ->pluck('name', 'id');
+                                }
+                            }
+                        }
+                        return [];
+                    })
                     ->nullable()
-                    ->dehydrateStateUsing(fn ($state) => $state['client_id'] ?? null),
+                    ->hidden(function (Get $get) {
+                        $roleId = $get('role');
+                        if ($roleId) {
+                            $role = Role::find($roleId);
+                            return $role && $role->role_type == 'client';
+                        }
+                        return false;
+                    }),
             ]);
     }
 

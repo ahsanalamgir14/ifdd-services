@@ -14,20 +14,18 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::insert([
-            ['name' => 'Admin', 'role_type' => 'super-admin'],
-            ['name' => 'User', 'role_type' => 'user'],
-            ['name' => 'User Togo', 'role_type' => 'user'],
-            ['name' => 'User Benin', 'role_type' => 'user'],
-            ['name' => 'User Cameroun', 'role_type' => 'user'],
-            ['name' => 'User Senegal', 'role_type' => 'user'],
-            ['name' => "User Cote d'ivoire", 'role_type' => 'user'],
-            ['name' => 'User Tanzania', 'role_type' => 'user'],
-            ['name' => 'Client Togo', 'role_type' => 'client'],
-            ['name' => 'Client Benin', 'role_type' => 'client'],
-            ['name' => 'Client Cameroun', 'role_type' => 'client'],
-            ['name' => 'Client Senegal', 'role_type' => 'client'],
-            ['name' => "Client Cote d'ivoire", 'role_type' => 'client'],
-            ['name' => 'Client Tanzania', 'role_type' => 'client'],
+            ['name' => 'User Togo', 'role_type' => 'user', 'country' => 'Togo'],
+            ['name' => 'User Benin', 'role_type' => 'user', 'country' => 'Benin'],
+            ['name' => 'User Cameroun', 'role_type' => 'user', 'country' => 'Cameroun'],
+            ['name' => 'User Senegal', 'role_type' => 'user', 'country' => 'Senegal'],
+            ['name' => "User Cote d'ivoire", 'role_type' => 'user', 'country' => "Cote d'ivoire"],
+            ['name' => 'User Tanzania', 'role_type' => 'user', 'country' => 'Tanzania'],
+            ['name' => 'Client Togo', 'role_type' => 'client', 'country' => 'Togo'],
+            ['name' => 'Client Benin', 'role_type' => 'client', 'country' => 'Benin'],
+            ['name' => 'Client Cameroun', 'role_type' => 'client', 'country' => 'Cameroun'],
+            ['name' => 'Client Senegal', 'role_type' => 'client', 'country' => 'Senegal'],
+            ['name' => "Client Cote d'ivoire", 'role_type' => 'client', 'country' => "Cote d'ivoire"],
+            ['name' => 'Client Tanzania', 'role_type' => 'client', 'country' => 'Tanzania'],
         ]);
     }
 }
