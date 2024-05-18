@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use App\Models\Role;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -43,25 +44,19 @@ class UserResource extends Resource
     ->dehydrated(fn ($state) => filled($state))
                     ->maxLength(255),
                 Forms\Components\Select::make('role')
-                    ->options([
-                        '1' => 'Admin',
-                        '2' => 'User',
-                        '3' => 'User Togo',
-                        '4' => 'User Benin',
-                        '5' => 'User Cameroun',
-                        '6' => 'User Senegal',
-                        '7' => 'User Cote d\'ivoire',
-                        '8' => 'User Tanzania',
-                    ])
+                    ->options(
+                        Role::pluck('name', 'id')
+                            ->prepend('Select a role', '')
+                    )
                     ->required(),
-                    Forms\Components\Select::make('client_id')
-                    ->label('Client')
-                    ->options(function () {
-                        return User::where('role', 9)->pluck('name', 'id');
-                    })
-                    ->required()
-                    ->reactive()
-                    ,
+                Forms\Components\Select::make('client_id')
+                    ->options(
+                        User::where('role', '9')
+                            ->pluck('name', 'id')
+                            ->prepend('Select a client', '')
+                    )
+                    ->nullable()
+                    ->dehydrateStateUsing(fn ($state) => $state['client_id'] ?? null),
             ]);
     }
 
@@ -78,7 +73,7 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('role')
-                    ->numeric()
+                    ->formatStateUsing(fn ($state) => Role::find($state)?->name ?? '')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Client')

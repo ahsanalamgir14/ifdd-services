@@ -100,14 +100,12 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         $this->notify(new ResetPasswordNotification($token, $this->email));
     }
-    public function getClientAttribute()
+    public function role()
     {
-        if ($this->role === 9 || $this->role === 2) {
-            return User::where('role', 3)
-                ->where('id', $this->id)
-                ->value('name');
-        }
-
-        return null;
+        return $this->belongsTo(Role::class);
+    }
+    public function client()
+    {
+        return $this->belongsTo(self::class, 'client_id');
     }
 }
