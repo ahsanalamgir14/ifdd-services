@@ -49,7 +49,7 @@ class UserResource extends Resource
                             ->prepend('Select a role', '')
                     )
                     ->required(),
-                Forms\Components\Select::make('client_id')
+                Forms\Components\Select::make('client')
                     ->options(
                         User::where('role', '9')
                             ->pluck('name', 'id')
