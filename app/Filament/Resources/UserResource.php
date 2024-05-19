@@ -177,8 +177,9 @@ class UserResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->role == 1 || auth()->user()->role == 9;
-    }
+        $user = auth()->user();
+        return $user->role == 1 || ($user->role && Role::find($user->role)->role_type == 'client');
+    } 
 
         public static function getNavigationBadge(): ?string
 {
