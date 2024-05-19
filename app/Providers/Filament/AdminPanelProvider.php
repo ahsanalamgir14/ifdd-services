@@ -61,6 +61,7 @@ class AdminPanelProvider extends PanelProvider
             OverlookPlugin::make()
               ->excludes([
                     \App\Filament\Resources\UserResource::class,
+                    \App\Filament\Resources\ClientUserResource::class,
                 ])
             ->alphabetical()
                 ->sort(1)

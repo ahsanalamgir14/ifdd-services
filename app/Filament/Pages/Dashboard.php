@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
+use App\Models\Role;
 
 class Dashboard extends Page
 {
@@ -12,6 +13,7 @@ class Dashboard extends Page
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->role == 9;
+        $user = auth()->user();
+        return $user->role && Role::find($user->role)->role_type == 'client';
     }
 }

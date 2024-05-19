@@ -2,8 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\ClientUserResource\Pages;
 use App\Models\User;
 use App\Models\Role;
 use Filament\Forms;
@@ -13,23 +12,24 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Mohammadhprp\IPToCountryFlagColumn\Columns\IPToCountryFlagColumn;
-use Filament\Forms\Get;
 use Illuminate\Support\Facades\Auth;
+use Filament\Forms\Components\Hidden;
 
-class UserResource extends Resource
+class ClientUserResource extends Resource
 {
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-user';
 
-    protected static ?string $navigationLabel = 'Utilisateurs';
+    protected static ?string $navigationLabel = 'Client Users';
 
-    protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = true;
 
     public static function form(Form $form): Form
     {
+        $user = Auth::user();
+        $clientRole = Role::find($user->role);
+
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
@@ -47,54 +47,25 @@ class UserResource extends Resource
                     ->dehydrated(fn ($state) => filled($state))
                     ->maxLength(255),
                 Select::make('role')
-                    ->options(
-                        Role::pluck('name', 'id')
-                            ->prepend('Select a role', '')
-                    )
-                    ->required()
-                    ->reactive()
-                    ->afterStateUpdated(function ($state, callable $set) {
-                        $role = Role::find($state);
-                        if ($role && $role->role_type == 'client') {
-                            $set('client_id', null);
-                        }
-                    }),
-                Select::make('client_id')
-                    ->label('Client')
-                    ->options(function (Get $get) {
-                        $roleId = $get('role');
-                        if ($roleId) {
-                            $role = Role::find($roleId);
-                            if ($role && $role->role_type == 'user') {
-                                $clientRole = Role::where('role_type', 'client')
-                                    ->where('country', $role->country)
-                                    ->first();
-                                if ($clientRole) {
-                                    return User::where('role', $clientRole->id)
-                                        ->pluck('name', 'id');
-                                }
-                            }
+                    ->options(function () use ($clientRole) {
+                        if ($clientRole && $clientRole->role_type == 'client') {
+                            return Role::where('role_type', 'user')
+                                ->where('country', $clientRole->country)
+                                ->pluck('name', 'id');
                         }
                         return [];
                     })
-                    ->nullable()
-                    ->hidden(function (Get $get) {
-                        $roleId = $get('role');
-                        if ($roleId) {
-                            $role = Role::find($roleId);
-                            return $role && $role->role_type == 'client';
-                        }
-                        return false;
-                    }),
+                    ->required(),
+                Forms\Components\Hidden::make('client_id')->default(auth()->user()->id),
             ]);
     }
+
     public static function getClientName($clientId)
     {
         $client = User::find($clientId);
         $role = Role::find($client->role);
         return $role->name;
     }
-    
 
     public static function table(Table $table): Table
     {
@@ -104,7 +75,6 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                IPToCountryFlagColumn::make('adresse_ip'),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable(),
@@ -147,39 +117,48 @@ class UserResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'view' => Pages\ViewUser::route('/{record}'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListClientUsers::route('/'),
+            'create' => Pages\CreateClientUser::route('/create'),
+            'view' => Pages\ViewClientUser::route('/{record}'),
+            'edit' => Pages\EditClientUser::route('/{record}/edit'),
         ];
-    }    
-    
+    }
+
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
+        $query = parent::getEloquentQuery();
+        $user = Auth::user();
+        $role = Role::find($user->role);
+        if ($role && $role->role_type == 'client') {
+            $query->where('client_id', $user->id);
+        }
+        return $query;
     }
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->role == 1;
-    } 
+        $user = auth()->user();
+        return $user->role && Role::find($user->role)->role_type == 'client';
+    }
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
-    }  
+        $user = auth()->user();
+        $role = Role::find($user->role);
+        if ($role && $role->role_type == 'client') {
+            return User::where('client_id', $user->id)->count();
+        }
+        return null;
+    }
 }

@@ -14,6 +14,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::insert([
+            ['name' => 'User', 'role_type' => 'user', 'country' => ''],
             ['name' => 'User Togo', 'role_type' => 'user', 'country' => 'Togo'],
             ['name' => 'User Benin', 'role_type' => 'user', 'country' => 'Benin'],
             ['name' => 'User Cameroun', 'role_type' => 'user', 'country' => 'Cameroun'],
