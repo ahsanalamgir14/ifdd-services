@@ -181,8 +181,18 @@ class UserResource extends Resource
         return $user->role == 1 || ($user->role && Role::find($user->role)->role_type == 'client');
     } 
 
-        public static function getNavigationBadge(): ?string
-{
-    return static::getModel()::count();
-}
+    public static function getNavigationBadge(): ?string
+    {
+        $user = auth()->user();
+    
+        if ($user->role == 1 || ($user->role && Role::find($user->role)->role_type == 'client')) {
+            if ($user->role == 1) {
+                return User::count();
+            } else {
+                return User::where('client_id', $user->id)->count();
+            }
+        }
+
+        return null;
+    }  
 }
