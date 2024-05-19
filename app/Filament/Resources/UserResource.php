@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mohammadhprp\IPToCountryFlagColumn\Columns\IPToCountryFlagColumn;
 use Filament\Forms\Get;
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends Resource
 {
@@ -159,13 +160,17 @@ class UserResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
-    
-        if (auth()->user()->role == 9) {
-            $query->where('client_id', auth()->user()->id);
-        } elseif (auth()->user()->role == 1) {
+        $user = Auth::user();
+        if ($user->role == 1) {
             return $query;
-        } else {
-            return $query->whereNot('role', 9);
+        }
+
+        if ($user->role) {
+            $role = Role::find($user->role);
+    
+            if ($role && $role->role_type == 'client') {
+                $query->where('client_id', $user->id);
+            }
         }
         return $query;
     }
