@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "category_number": "2.1",
+        "intitule": "Mon OBJECTIF Durable",
+        "id_thematique": 2
+    },
+    "message": "CategorieThematique modifié avec succès"
+}

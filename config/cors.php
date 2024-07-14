@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*.geosm.org', '*.position.cm', '*.francophonie.org', '*.sdgmapping.org', 'http://localhost:4200', 'https://sdgmapping.org'],
+    'allowed_origins' => ['*.geosm.org', '*.position.cm', '*.francophonie.org', '*.sdgmapping.org', 'https://carto.kixafrique21.org', 'https://sdgmapping.org'],
 
     'allowed_origins_patterns' => [],
 

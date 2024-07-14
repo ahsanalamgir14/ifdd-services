@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "data": {
+        "category_number": "2.2",
+        "intitule": "Mon OBJECTIF",
+        "id_thematique": "2",
+        "id": 2
+    },
+    "message": "CategorieThematique créé avec succès"
+}

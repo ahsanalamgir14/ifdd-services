@@ -2,6 +2,6 @@
 
 // config for IbrahimBougaoua/FilamentSortOrder
 return [
-    'table' => 'odds',
+    'table' => 'thematiques',
     'sort' => 'asc',
 ];

@@ -3,21 +3,21 @@
     "data": [
         {
             "id": 7,
-            "osc_id": 1,
+            "innovation_id": 1,
             "name": "Zone",
             "longitude": "13",
             "latitude": "7"
         },
         {
             "id": 8,
-            "osc_id": 1,
+            "innovation_id": 1,
             "name": "Zone2",
             "longitude": "13",
             "latitude": "7"
         },
         {
             "id": 9,
-            "osc_id": 1,
+            "innovation_id": 1,
             "name": "Zone3",
             "longitude": "13",
             "latitude": "7"

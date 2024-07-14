@@ -38,7 +38,7 @@ class AdminPanelProvider extends PanelProvider
             ->theme(asset('css/filament/admin/theme.css'))
             ->id('admin')
             ->path('admin')
-            ->brandName('Dashboard des ODDs')
+            ->brandName('Dashboard des THEMATIQUEs')
              ->favicon(asset('images/ifdd.png'))
              ->plugin(FilamentProgressbarPlugin::make()->color('#70af85'))
              ->plugin(FilamentSpatieLaravelBackupPlugin::make()->usingPage(BackupPage::class))
@@ -55,7 +55,7 @@ class AdminPanelProvider extends PanelProvider
      
             ->login()
             ->colors([
-                'primary' => "#70af85",
+                'primary' => "#2781d6", // couleur par défaut #70af85
             ])
                ->plugins([
             OverlookPlugin::make()
@@ -85,15 +85,16 @@ class AdminPanelProvider extends PanelProvider
                  OverlookWidget::class,
                 // VersionsWidget::class,
                 \BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByCountryWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByDeviceWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
-\BezhanSalleh\FilamentGoogleAnalytics\Widgets\TopReferrersListWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByCountryWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByDeviceWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
+                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\TopReferrersListWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

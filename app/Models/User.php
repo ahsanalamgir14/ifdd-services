@@ -48,8 +48,8 @@ use Filament\Models\Contracts\FilamentUser;
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Osc[] $oscs
- * @property-read int|null $oscs_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Innovation[] $innovations
+ * @property-read int|null $innovations_count
  */
 class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 {
@@ -90,9 +90,9 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         return $this->role != 2 ;
     }
 
-    public function oscs()
+    public function innovations()
     {
-        return $this->hasMany(Osc::class, 'user_id');
+        return $this->hasMany(Innovation::class, 'user_id');
     }
 
     public function sendPasswordResetNotification($token)

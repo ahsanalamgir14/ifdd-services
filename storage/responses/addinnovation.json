@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "data": {
+        "name": "INNOVATION",
+        "abbreviation": "os",
+        "numero_innovation": "123",
+        "pays": "Cameroun",
+        "date_fondation": "2020-05-13",
+        "description": "Une Innovation",
+        "personne_contact": "Tala",
+        "telephone": "691201946",
+        "email_innovation": "test@mail.com",
+        "site_web": "site.com",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "instagram": "instagram",
+        "linkedin": "linkedlin",
+        "longitude": "13",
+        "latitude": "7",
+        "siege": "Adamaoua",
+        "user_id": 2,
+        "id": 1
+    },
+    "message": "INNOVATION created successfully."
+}

@@ -20,7 +20,7 @@ class UserTableSeeders extends Seeder
         DB::table('users')->insert([
             [
                 'name' => 'Admin',
-                'email' => 'admin@ifdd.cm',
+                'email' => 'admin@kixafrique21.org',
                 'password' => Hash::make('secret'),
                 'email_verified_at' => now(),
                 'role' => 1,

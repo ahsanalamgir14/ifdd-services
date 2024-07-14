@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "name": "Faim",
+        "number": "12",
+        "number_categorie": 2,
+        "logo_thematique": "https://www.logo.cm",
+        "color": "#e4243c\n",
+        "categorie_thematique": []
+    },
+    "message": "Thematique trouvé"
+}
