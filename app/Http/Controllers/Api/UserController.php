@@ -38,7 +38,11 @@ class UserController extends BaseController
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
 
-        $user->sendEmailVerificationNotification();
+        try {
+            $user->sendEmailVerificationNotification();
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+        }
         $success['token'] = $user->createToken('Ifdd')->accessToken;
         $success['user'] = $user;
 

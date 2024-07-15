@@ -222,6 +222,7 @@ class InnovationController extends BaseController
             $innovation->latitude = $request->latitude ?? $innovation->latitude;
             $innovation->reference = $request->reference ?? $innovation->reference;
             $innovation->siege = $request->siege ?? $innovation->siege;
+            $innovation->document_link = $request->document_link ?? $innovation->document_link;
 
             if ($request->active) {
                 $innovation->active = $request->active;

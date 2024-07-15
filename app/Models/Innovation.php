@@ -88,7 +88,8 @@ class Innovation extends Model
         'linkedin',
         'longitude',
         'latitude',
-        'siege', 'active', 'reference'
+        'siege', 'active', 'reference',
+        'document_link'
     ];
 
     protected $hidden = [
