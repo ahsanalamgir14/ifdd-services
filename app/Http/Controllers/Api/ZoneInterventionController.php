@@ -35,7 +35,7 @@ class ZoneInterventionController extends BaseController
      * Add a new ZoneIntervention.
      * @authenticated
      *
-     * @bodyParam osc_id int required The osc id.
+     * @bodyParam innovation_id int required The innovation id.
      * @bodyParam name string required The name of zoneIntervention. Example: Faim
      * @bodyParam longitude string required The longitude of zoneIntervention. Example: 13
      * @bodyParam latitude string required The latitude of zoneIntervention. Example: 2
@@ -47,7 +47,7 @@ class ZoneInterventionController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'osc_id' => 'required',
+            'innovation_id' => 'required',
             'name' => 'required',
             'longitude' => 'required',
             'latitude' => 'required',
@@ -84,7 +84,7 @@ class ZoneInterventionController extends BaseController
     public function show($id)
     {
         $zoneIntervention = ZoneIntervention::find($id);
-        $zoneIntervention->oscs;
+        $zoneIntervention->innovations;
 
         return $this->sendResponse($zoneIntervention, 'ZoneIntervention retrieved successfully.');
     }
@@ -93,7 +93,7 @@ class ZoneInterventionController extends BaseController
      * Update a ZoneIntervention.
      * @authenticated
      *
-     * @bodyParam osc_id int required The osc id.
+     * @bodyParam innovation_id int required The innovation id.
      * @bodyParam name string required The name of zoneIntervention. Example: Faim
      * @bodyParam longitude string required The longitude of zoneIntervention. Example: 13
      * @bodyParam latitude string required The latitude of zoneIntervention. Example: 2
@@ -106,7 +106,7 @@ class ZoneInterventionController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'osc_id' => 'required',
+            'innovation_id' => 'required',
             'name' => 'required',
             'longitude' => 'required',
             'latitude' => 'required',

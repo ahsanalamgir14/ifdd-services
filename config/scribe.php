@@ -316,7 +316,7 @@ INTRO,
      * - 'logo' => 'img/logo.png' // for `laravel` type
      *
      */
-    'logo' => false,
+    'logo' => true,
 
     /**
      * The strategies Scribe will use to extract information about your routes at each stage.

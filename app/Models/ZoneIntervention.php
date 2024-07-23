@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * App\Models\ZoneIntervention
  *
  * @property int $id
- * @property int $osc_id
+ * @property int $innovation_id
  * @property string $name
  * @property string $longitude
  * @property string $latitude
@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereLatitude($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereLongitude($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereOscId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereInnovationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ZoneIntervention whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|ZoneIntervention withTrashed()
  * @method static \Illuminate\Database\Query\Builder|ZoneIntervention withoutTrashed()
@@ -38,7 +38,7 @@ class ZoneIntervention extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'osc_id',
+        'innovation_id',
         'name', 'longitude', 'latitude',
     ];
 
@@ -46,8 +46,8 @@ class ZoneIntervention extends Model
         'created_at', 'updated_at', 'deleted_at'
     ];
 
-    public function oscs()
+    public function innovations()
     {
-        return $this->belongsTo(Osc::class, 'osc_id');
+        return $this->belongsTo(Innovation::class, 'innovation_id');
     }
 }

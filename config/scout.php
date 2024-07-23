@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'queue' => env('SCOUT_QUEUE', false),
+    'queue' => env('SCOUT_QUEUE', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -129,9 +129,9 @@ return [
     |
     */
 
-    'meilisearch' => [
-        'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
-        'key' => env('MEILISEARCH_KEY', null),
-    ],
+    // 'meilisearch' => [
+    //     'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
+    //     'key' => env('MEILISEARCH_KEY', null),
+    // ],
 
 ];

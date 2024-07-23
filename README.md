@@ -1,6 +1,6 @@
-# IFDD Services
+# KIXAFRIQUE21 Services
 
-New Services IFDD
+New Services KIXAFRIQUE21
 
 ## Installation
 
@@ -21,8 +21,8 @@ MAIL_PORT=your port
 MAIL_USERNAME=your username
 MAIL_PASSWORD=your password
 MAIL_ENCRYPTION=TLS
-MAIL_FROM_ADDRESS=infos@ifdd.com
-MAIL_FROM_NAME=IFDD
+MAIL_FROM_ADDRESS=infos@kixafrique21.org
+MAIL_FROM_NAME=KIXAFRIQUE21
 
 
 APP_FRONTEND=url_to_frontend

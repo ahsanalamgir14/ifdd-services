@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('zone_interventions', function (Blueprint $table) {
             $table->id();
-            $table->integer('osc_id');
+            $table->integer('innovation_id');
             $table->string('name');
             $table->string('longitude');
             $table->string('latitude');

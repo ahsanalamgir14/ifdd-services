@@ -1,11 +1,11 @@
 {
-    "name": "ifdd/services",
+    "name": "kixafrique21/services",
     "type": "project",
-    "description": "IFDD Services",
+    "description": "KIXAFRIQUE21 Services",
     "keywords": [
         "framework",
         "laravel",
-        "ifdd",
+        "kixafrique21",
         "api",
         "services"
     ],

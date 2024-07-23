@@ -41,10 +41,10 @@ class BaseController extends Controller
         return response()->json($response, $code);
     }
 
-    public function checkIfOscInDataArray($data, $osc)
+    public function checkIfInnovationInDataArray($data, $innovation)
     {
         foreach ($data as $d) {
-            if ($d->id == $osc->id) {
+            if ($d->id == $innovation->id) {
                 return true;
             }
         }
