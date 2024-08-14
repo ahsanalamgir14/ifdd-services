@@ -349,8 +349,10 @@ class InnovationController extends BaseController
      * @urlParam q string required the query search. Example: ONG
      * @responseFile storage/responses/getinnovations.json
      */
- public function searchInnovationByQuery(Request $request)
+    public function searchInnovationByQuery(Request $request)
     {
+        return $this->sendResponse([], 'INNOVATION retrieved successfully.');
+
         $q  = $request->input('q');
         $innovations = INNOVATION::search($q)->get();
 
@@ -364,7 +366,38 @@ class InnovationController extends BaseController
 
         return $this->sendResponse($innovations, 'INNOVATION retrieved successfully.');
     }
+//  public function searchInnovationByQuery(Request $request)
+//  {
+//     $idsCategorieThematique = explode(',', $request->idsCategorieThematique);
 
+//     $data = array();
+
+//     foreach ($idsCategorieThematique as $iValue) {
+//         $categorieThematique = CategorieThematique::find($iValue);
+//         $categorieThematique->innovations;
+
+//         foreach ($categorieThematique->innovations as $innovation) {
+//             // Ajoutez une condition pour vérifier si l'INNOVATION est active
+//             if ($innovation->active == 1) {
+//                 $innovation->user;
+
+//                 foreach ($innovation->categorieThematiques as $categorieThematique) {
+//                     $categorieThematique->thematique;
+//                 }
+
+//                 $innovation->zoneInterventions;
+
+//                 $bool = $this->checkIfInnovationInDataArray($data, $innovation);
+
+//                 if (!$bool) {
+//                     $data[] = $innovation;
+//                 }
+//             }
+//         }
+//     }
+
+//     return $this->sendResponse($data, 'INNOVATION retrieved successfully.');
+// }
 
     /**
      * Count INNOVATIONs.

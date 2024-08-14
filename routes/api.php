@@ -43,7 +43,9 @@ Route::post('auth/login', [App\Http\Controllers\Api\UserController::class, 'logi
         Route::get('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'show']);
 
         Route::get('activeinnovation', [App\Http\Controllers\Api\InnovationController::class, 'getActiveInnovations']);
-
+        
+        Route::get('search-places', [App\Http\Controllers\Api\MapController::class, 'searchPlaces']);
+        
         Route::middleware('auth:api')->group(
             function () {
                 Route::get('auth/logout', [App\Http\Controllers\Api\UserController::class, 'logout']);
@@ -66,6 +68,7 @@ Route::post('auth/login', [App\Http\Controllers\Api\UserController::class, 'logi
                 Route::post('zonesintervention', [App\Http\Controllers\Api\ZoneInterventionController::class, 'store']);
                 Route::put('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'update']);
                 Route::delete('zonesintervention/{id}', [App\Http\Controllers\Api\ZoneInterventionController::class, 'destroy']);
+
             }
         );
     // }
